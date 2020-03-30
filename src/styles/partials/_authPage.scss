@@ -1,0 +1,288 @@
+html {
+  background-color: grey;
+}
+
+.authPage {
+  display: flex;
+  flex-direction: column;
+  //   justify-content: space-evenly;
+  align-items: center;
+  width: 70vw;
+  height: 70vh;
+  margin: 15vh 15vw;
+  box-shadow: 2px 2px 4px black;
+  border-radius: 4px;
+  background-color: white;
+
+  &__logo {
+    width: 100%;
+    height: 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &--icon {
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      font-size: 1.3rem;
+      font-family: "Oswald", sans-serif;
+      font-weight: bold;
+      padding: 3% 0;
+    }
+  }
+
+  &__title {
+    width: 100%;
+    height: 15%;
+    text-align: center;
+    padding: 8%;
+    font-family: "Oswald", sans-serif;
+    font-weight: 400;
+    font-size: 1.1rem;
+  }
+
+  &__login {
+    width: 80%;
+    height: 49%;
+    margin: 0 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    &--email {
+      width: 100%;
+      height: 18%;
+      margin: 1% 0;
+      font-family: "Raleway", sans-serif;
+      font-weight: bold;
+      font-size: 1.1rem;
+      color: rgb(128, 125, 125);
+    }
+
+    &--emailInput {
+      width: 100%;
+      height: 18%;
+      margin: 1% 0;
+      border: none;
+      border-bottom: 1px solid lightgrey;
+      font-size: 1rem;
+      &:focus {
+        outline: none;
+      }
+    }
+
+    &--password {
+      width: 100%;
+      height: 18%;
+      margin: 1% 0;
+      font-family: "Raleway", sans-serif;
+      font-weight: bold;
+      font-size: 1.1rem;
+      color: rgb(128, 125, 125);
+    }
+
+    &--passwordInput {
+      width: 100%;
+      height: 18%;
+      margin: 1% 0;
+      border: none;
+      border-bottom: 1px solid lightgrey;
+      font-size: 1rem;
+      &:focus {
+        outline: none;
+      }
+    }
+
+    &--loginSubmit {
+      width: 50%;
+      height: 15%;
+      margin: 4% 25%;
+      border: 1px solid lightgrey;
+      box-shadow: 2px 2px 4px lightgrey;
+      font-family: "Raleway", sans-serif;
+      font-weight: bold;
+      font-size: 1rem;
+      color: rgb(163, 156, 156);
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+
+  //   title: height 14%, padding :6%
+  &__signup {
+    width: 80%;
+    height: 75%;
+    margin: 0 10%;
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+
+    &--username {
+      width: 100%;
+      height: 18%;
+      margin: 1% 0;
+      font-family: "Raleway", sans-serif;
+      font-weight: bold;
+      font-size: 1.1rem;
+      color: rgb(128, 125, 125);
+    }
+
+    &--usernameInput {
+      width: 100%;
+      height: 15%;
+      margin: 1% 0;
+      border: none;
+      border-bottom: 1px solid lightgrey;
+      font-size: 1rem;
+      &:focus {
+        outline: none;
+      }
+    }
+
+    &--email {
+      width: 100%;
+      height: 18%;
+      margin: 1% 0;
+      font-family: "Raleway", sans-serif;
+      font-weight: bold;
+      font-size: 1.1rem;
+      color: rgb(128, 125, 125);
+    }
+
+    &--emailInput {
+      width: 100%;
+      height: 15%;
+      margin: 1% 0;
+      border: none;
+      border-bottom: 1px solid lightgrey;
+      font-size: 1rem;
+      &:focus {
+        outline: none;
+      }
+    }
+
+    &--password {
+      width: 100%;
+      height: 18%;
+      margin: 1% 0;
+      font-family: "Raleway", sans-serif;
+      font-weight: bold;
+      font-size: 1.1rem;
+      color: rgb(128, 125, 125);
+    }
+    &--passwordInput {
+      width: 100%;
+      height: 15%;
+      margin: 1% 0;
+      border: none;
+      border-bottom: 1px solid lightgrey;
+      font-size: 1rem;
+      &:focus {
+        outline: none;
+      }
+    }
+
+    &--Confirmpassword {
+      width: 100%;
+      height: 18%;
+      margin: 1% 0;
+      font-family: "Raleway", sans-serif;
+      font-weight: bold;
+      font-size: 1.1rem;
+      color: rgb(128, 125, 125);
+    }
+
+    &--ConfirmpasswordInput {
+      width: 100%;
+      height: 15%;
+      margin: 1% 0;
+      border: none;
+      border-bottom: 1px solid lightgrey;
+      font-size: 1rem;
+      &:focus {
+        outline: none;
+      }
+    }
+
+    &--signupSubmit {
+      width: 50%;
+      height: 15%;
+      margin: 4% 25%;
+      border: 1px solid lightgrey;
+      box-shadow: 2px 2px 4px lightgrey;
+      font-family: "Raleway", sans-serif;
+      font-weight: bold;
+      font-size: 1rem;
+      color: rgb(163, 156, 156);
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+
+  &__divideLine {
+    width: 60%;
+    height: 1%;
+    margin: 0 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  &__askToRegister {
+    width: 80%;
+    height: 25%;
+    margin: 0 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: "Raleway", sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    color: rgb(128, 125, 125);
+
+    &--button {
+      text-decoration: underline;
+    }
+  }
+}
+
+@include tablet {
+  .authPage {
+    width: 50vw;
+    height: 60vh;
+    margin: 20vh 25vw;
+
+    &__logo {
+      &--icon {
+        font-size: 1.8rem;
+      }
+    }
+
+    &__title {
+      font-size: 1.6rem;
+    }
+  }
+}
+
+@include desktop {
+  .authPage {
+    width: 30vw;
+    height: 60vh;
+    margin: 20vh 35vw;
+
+    &__logo {
+      &--icon {
+        font-size: 1.8rem;
+      }
+    }
+
+    &__title {
+      font-size: 1.6rem;
+    }
+  }
+}
