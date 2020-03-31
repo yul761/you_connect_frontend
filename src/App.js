@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import AuthPage from "./components/authPage";
-import Header from "./components/header";
+import MainPage from "./components/mainPage";
+import { Switch, Route } from "react-router-dom";
 
 class App extends Component {
   componentDidMount() {}
@@ -33,8 +34,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Header />
-        {/* <AuthPage /> */}
+        <Switch>
+          <Route exact path="/" component={MainPage} />
+          <Route path="/login" component={AuthPage} />
+        </Switch>
       </div>
     );
   }

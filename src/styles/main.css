@@ -71,7 +71,7 @@
 .header__logo--icon {
   width: 100%;
   height: 100%;
-  max-width: 100px;
+  max-width: 90px;
 }
 
 .header__navLink {
@@ -99,7 +99,7 @@
   transition: transform 0.5s ease-in, -webkit-transform 0.5s ease-in;
   font-family: "Oswald", sans-serif;
   font-weight: bold;
-  font-size: 1.7rem;
+  font-size: 1.3rem;
 }
 
 .header__navLink--home {
@@ -453,7 +453,7 @@ html {
           box-shadow: 2px 2px 4px lightgrey;
   font-family: "Raleway", sans-serif;
   font-weight: bold;
-  font-size: 1rem;
+  font-size: 0.9rem;
   color: #a39c9c;
 }
 
@@ -501,6 +501,31 @@ html {
 }
 
 .authPage__askToRegister--button {
+  text-decoration: underline;
+}
+
+.authPage__backToLogin {
+  width: 80%;
+  height: 18%;
+  margin: 0 10%;
+  display: none;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-family: "Raleway", sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  color: #807d7d;
+}
+
+.authPage__backToLogin--button {
   text-decoration: underline;
 }
 

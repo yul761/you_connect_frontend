@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Logo from "../assets/logo.png";
+import { Link } from "react-router-dom";
 
 export default class header extends Component {
   burgerNavClicked = () => {
@@ -33,7 +34,11 @@ export default class header extends Component {
           <ol className="header__navLink--about">ABOUT</ol>
         </ul>
         <div className="header__userProfile">
-          <div className="header__userProfile--link">User Initial</div>
+          <Link className="header__userProfile--link" to="/login">
+            <div className="header__userProfile--link--initial">
+              User Initial
+            </div>
+          </Link>
         </div>
       </div>
     );
