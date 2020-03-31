@@ -26,8 +26,11 @@ export default class authPage extends Component {
 
       axios.post(`${BackendURL}/auth/signup`, profile).then(response => {
         console.log(response);
+        // store secret token into browser session storage to stay login before browser is closed
+        window.sessionStorage.setItem("curToken", response.data.accesstoken);
+        window.sessionStorage.setItem("isLoggedIn", true);
         // redirect back to main page after successfully signup
-        this.props.history.push("/");
+        this.props.history.push("/main");
       });
 
       // route to another page after successful sign up
@@ -49,7 +52,7 @@ export default class authPage extends Component {
       window.sessionStorage.setItem("curToken", response.data.accesstoken);
       window.sessionStorage.setItem("isLoggedIn", true);
       // redirect back to main page after successfully login
-      this.props.history.push("/");
+      this.props.history.push("/main");
     });
 
     //route to user profile page after successful login
