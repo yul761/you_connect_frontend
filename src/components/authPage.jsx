@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import axios from "axios";
-import Logo from "../assets/logo.png";
 
 const BackendURL = "http://3.15.233.84:4000";
 export default class authPage extends Component {
