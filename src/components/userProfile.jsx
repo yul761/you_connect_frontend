@@ -4,13 +4,21 @@ export default class userProfile extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      userData: null
+      userData: null,
+      isLoggedOut: false
     };
   }
 
   componentDidMount() {
+    console.log(this.props.userData);
     this.setState({ userData: this.props.userData });
+    console.log(this.props.logout);
   }
+
+  logoutClicked = () => {
+    window.sessionStorage.clear();
+    this.props.history.push("/main");
+  };
 
   render() {
     console.log(this.state.userData);
@@ -18,6 +26,12 @@ export default class userProfile extends Component {
       return (
         <div className="userProfileloading">
           <div className="userProfileloading__loader"></div>
+        </div>
+      );
+    } else if (this.state.isLoggedOut) {
+      return (
+        <div className="userLogOut">
+          <div className="userLogOut__information"></div>
         </div>
       );
     } else {
@@ -53,7 +67,12 @@ export default class userProfile extends Component {
           </div>
 
           <div className="userProfile__logout">
-            <button className="userProfile__logout--button">Log Out</button>
+            <button
+              className="userProfile__logout--button"
+              onClick={this.props.logout}
+            >
+              Log Out
+            </button>
           </div>
         </div>
       );

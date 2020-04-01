@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 
 const BackendURL = "http://3.15.233.84:4000";
-
+var flag;
 export default class header extends Component {
   constructor(props) {
     super(props);
@@ -38,6 +38,7 @@ export default class header extends Component {
   componentDidMount() {
     console.log(window.sessionStorage.getItem("isLoggedIn"));
     console.log(this.state);
+    flag = this.props.flag;
     if (window.sessionStorage["isLoggedIn"]) {
       this.userprofile();
     }
@@ -52,6 +53,14 @@ export default class header extends Component {
   //     return { userData: props.userData };
   //   }
   componentDidUpdate(prevProps, prevState) {
+    console.log(this.props.flag);
+    console.log(this.props.LogoutStatus);
+    if (this.props.LogoutStatus && flag) {
+      flag = false;
+      this.setState({
+        showUserProfile: false
+      });
+    }
     console.log(this.state.showUserProfile);
     this.ifShowUserProfile();
     console.log(this.state.userData);
@@ -67,7 +76,9 @@ export default class header extends Component {
   };
 
   ifShowUserProfile = () => {
-    if (this.state.showUserProfile) {
+    console.log(this.state.showUserProfile);
+    if (this.state.showUserProfile === "true") {
+      console.log("lalal");
       // already logged in and should show user profile
       document.querySelector(".header__userProfile").style.display = "flex";
       document.querySelector(".header__login").style.display = "none";
