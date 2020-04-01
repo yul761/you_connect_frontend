@@ -1,0 +1,168 @@
+.userProfileloading {
+  width: 100vw;
+  height: 91vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  &__loader {
+    border: 10px solid #f3f3f3; /* Light grey */
+    border-top: 10px solid rgb(80, 76, 76); /* Blue */
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    animation: spin 2s linear infinite;
+  }
+}
+
+.userProfile {
+  width: 100vw;
+  height: 91vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+
+  &__userInformation {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    height: 40%;
+    &--username {
+      width: 100%;
+      height: 40%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: "Oswald", sans-serif;
+      font-weight: bold;
+      font-size: 2rem;
+    }
+
+    &--info {
+      width: 100%;
+      height: 60%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      font-family: "Oswald", sans-serif;
+      font-weight: 500;
+      font-size: 1rem;
+      &-email {
+        width: 45%;
+        height: 30%;
+        margin-left: 45%;
+        margin-right: 10%;
+        color: rgb(167, 165, 165);
+      }
+      &-github {
+        width: 45%;
+        height: 30%;
+        margin-left: 45%;
+        margin-right: 10%;
+        color: rgb(167, 165, 165);
+      }
+      &-linkedin {
+        width: 45%;
+        height: 30%;
+        margin-left: 45%;
+        margin-right: 10%;
+        color: rgb(167, 165, 165);
+      }
+    }
+  }
+
+  &__divideLine {
+    width: 50%;
+    height: 1%;
+    margin: 0 25%;
+  }
+
+  &__posts {
+    width: 80%;
+    height: 40%;
+    margin: 5% 10%;
+    background-color: lightgreen;
+    overflow: scroll;
+  }
+
+  &__logout {
+    width: 100%;
+    height: 10%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    &--button {
+      width: 30%;
+      height: 80%;
+      border: 1px black solid;
+      border-radius: 16px;
+      font-family: "Oswald", sans-serif;
+      font-weight: bold;
+      font-size: 1rem;
+    }
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@include tablet {
+  .userProfile {
+    &__userInformation {
+      height: 20%;
+
+      &--username {
+        width: 50%;
+        margin: 0 25%;
+        justify-content: flex-start;
+      }
+
+      &--info {
+        width: 50%;
+        margin: 0 25%;
+        align-items: flex-end;
+
+        &-email {
+          margin: 0;
+        }
+        &-github {
+          margin: 0;
+        }
+        &-linkedin {
+          margin: 0;
+        }
+      }
+    }
+
+    &__posts {
+      height: 60%;
+    }
+
+    &__logout {
+      &--button {
+        font-size: 1.3rem;
+      }
+    }
+  }
+}
+
+@include desktop {
+  .userProfile {
+    &__posts {
+      margin-top: 2%;
+      margin-bottom: 2%;
+    }
+  }
+}

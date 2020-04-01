@@ -37,7 +37,12 @@ export default class mainPage extends Component {
       <div className="mainPage">
         <Header userData={this.state.userData} />
         <Switch>
-          <Route path="/main/userprofile" component={UserProfile} />
+          <Route
+            path="/main/userprofile"
+            render={props => (
+              <UserProfile {...props} userData={this.state.userData} />
+            )}
+          />
         </Switch>
       </div>
     );

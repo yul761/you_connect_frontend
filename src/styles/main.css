@@ -575,4 +575,231 @@ html {
     font-size: 1.6rem;
   }
 }
+
+.userProfileloading {
+  width: 100vw;
+  height: 91vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: white;
+}
+
+.userProfileloading__loader {
+  border: 10px solid #f3f3f3;
+  /* Light grey */
+  border-top: 10px solid #504c4c;
+  /* Blue */
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  -webkit-animation: spin 2s linear infinite;
+          animation: spin 2s linear infinite;
+}
+
+.userProfile {
+  width: 100vw;
+  height: 91vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: white;
+}
+
+.userProfile__userInformation {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+  height: 40%;
+}
+
+.userProfile__userInformation--username {
+  width: 100%;
+  height: 40%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-family: "Oswald", sans-serif;
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+.userProfile__userInformation--info {
+  width: 100%;
+  height: 60%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-family: "Oswald", sans-serif;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.userProfile__userInformation--info-email {
+  width: 45%;
+  height: 30%;
+  margin-left: 45%;
+  margin-right: 10%;
+  color: #a7a5a5;
+}
+
+.userProfile__userInformation--info-github {
+  width: 45%;
+  height: 30%;
+  margin-left: 45%;
+  margin-right: 10%;
+  color: #a7a5a5;
+}
+
+.userProfile__userInformation--info-linkedin {
+  width: 45%;
+  height: 30%;
+  margin-left: 45%;
+  margin-right: 10%;
+  color: #a7a5a5;
+}
+
+.userProfile__divideLine {
+  width: 50%;
+  height: 1%;
+  margin: 0 25%;
+}
+
+.userProfile__posts {
+  width: 80%;
+  height: 40%;
+  margin: 5% 10%;
+  background-color: lightgreen;
+  overflow: scroll;
+}
+
+.userProfile__logout {
+  width: 100%;
+  height: 10%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.userProfile__logout--button {
+  width: 30%;
+  height: 80%;
+  border: 1px black solid;
+  border-radius: 16px;
+  font-family: "Oswald", sans-serif;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .userProfile__userInformation {
+    height: 20%;
+  }
+  .userProfile__userInformation--username {
+    width: 50%;
+    margin: 0 25%;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+  }
+  .userProfile__userInformation--info {
+    width: 50%;
+    margin: 0 25%;
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: flex-end;
+  }
+  .userProfile__userInformation--info-email {
+    margin: 0;
+  }
+  .userProfile__userInformation--info-github {
+    margin: 0;
+  }
+  .userProfile__userInformation--info-linkedin {
+    margin: 0;
+  }
+  .userProfile__posts {
+    height: 60%;
+  }
+  .userProfile__logout--button {
+    font-size: 1.3rem;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .userProfile__posts {
+    margin-top: 2%;
+    margin-bottom: 2%;
+  }
+}
 /*# sourceMappingURL=main.css.map */
