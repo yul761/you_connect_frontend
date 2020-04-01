@@ -30,6 +30,7 @@ export default class mainPage extends Component {
 
   logoutCLicked = () => {
     window.sessionStorage.setItem("isLoggedIn", false);
+    window.sessionStorage.removeItem("curToken");
     this.setState({ isLoggedOut: true });
     flag = true;
     this.props.history.push("/main");
@@ -53,7 +54,7 @@ export default class mainPage extends Component {
         <Switch>
           <Route
             path="/main/userprofile"
-            render={props => (
+            component={props => (
               <UserProfile
                 {...props}
                 userData={this.state.userData}
