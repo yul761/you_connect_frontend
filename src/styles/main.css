@@ -807,9 +807,18 @@ html {
   }
 }
 
+.desktop__wrapper {
+  width: 100%;
+  height: 100%;
+}
+
 .postPage {
   width: 100vw;
   height: 91vh;
+}
+
+.postPage__userProfile {
+  display: none;
 }
 
 .postPage__posts {
@@ -1036,6 +1045,127 @@ html {
     width: 35px;
     height: 35px;
     font-size: 1.5rem;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .desktop__wrapper {
+    width: 50%;
+    height: 95%;
+    margin: 0 10% 0 15%;
+  }
+  .postPage {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+  }
+  .postPage__posts {
+    width: 100%;
+    height: 98%;
+    margin: 0;
+    margin-top: 2%;
+  }
+  .postPage__userProfile {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 25%;
+    height: 40%;
+    margin-top: 2%;
+    margin-right: 5%;
+    background-color: white;
+    border-radius: 8px;
+    -webkit-box-shadow: 2px 2px 4px black;
+            box-shadow: 2px 2px 4px black;
+  }
+  .postPage__userProfile--signin {
+    width: 100%;
+    height: 40%;
+    font-family: "Oswald", sans-serif;
+    font-weight: bold;
+    font-size: 1.5rem;
+    text-align: center;
+  }
+  .postPage__userProfile--userInformation {
+    width: 100%;
+    height: 100%;
+  }
+  .postPage__userProfile--userInformation--username {
+    width: 100%;
+    height: 40%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    font-family: "Oswald", sans-serif;
+    font-weight: bold;
+    font-size: 2rem;
+  }
+  .postPage__userProfile--userInformation--info {
+    width: 100%;
+    height: 60%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    font-family: "Oswald", sans-serif;
+    font-weight: 500;
+    font-size: 1rem;
+  }
+  .postPage__userProfile--userInformation--info-email {
+    width: 45%;
+    height: 30%;
+    margin-left: 45%;
+    margin-right: 10%;
+    color: #a7a5a5;
+  }
+  .postPage__userProfile--userInformation--info-github {
+    width: 45%;
+    height: 30%;
+    margin-left: 45%;
+    margin-right: 10%;
+    color: #a7a5a5;
+  }
+  .postPage__userProfile--userInformation--info-linkedin {
+    width: 45%;
+    height: 30%;
+    margin-left: 45%;
+    margin-right: 10%;
+    color: #a7a5a5;
   }
 }
 /*# sourceMappingURL=main.css.map */

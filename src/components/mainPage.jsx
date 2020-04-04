@@ -63,7 +63,12 @@ export default class mainPage extends Component {
               />
             )}
           />
-          <Route path="/main" component={PostsPage} />
+          <Route
+            path="/main"
+            component={props => (
+              <PostsPage {...props} userData={this.state.userData} />
+            )}
+          />
         </Switch>
       </div>
     );

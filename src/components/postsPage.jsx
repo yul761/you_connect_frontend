@@ -1,15 +1,17 @@
 import React, { Component } from "react";
 import axios from "axios";
 import likes from "../assets/Icon-likes.png";
+import { Link } from "react-router-dom";
 
 const BackendURL = "http://3.15.233.84:4000";
 export default class postsPage extends Component {
-  constructor() {
-    super();
-    this.state = { allUserPosts: null, allUserProfile: null };
+  constructor(props) {
+    super(props);
+    this.state = { allUserPosts: null, allUserProfile: null, userData: null };
   }
 
   componentDidMount() {
+    this.setState({ userData: this.props.userData });
     this.allUserPosts();
   }
 
@@ -135,14 +137,57 @@ export default class postsPage extends Component {
     });
     return resultDOM;
   };
+
+  userProfileOnMain = () => {
+    if (this.state.userData === null) {
+      return (
+        <div className="postPage__userProfile">
+          <Link className="postPage__userProfile--signin" to="/login">
+            Sign In Now
+          </Link>
+        </div>
+      );
+    } else {
+      return (
+        <div className="postPage__userProfile">
+          <div className="postPage__userProfile--userInformation">
+            <div className="postPage__userProfile--userInformation--username">
+              <div className="postPage__userProfile--userInformation--username-label">
+                {this.state.userData.username}
+              </div>
+            </div>
+
+            <ul className="postPage__userProfile--userInformation--info">
+              <ol className="postPage__userProfile--userInformation--info-email">
+                {this.state.userData.email}
+              </ol>
+              <ol className="postPage__userProfile--userInformation--info-github">
+                This is github address
+              </ol>
+              <ol className="postPage__userProfile--userInformation--info-linkedin">
+                This is linkedIn Address
+              </ol>
+            </ul>
+          </div>
+        </div>
+      );
+    }
+  };
   render() {
+    console.log(this.props);
+    console.log(this.state.userData);
     if (
       this.state.allUserPosts === null &&
       this.state.allUserProfile === null
     ) {
       return <div className="postPage">Loading ... </div>;
     } else {
-      return <div className="postPage">{this.postSectionRender()}</div>;
+      return (
+        <div className="postPage">
+          <div className="desktop__wrapper">{this.postSectionRender()}</div>
+          {this.userProfileOnMain()}
+        </div>
+      );
     }
   }
 }

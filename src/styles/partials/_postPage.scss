@@ -1,6 +1,15 @@
+.desktop__wrapper {
+  width: 100%;
+  height: 100%;
+}
+
 .postPage {
   width: 100vw;
   height: 91vh;
+
+  &__userProfile {
+    display: none;
+  }
   &__posts {
     width: 100%;
     height: 95%;
@@ -180,6 +189,98 @@
           width: 35px;
           height: 35px;
           font-size: 1.5rem;
+        }
+      }
+    }
+  }
+}
+
+@include desktop {
+  .desktop__wrapper {
+    width: 50%;
+    height: 95%;
+    margin: 0 10% 0 15%;
+  }
+  .postPage {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+    &__posts {
+      width: 100%;
+      height: 98%;
+      margin: 0;
+      margin-top: 2%;
+    }
+
+    &__userProfile {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 25%;
+      height: 40%;
+      margin-top: 2%;
+      margin-right: 5%;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 2px 2px 4px black;
+
+      &--signin {
+        width: 100%;
+        height: 40%;
+        font-family: "Oswald", sans-serif;
+        font-weight: bold;
+        font-size: 1.5rem;
+        text-align: center;
+      }
+
+      &--userInformation {
+        width: 100%;
+        height: 100%;
+        &--username {
+          width: 100%;
+          height: 40%;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          font-family: "Oswald", sans-serif;
+          font-weight: bold;
+          font-size: 2rem;
+        }
+
+        &--info {
+          width: 100%;
+          height: 60%;
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-start;
+          align-items: center;
+          font-family: "Oswald", sans-serif;
+          font-weight: 500;
+          font-size: 1rem;
+          &-email {
+            width: 45%;
+            height: 30%;
+            margin-left: 45%;
+            margin-right: 10%;
+            color: rgb(167, 165, 165);
+          }
+          &-github {
+            width: 45%;
+            height: 30%;
+            margin-left: 45%;
+            margin-right: 10%;
+            color: rgb(167, 165, 165);
+          }
+          &-linkedin {
+            width: 45%;
+            height: 30%;
+            margin-left: 45%;
+            margin-right: 10%;
+            color: rgb(167, 165, 165);
+          }
         }
       }
     }
