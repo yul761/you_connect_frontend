@@ -3,6 +3,7 @@ import Header from "./header";
 import UserProfile from "./userProfile";
 import axios from "axios";
 import { Switch, Route } from "react-router-dom";
+import PostsPage from "../components/postsPage";
 
 const BackendURL = "http://3.15.233.84:4000";
 var flag = false;
@@ -62,6 +63,7 @@ export default class mainPage extends Component {
               />
             )}
           />
+          <Route path="/main" component={PostsPage} />
         </Switch>
       </div>
     );
