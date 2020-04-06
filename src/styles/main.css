@@ -611,6 +611,216 @@ html {
           animation: spin 2s linear infinite;
 }
 
+.preview {
+  display: none;
+  width: 98vw;
+  height: 98vh;
+  position: absolute;
+  top: 1vh;
+  left: 1vw;
+  right: 1vw;
+  bottom: 1vh;
+  border-radius: 8px;
+  -webkit-box-shadow: 2px 2px 4px #a7a5a5;
+          box-shadow: 2px 2px 4px #a7a5a5;
+  border: 1px solid #a7a5a5;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.preview__close {
+  position: absolute;
+  top: 0;
+  right: 45%;
+  color: black;
+  width: 30px;
+  height: 30px;
+}
+
+.preview--header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+  height: 6%;
+  border: none;
+  border-bottom: 1px lightgrey solid;
+  background-color: white;
+}
+
+.preview--header-username {
+  width: 15%;
+  height: 100%;
+  font-family: "Crimson Text", serif;
+  font-size: 1.3rem;
+  text-align: center;
+}
+
+.preview--header-editbutton {
+  width: 15%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.preview--header-editbutton-line {
+  width: 3px;
+  height: 3px;
+  margin: 1px;
+  border-radius: 50%;
+  background-color: black;
+}
+
+.preview--content {
+  width: 100%;
+  height: 65%;
+  background-color: white;
+}
+
+.preview--comments {
+  width: 100%;
+  height: 15%;
+  font-family: "Crimson Text", serif;
+  font-size: 1rem;
+  font-weight: 400;
+  background-color: white;
+}
+
+.preview--comments-content {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.preview--comments-content-username {
+  width: 30%;
+  height: 100%;
+  font-weight: bold;
+}
+
+.preview--comments-content-text {
+  width: 55%;
+  height: 100%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.preview--comments-content-more {
+  width: 10%;
+  color: lightgrey;
+}
+
+.preview--addComments {
+  width: 100%;
+  height: 10%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  border: 1px lightgrey solid;
+}
+
+.preview--addComments--input {
+  width: 80%;
+  height: 100%;
+  font-family: "Crimson Text", serif;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.preview--addComments--input:focus {
+  outline: none;
+}
+
+.preview--addComments--post {
+  width: 20%;
+  height: 100%;
+  background-color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.preview--addComments--post--button {
+  font-family: "Crimson Text", serif;
+  font-weight: bold;
+  font-size: 1rem;
+  color: #929191;
+  border: none;
+  background: none;
+}
+
+.preview--likes {
+  width: 100%;
+  height: 5%;
+  background-color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.preview--likes-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+}
+
+.preview--likes-number {
+  width: 20px;
+  height: 20px;
+  font-family: "Crimson Text", serif;
+  font-size: 1rem;
+  text-align: center;
+  color: #929191;
+}
+
 .userProfile {
   width: 100vw;
   height: 91vh;
@@ -867,6 +1077,70 @@ html {
 }
 
 @media only screen and (min-width: 768px) {
+  .preview {
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+  .preview__close {
+    right: 0;
+    width: 40px;
+    height: 40px;
+  }
+  .preview--header {
+    width: 80%;
+    height: 6%;
+    margin: 0 10%;
+    margin-top: 10%;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+  }
+  .preview--header-username {
+    font-size: 1.7rem;
+    width: 20%;
+  }
+  .preview--content {
+    width: 80%;
+    height: 50%;
+    margin: 0 10%;
+  }
+  .preview--comments {
+    width: 80%;
+    margin: 0 10%;
+    font-size: 1.5rem;
+  }
+  .preview--addComments {
+    width: 80%;
+    margin: 0 10%;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+  }
+  .preview--addComments--input {
+    font-size: 1.5rem;
+    border-bottom-left-radius: 8px;
+  }
+  .preview--addComments--post {
+    border-bottom-right-radius: 8px;
+  }
+  .preview--addComments--post--button {
+    font-size: 1.5rem;
+  }
+  .preview--likes {
+    width: 80%;
+    margin: 0 10%;
+  }
+  .preview--likes-icon {
+    width: 35px;
+    height: 35px;
+  }
+  .preview--likes-number {
+    width: 35px;
+    height: 35px;
+    font-size: 1.5rem;
+  }
   .userProfile__userInformation {
     height: 20%;
   }
@@ -923,6 +1197,27 @@ html {
 }
 
 @media only screen and (min-width: 1440px) {
+  .preview--header {
+    width: 50%;
+    margin: 0 25%;
+    margin-top: 5%;
+  }
+  .preview--content {
+    width: 50%;
+    margin: 0 25%;
+  }
+  .preview--comments {
+    width: 50%;
+    margin: 0 25%;
+  }
+  .preview--addComments {
+    width: 50%;
+    margin: 0 25%;
+  }
+  .preview--likes {
+    width: 50%;
+    margin: 0 25%;
+  }
   .userProfile__posts {
     margin-top: 2%;
     margin-bottom: 2%;

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import likes from "../assets/Icon-likes.png";
+import blackClose from "../assets/blackCloseIcon.png";
 
 const BackendURL = "http://3.15.233.84:4000";
 export default class userProfile extends Component {
@@ -61,6 +62,26 @@ export default class userProfile extends Component {
     return resultCommentsDOM;
   };
 
+  largeCommentRender = array => {
+    var resultCommentsDOM = [];
+    array.forEach((element, index) => {
+      let tempDOM = null;
+      tempDOM = (
+        <div className="preview--comments-content" key={index}>
+          <div className="preview--comments-content-username">
+            {this.findUserProfilebyID(element.id)}
+          </div>
+          <div className="preview--comments-content-text">
+            {element.comment}
+          </div>
+          <div className="preview--comments-content-more">more</div>
+        </div>
+      );
+      resultCommentsDOM.push(tempDOM);
+    });
+    return resultCommentsDOM;
+  };
+
   allUserProfile = () => {
     axios.get(`${BackendURL}/alluserInfo`).then(response => {
       console.log(response.data);
@@ -93,7 +114,18 @@ export default class userProfile extends Component {
       this.state.userPosts.forEach((element, index) => {
         var tempDOM = null;
         tempDOM = (
-          <div className="userProfile__posts--content" key={index}>
+          <div
+            className="userProfile__posts--content"
+            key={index}
+            onClick={e => {
+              console.log(e.currentTarget);
+              console.log(index);
+              console.log(element);
+              var previewDOM = document.querySelector(".preview");
+              previewDOM.style.display = "block";
+            }}
+          >
+            {this.postLargePreview(element)}
             <div className="userProfile__posts--content--container">
               <img
                 className="userProfile__posts--content--container-img"
@@ -126,9 +158,71 @@ export default class userProfile extends Component {
     }
   };
 
-  logoutClicked = () => {
-    window.sessionStorage.clear();
-    this.props.history.push("/main");
+  postLargePreview = element => {
+    return (
+      <div className="preview">
+        <img
+          className="preview__close"
+          src={blackClose}
+          alt="close icon"
+          onClick={e => {
+            console.log("closebutton clicked");
+
+            if (!e) {
+              var e = window.event;
+            }
+            e.cancelBubble = true;
+            if (e.stopPropagation()) {
+              e.stopPropagation();
+            }
+
+            var preview = document.getElementsByClassName("preview")[0];
+            preview.style.display = "none";
+            console.log(preview);
+            console.log(preview.style);
+            console.log("onclick action finished");
+          }}
+        ></img>
+        <div className="preview--header">
+          <div className="preview--header-username">
+            {this.findUserProfilebyID(element.userid)}
+          </div>
+          <div className="preview--header-editbutton">
+            <div className="preview--header-editbutton-line line1"></div>
+            <div className="preview--header-editbutton-line line2"></div>
+            <div className="preview--header-editbutton-line line3"></div>
+          </div>
+        </div>
+        <div className="preview--content">
+          <img className="preview--content-img" alt="This is img section"></img>
+          <video
+            className="preview--content-video"
+            alt="This is video section"
+          ></video>
+        </div>
+        <div className="preview--likes">
+          <img
+            className="preview--likes-icon"
+            src={likes}
+            alt="This is like icon"
+          />
+          <div className="preview--likes-number">{element.likes}</div>
+        </div>
+        <div className="preview--comments">
+          {this.largeCommentRender(element.comments)}
+        </div>
+        <div className="preview--addComments">
+          <input
+            type="text"
+            className="preview--addComments--input"
+            placeholder="Enter your comment here"
+          />
+          <div className="preview--addComments--post">
+            <button className="preview--addComments--post--button">POST</button>
+          </div>
+        </div>
+      </div>
+    );
   };
 
   render() {
