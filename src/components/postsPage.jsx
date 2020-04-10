@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import likes from "../assets/Icon-likes.png";
 import { Link } from "react-router-dom";
+import AddComment from "./addComment";
 
 const BackendURL = "http://3.15.233.84:4000";
 export default class postsPage extends Component {
@@ -184,7 +185,10 @@ export default class postsPage extends Component {
     } else {
       return (
         <div className="postPage">
-          <div className="desktop__wrapper">{this.postSectionRender()}</div>
+          <div className="desktop__wrapper">
+            <AddComment />
+            {this.postSectionRender()}
+          </div>
           {this.userProfileOnMain()}
         </div>
       );

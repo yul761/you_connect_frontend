@@ -167,10 +167,6 @@ export default class userProfile extends Component {
           alt="close icon"
           onClick={e => {
             console.log("closebutton clicked");
-
-            if (!e) {
-              var e = window.event;
-            }
             e.cancelBubble = true;
             if (e.stopPropagation()) {
               e.stopPropagation();
