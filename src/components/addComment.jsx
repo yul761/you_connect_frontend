@@ -2,7 +2,9 @@ import React, { Component } from "react";
 import imageIcon from "../assets/image.png";
 import videoIcon from "../assets/video.png";
 import $ from "jquery";
+import axios from "axios";
 
+const BackendURL = "http://3.15.233.84:4000";
 export default class addComment extends Component {
   constructor() {
     super();
@@ -91,11 +93,44 @@ export default class addComment extends Component {
 
   closeButtonHandler = () => {
     document.querySelector(".uploadForm").style.display = "none";
+    document.querySelector(".uploadForm__form--preview").style.display = "none";
   };
 
   inputFieldFocusHandler = () => {
     document.querySelector(".uploadForm").style.display = "flex";
+    document.querySelector(".uploadForm__form--container--comment").value = "";
+    document.querySelector("#video-input").value = "";
+    document.querySelector("#img-input").value = "";
   };
+
+  formSubmitHandler = (e) => {
+    e.preventDefault();
+    let content = e.target.contentInput.value;
+    let likes = 0;
+
+    let input = {
+      content: content,
+      images: this.state.imgURL,
+      videos: this.state.videoURL,
+      likes: likes,
+    };
+
+    var postOption = {
+      method: "POST",
+      url: `${BackendURL}/post/add`,
+      data: input,
+      headers: {
+        "auth-token": window.sessionStorage.getItem("curToken"),
+      },
+    };
+
+    axios(postOption).then((response) => {
+      console.log(response.data);
+    });
+
+    console.log(content);
+  };
+
   render() {
     return (
       <>
@@ -110,11 +145,17 @@ export default class addComment extends Component {
             </div>
           </div>
 
-          <form className="uploadForm__form">
+          <form
+            className="uploadForm__form"
+            onSubmit={(e) => {
+              this.formSubmitHandler(e);
+            }}
+          >
             <div className="uploadForm__form--container">
               <textarea
                 className="uploadForm__form--container--comment"
                 type="text"
+                name="contentInput"
                 placeholder=" Enter your comment here"
               />
               <div className="uploadForm__form--container--upload">

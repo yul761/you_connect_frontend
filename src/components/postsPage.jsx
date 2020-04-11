@@ -13,13 +13,30 @@ export default class postsPage extends Component {
 
   componentDidMount() {
     this.setState({ userData: this.props.userData });
+    console.log(this.props.userData);
     this.allUserPosts();
   }
 
-  findUserProfilebyID = postid => {
+  moreButtonManageHandler = () => {
+    var allContents = document.querySelectorAll(
+      ".postPage__posts--comments-content"
+    );
+    allContents.forEach((element) => {
+      let text = element.children[1];
+      let more = element.children[2];
+      console.log(text);
+      console.log(more);
+      // if true means not overflowing
+      if (text.scrollWidth === text.clientWidth) {
+        more.style.display = "none";
+      }
+    });
+  };
+
+  findUserProfilebyID = (postid) => {
     if (this.state.allUserProfile !== null) {
       var matchedUser = this.state.allUserProfile.filter(
-        el => el._id === postid
+        (el) => el._id === postid
       );
       console.log(matchedUser[0]);
       if (matchedUser === null) {
@@ -31,10 +48,10 @@ export default class postsPage extends Component {
     }
   };
 
-  findUserNameforComment = generatedID => {
+  findUserNameforComment = (generatedID) => {
     if (this.state.allUserProfile !== null) {
       var matchedUser = this.state.allUserProfile.filter(
-        el => el._id === generatedID
+        (el) => el._id === generatedID
       );
       console.log(matchedUser[0]);
       if (matchedUser === null) {
@@ -47,7 +64,7 @@ export default class postsPage extends Component {
   };
 
   allUserProfile = () => {
-    axios.get(`${BackendURL}/alluserInfo`).then(response => {
+    axios.get(`${BackendURL}/alluserInfo`).then((response) => {
       console.log(response.data);
       this.setState({ allUserProfile: response.data });
       console.log(this.state.allUserPosts);
@@ -55,19 +72,60 @@ export default class postsPage extends Component {
     });
   };
 
-  commentsArrayRender = array => {
+  commentsArrayRender = (content, array) => {
     var resultCommentsDOM = [];
+    // first comment which is the text part of the post post by the loggedin user
+    let userContent = (
+      <div className="postPage__posts--comments-content" key={0}>
+        <div className="postPage__posts--comments-content-username">
+          {this.state.userData.username}
+        </div>
+        <div className="postPage__posts--comments-content-text">{content}</div>
+        <div
+          className="postPage__posts--comments-content-more"
+          onClick={(e) => {
+            console.log(e.currentTarget.parentElement);
+            var contentElement = e.currentTarget.parentElement;
+            var text = contentElement.children[1];
+            var moreButton = e.currentTarget;
+            text.style.whiteSpace = "normal";
+            contentElement.style.height = "45%";
+            moreButton.style.display = "none";
+          }}
+        >
+          more
+        </div>
+      </div>
+    );
+    resultCommentsDOM.push(userContent);
+
     array.forEach((element, index) => {
       let tempDOM = null;
       tempDOM = (
-        <div className="postPage__posts--comments-content" key={index}>
+        <div className="postPage__posts--comments-content" key={index + 1}>
           <div className="postPage__posts--comments-content-username">
             {this.findUserProfilebyID(element.id)}
           </div>
           <div className="postPage__posts--comments-content-text">
             {element.comment}
           </div>
-          <div className="postPage__posts--comments-content-more">more</div>
+          <div
+            className="postPage__posts--comments-content-more"
+            onClick={(e) => {
+              console.log(e.currentTarget.parentElement);
+              var contentElement = e.currentTarget.parentElement;
+              var text = contentElement.children[1];
+              var moreButton = e.currentTarget;
+              text.style.whiteSpace = "normal";
+              // check if text is overflowing
+              if (text.scrollWidth > text.clientWidth) {
+                contentElement.style.height = "45%";
+              }
+              moreButton.style.display = "none";
+            }}
+          >
+            more
+          </div>
         </div>
       );
       resultCommentsDOM.push(tempDOM);
@@ -76,10 +134,44 @@ export default class postsPage extends Component {
   };
 
   allUserPosts = () => {
-    axios.get(`${BackendURL}/post/allposts`).then(response => {
+    axios.get(`${BackendURL}/post/allposts`).then((response) => {
       console.log(response.data);
       this.setState({ allUserPosts: response.data });
       this.allUserProfile();
+    });
+  };
+  addCommentSubmitHandler = (e, postID) => {
+    var input = e.currentTarget.parentElement.parentElement.children[0];
+    var comment = {
+      comment: input.value,
+    };
+    var putOption = {
+      method: "PUT",
+      url: `${BackendURL}/post/comment/${postID}`,
+      data: comment,
+      headers: {
+        "auth-token": window.sessionStorage.getItem("curToken"),
+      },
+    };
+
+    axios(putOption).then((response) => {
+      console.log(response.data);
+      this.allUserPosts();
+    });
+    console.log(input.value);
+    input.value = "";
+  };
+
+  likeButtonHandler = (e, postID) => {
+    var likeNumbers = e.currentTarget.parentElement.children[1];
+    likeNumbers.innerHTML = (Number(likeNumbers.innerHTML) + 1).toString();
+    var putOption = {
+      method: "PUT",
+      url: `${BackendURL}/post/likes/${postID}`,
+    };
+    axios(putOption).then((response) => {
+      console.log(response.data);
+      this.allUserPosts();
     });
   };
 
@@ -103,31 +195,42 @@ export default class postsPage extends Component {
             <img
               className="postPage__posts--content-img"
               alt="This is img section"
+              src={element.images}
             ></img>
             <video
               className="postPage__posts--content-video"
-              alt="This is video section"
-            ></video>
+              src={element.videos}
+            >
+              Your browser does not support this video
+            </video>
           </div>
           <div className="postPage__posts--likes">
             <img
               className="postPage__posts--likes-icon"
               src={likes}
               alt="This is like icon"
+              onClick={(e) => {
+                this.likeButtonHandler(e, element._id);
+              }}
             />
             <div className="postPage__posts--likes-number">{element.likes}</div>
           </div>
           <div className="postPage__posts--comments">
-            {this.commentsArrayRender(element.comments)}
+            {this.commentsArrayRender(element.content, element.comments)}
           </div>
           <div className="postPage__posts--addComments">
-            <input
+            <textarea
               type="text"
               className="postPage__posts--addComments--input"
               placeholder="Enter your comment here"
             />
             <div className="postPage__posts--addComments--post">
-              <button className="postPage__posts--addComments--post--button">
+              <button
+                className="postPage__posts--addComments--post--button"
+                onClick={(e) => {
+                  this.addCommentSubmitHandler(e, element._id);
+                }}
+              >
                 POST
               </button>
             </div>
@@ -136,7 +239,27 @@ export default class postsPage extends Component {
       );
       resultDOM.push(tempDOM);
     });
+    this.manageVideoImgSection();
     return resultDOM;
+  };
+
+  manageVideoImgSection = () => {
+    var images = document.querySelectorAll(".postPage__posts--content-img");
+    var videos = document.querySelectorAll(".postPage__posts--content-video");
+    //iterate through images to determine which should be hidden
+    images.forEach((element) => {
+      if (element.src === "") {
+        element.style.display = "none";
+      }
+    });
+
+    //iterate through videos to determine which should be hidden
+    videos.forEach((element) => {
+      console.log(element.src);
+      if (element.src === "") {
+        element.style.display = "none";
+      }
+    });
   };
 
   userProfileOnMain = () => {
@@ -190,6 +313,8 @@ export default class postsPage extends Component {
             {this.postSectionRender()}
           </div>
           {this.userProfileOnMain()}
+          {/* manage visiablity of more button, does not return any DOM element */}
+          {this.moreButtonManageHandler()}
         </div>
       );
     }

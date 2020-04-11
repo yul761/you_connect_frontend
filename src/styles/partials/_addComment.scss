@@ -79,6 +79,8 @@
           &--button {
             width: 40%;
             height: 100%;
+            background-color: none;
+            border: none;
             &--icon {
               width: 30px;
               height: 30px;
@@ -92,6 +94,8 @@
           &--button {
             width: 40%;
             height: 100%;
+            background-color: none;
+            border: none;
             &--icon {
               width: 30px;
               height: 30px;
@@ -133,6 +137,9 @@
         font-family: "Crimson Text", serif;
         font-size: 1rem;
         color: #929191;
+        &:focus {
+          outline: none;
+        }
       }
     }
   }
