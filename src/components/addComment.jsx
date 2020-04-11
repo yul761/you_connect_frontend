@@ -6,7 +6,7 @@ import $ from "jquery";
 export default class addComment extends Component {
   constructor() {
     super();
-    this.state = { imgURL: null };
+    this.state = { imgURL: null, videoURL: null };
   }
 
   imageUploadClicked = (e) => {
@@ -51,6 +51,7 @@ export default class addComment extends Component {
 
   videoUploadClicked = (e) => {
     e.preventDefault();
+    /*******************layout adjust*******************/
     console.log("video uplaod clicked");
     var form = document.querySelector(".uploadForm__form");
     var container = document.querySelector(".uploadForm__form--container");
@@ -66,6 +67,34 @@ export default class addComment extends Component {
     preview.style.display = "block";
     videoPreview.style.display = "flex";
     imagePreview.style.display = "none";
+
+    /*******************upload handler********************/
+
+    var input = document.querySelector("#video-input");
+
+    input.addEventListener("change", (e) => {
+      console.log(input.files[0]);
+      let receivedInput = input.files[0];
+
+      let reader = new FileReader();
+
+      reader.addEventListener("load", (e) => {
+        videoPreview.src = reader.result;
+        this.setState({ videoURL: reader.result });
+      });
+
+      if (receivedInput) {
+        reader.readAsDataURL(receivedInput);
+      }
+    });
+  };
+
+  closeButtonHandler = () => {
+    document.querySelector(".uploadForm").style.display = "none";
+  };
+
+  inputFieldFocusHandler = () => {
+    document.querySelector(".uploadForm").style.display = "flex";
   };
   render() {
     return (
@@ -73,12 +102,17 @@ export default class addComment extends Component {
         <div className="uploadForm">
           <div className="uploadForm__header">
             <div className="uploadForm__header--label">Create a Post</div>
-            <div className="uploadForm__header--close">&#10006;</div>
+            <div
+              className="uploadForm__header--close"
+              onClick={this.closeButtonHandler}
+            >
+              &#10006;
+            </div>
           </div>
 
           <form className="uploadForm__form">
             <div className="uploadForm__form--container">
-              <input
+              <textarea
                 className="uploadForm__form--container--comment"
                 type="text"
                 placeholder=" Enter your comment here"
@@ -97,7 +131,12 @@ export default class addComment extends Component {
                     src={imageIcon}
                   ></img>
                 </button>
-                <input id="img-input" type="file" name="imgInput" />
+                <input
+                  id="img-input"
+                  type="file"
+                  name="imgInput"
+                  accept="image/*"
+                />
                 <button
                   className="uploadForm__form--container--upload--video--button"
                   onClick={(e) => {
@@ -111,7 +150,12 @@ export default class addComment extends Component {
                     src={videoIcon}
                   ></img>
                 </button>
-                <input id="video-input" type="file" name="videoInput" />
+                <input
+                  id="video-input"
+                  type="file"
+                  name="videoInput"
+                  accept="video/*"
+                />
               </div>
             </div>
             <div className="uploadForm__form--preview">
@@ -119,7 +163,13 @@ export default class addComment extends Component {
                 className="uploadForm__form--preview--img"
                 alt="this is img preview"
               />
-              <video className="uploadForm__form--preview--video" />
+              <video
+                className="uploadForm__form--preview--video"
+                autoPlay
+                controls
+              >
+                Your Browser does not support this kind of video to play
+              </video>
             </div>
             <div className="uploadForm__form--submit">
               <input
@@ -137,6 +187,7 @@ export default class addComment extends Component {
                 className="addComment__form--container--comment"
                 type="text"
                 placeholder=" Enter your comment here"
+                onFocus={this.inputFieldFocusHandler}
               />
               <div className="addComment__form--container--upload">
                 <img

@@ -1607,9 +1607,7 @@ html {
   bottom: 0;
   left: 0;
   right: 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: none;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -1639,6 +1637,7 @@ html {
 .uploadForm__header--label {
   width: 35%;
   height: 80%;
+  margin-left: 2%;
   font-size: 1.3rem;
 }
 
@@ -1679,6 +1678,7 @@ html {
   height: 75%;
   font-size: 1.2rem;
   border: none;
+  resize: none;
 }
 
 .uploadForm__form--container--comment:focus {
@@ -1866,6 +1866,41 @@ html {
 }
 
 @media only screen and (min-width: 768px) {
+  .uploadForm {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .uploadForm__header {
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+  .uploadForm__header--label {
+    font-size: 1.7rem;
+  }
+  .uploadForm__header--close {
+    font-size: 1.9rem;
+  }
+  .uploadForm__form {
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+  .uploadForm__form--container--comment {
+    font-size: 2rem;
+  }
+  .uploadForm__form--container--upload--image--button--icon {
+    width: 50px;
+    height: 50px;
+  }
+  .uploadForm__form--container--upload--video--button--icon {
+    width: 50px;
+    height: 50px;
+  }
+  .uploadForm__form--submit--button {
+    font-size: 2rem;
+  }
   .addComment {
     width: 80%;
     margin-left: 10%;
@@ -1888,6 +1923,16 @@ html {
 }
 
 @media only screen and (min-width: 1440px) {
+  .uploadForm__header {
+    width: 50%;
+    margin-left: 25%;
+    margin-right: 25%;
+  }
+  .uploadForm__form {
+    width: 50%;
+    margin-left: 25%;
+    margin-right: 25%;
+  }
   .addComment {
     width: 100%;
     height: 20%;
