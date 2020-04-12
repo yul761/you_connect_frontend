@@ -120,6 +120,10 @@ export default class userProfile extends Component {
             text.style.whiteSpace = "normal";
             contentElement.style.height = "45%";
             moreButton.style.display = "none";
+            /*********************debug process***************************/
+            console.log(text.scrollWidth);
+            console.log(text.scrollHeight);
+            console.log(text.clientWidth);
           }}
         >
           more
@@ -156,6 +160,7 @@ export default class userProfile extends Component {
       );
       resultCommentsDOM.push(tempDOM);
     });
+
     return resultCommentsDOM;
   };
 
@@ -166,6 +171,28 @@ export default class userProfile extends Component {
       console.log(this.state.userPosts);
       console.log(this.state.allUserProfile);
     });
+  };
+
+  addCommentSubmitHandler = (e, postID) => {
+    var input = e.currentTarget.parentElement.parentElement.children[0];
+    var comment = {
+      comment: input.value,
+    };
+    var putOption = {
+      method: "PUT",
+      url: `${BackendURL}/post/comment/${postID}`,
+      data: comment,
+      headers: {
+        "auth-token": window.sessionStorage.getItem("curToken"),
+      },
+    };
+
+    axios(putOption).then((response) => {
+      console.log(response.data);
+      this.getUserPostFromLoggedinUser();
+    });
+    console.log(input.value);
+    input.value = "";
   };
 
   getUserPostFromLoggedinUser = () => {
@@ -236,6 +263,13 @@ export default class userProfile extends Component {
               console.log(element);
               var previewDOM = document.querySelector(".preview");
               previewDOM.style.display = "block";
+              /* preview section */
+              this.manageVideoImgSection(
+                ".preview--content-img",
+                ".preview--content-video"
+              );
+              /* manage visiablity of more button, does not return any DOM element */
+              this.moreButtonManageHandler(".preview--comments-content");
             }}
           >
             {this.postLargePreview(element)}
@@ -278,14 +312,6 @@ export default class userProfile extends Component {
       this.moreButtonManageHandler(
         ".userProfile__posts--content--comments-content"
       );
-
-      // preview section
-      this.manageVideoImgSection(
-        ".preview--content-img",
-        ".preview--content-video"
-      );
-      /* manage visiablity of more button, does not return any DOM element */
-      this.moreButtonManageHandler(".preview--comments-content");
 
       return resultDOM;
     }
@@ -346,13 +372,20 @@ export default class userProfile extends Component {
           {this.largeCommentRender(element.content, element.comments)}
         </div>
         <div className="preview--addComments">
-          <input
+          <textarea
             type="text"
             className="preview--addComments--input"
             placeholder="Enter your comment here"
           />
           <div className="preview--addComments--post">
-            <button className="preview--addComments--post--button">POST</button>
+            <button
+              className="preview--addComments--post--button"
+              onClick={(e) => {
+                this.addCommentSubmitHandler(e, element._id);
+              }}
+            >
+              POST
+            </button>
           </div>
         </div>
       </div>

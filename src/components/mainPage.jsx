@@ -88,7 +88,11 @@ export default class mainPage extends Component {
           <Route
             path="/main"
             component={(props) => (
-              <PostsPage {...props} userData={this.state.userData} />
+              <PostsPage
+                {...props}
+                userData={this.state.userData}
+                LogoutStatus={this.state.isLoggedOut}
+              />
             )}
           />
         </Switch>

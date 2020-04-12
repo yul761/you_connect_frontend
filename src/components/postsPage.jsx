@@ -17,17 +17,30 @@ export default class postsPage extends Component {
     this.allUserPosts();
   }
 
+  userprofile = () => {
+    axios
+      .get(`${BackendURL}/userInfo`, {
+        headers: { "auth-token": window.sessionStorage.getItem("curToken") },
+      })
+      .then((response) => {
+        // this.setState({ curUser: response.data });
+        console.log(response.data);
+        this.setState({ userData: response.data });
+      });
+  };
+
   // static getDerivedStateFromProps(props, state) {
   //   console.log("alskdfhalskjdfhalskdjfhalskdjfhalskdjfhalskdfjah");
   //   return { userData: props.userData };
   // }
 
   componentDidUpdate(prevProps, prevState) {
-    const { userData } = this.props;
-    console.log(this.props);
-    if (prevProps.userData !== userData) {
-      this.setState({ userData: userData });
-      console.log(this.props.userData);
+    if (
+      window.sessionStorage.getItem("isLoggedIn") === "true" &&
+      this.state.userData === null &&
+      this.props.userData === null
+    ) {
+      this.userprofile();
     }
   }
 
@@ -132,9 +145,9 @@ export default class postsPage extends Component {
               var moreButton = e.currentTarget;
               text.style.whiteSpace = "normal";
               // check if text is overflowing
-              if (text.scrollWidth > text.clientWidth) {
-                contentElement.style.height = "45%";
-              }
+
+              contentElement.style.height = "45%";
+
               moreButton.style.display = "none";
             }}
           >
@@ -281,7 +294,7 @@ export default class postsPage extends Component {
   };
 
   userProfileOnMain = () => {
-    if (this.state.userData === null) {
+    if (this.state.userData === null || this.props.LogoutStatus === true) {
       return (
         <div className="postPage__userProfile">
           <Link className="postPage__userProfile--signin" to="/login">
