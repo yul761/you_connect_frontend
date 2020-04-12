@@ -7,6 +7,7 @@ import PostsPage from "../components/postsPage";
 
 const BackendURL = "http://3.15.233.84:4000";
 var flag = false;
+
 export default class mainPage extends Component {
   constructor() {
     super();
@@ -16,12 +17,14 @@ export default class mainPage extends Component {
   userprofile = () => {
     axios
       .get(`${BackendURL}/userInfo`, {
-        headers: { "auth-token": window.sessionStorage.getItem("curToken") }
+        headers: { "auth-token": window.sessionStorage.getItem("curToken") },
       })
-      .then(response => {
+      .then((response) => {
         // this.setState({ curUser: response.data });
         console.log(response.data);
-        this.setState({ userData: response.data });
+        this.setState({ userData: response.data }, () => {
+          console.log("userData setstate finished");
+        });
       });
   };
 
@@ -40,6 +43,24 @@ export default class mainPage extends Component {
 
   componentDidUpdate(prevProps, prevState) {
     flag = false;
+    console.log(window.sessionStorage.getItem("isLoggedIn") === "true");
+    console.log(this.state.userData === null);
+    console.log(prevProps.location.pathname);
+    console.log(this.props.location.pathname);
+    this.props.history.listen((location, action) => {
+      console.log(location.pathname);
+      if (location.pathname === "/main") {
+        console.log(window.sessionStorage.getItem("isLoggedIn") === "true");
+        console.log(this.state.userData === null);
+        if (
+          window.sessionStorage.getItem("isLoggedIn") === "true" &&
+          this.state.userData === null
+        ) {
+          this.userprofile();
+        }
+      }
+    });
+
     if (
       window.sessionStorage.getItem("isLoggedIn") === "true" &&
       this.state.userData === null
@@ -49,13 +70,14 @@ export default class mainPage extends Component {
   }
 
   render() {
+    console.log(this.state.userData);
     return (
       <div className="mainPage">
         <Header LogoutStatus={this.state.isLoggedOut} flag={flag} />
         <Switch>
           <Route
             path="/main/userprofile"
-            component={props => (
+            component={(props) => (
               <UserProfile
                 {...props}
                 userData={this.state.userData}
@@ -65,7 +87,7 @@ export default class mainPage extends Component {
           />
           <Route
             path="/main"
-            component={props => (
+            component={(props) => (
               <PostsPage {...props} userData={this.state.userData} />
             )}
           />

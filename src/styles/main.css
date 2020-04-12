@@ -694,6 +694,16 @@ html {
   background-color: white;
 }
 
+.preview--content-img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.preview--content-video {
+  max-width: 100%;
+  max-height: 100%;
+}
+
 .preview--comments {
   width: 100%;
   height: 15%;
@@ -701,11 +711,12 @@ html {
   font-size: 1rem;
   font-weight: 400;
   background-color: white;
+  overflow-y: scroll;
 }
 
 .preview--comments-content {
   width: 100%;
-  height: 100%;
+  height: 25%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -976,22 +987,43 @@ html {
 
 .userProfile__posts--content--container {
   width: 100%;
-  height: 75%;
+  height: 65%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   background-color: white;
+}
+
+.userProfile__posts--content--container-img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.userProfile__posts--content--container-video {
+  max-width: 100%;
+  max-height: 100%;
 }
 
 .userProfile__posts--content--comments {
   width: 100%;
-  height: 15%;
+  height: 25%;
   font-family: "Crimson Text", serif;
   font-size: 1rem;
   font-weight: 400;
   background-color: white;
+  overflow-y: scroll;
 }
 
 .userProfile__posts--content--comments-content {
   width: 100%;
-  height: 100%;
+  height: 30%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

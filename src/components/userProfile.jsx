@@ -11,7 +11,7 @@ export default class userProfile extends Component {
       userData: null,
       isLoggedOut: false,
       userPosts: null,
-      allUserProfile: null
+      allUserProfile: null,
     };
   }
 
@@ -22,10 +22,10 @@ export default class userProfile extends Component {
     this.getUserPostFromLoggedinUser();
   }
 
-  findUserProfilebyID = postid => {
+  findUserProfilebyID = (postid) => {
     if (this.state.allUserProfile !== null) {
       var matchedUser = this.state.allUserProfile.filter(
-        el => el._id === postid
+        (el) => el._id === postid
       );
       console.log(matchedUser[0]);
       if (matchedUser === null) {
@@ -37,14 +37,42 @@ export default class userProfile extends Component {
     }
   };
 
-  commentsArrayRender = array => {
+  commentsArrayRender = (content, array) => {
     var resultCommentsDOM = [];
+
+    // first comment which is the text part of the post post by the loggedin user
+    let userContent = (
+      <div className="userProfile__posts--content--comments-content" key={0}>
+        <div className="userProfile__posts--content--comments-content-username">
+          {this.state.userData.username}
+        </div>
+        <div className="userProfile__posts--content--comments-content-text">
+          {content}
+        </div>
+        <div
+          className="userProfile__posts--content--comments-content-more"
+          onClick={(e) => {
+            console.log(e.currentTarget.parentElement);
+            var contentElement = e.currentTarget.parentElement;
+            var text = contentElement.children[1];
+            var moreButton = e.currentTarget;
+            text.style.whiteSpace = "normal";
+            contentElement.style.height = "45%";
+            moreButton.style.display = "none";
+          }}
+        >
+          more
+        </div>
+      </div>
+    );
+    resultCommentsDOM.push(userContent);
+
     array.forEach((element, index) => {
       let tempDOM = null;
       tempDOM = (
         <div
           className="userProfile__posts--content--comments-content"
-          key={index}
+          key={index + 1}
         >
           <div className="userProfile__posts--content--comments-content-username">
             {this.findUserProfilebyID(element.id)}
@@ -52,7 +80,18 @@ export default class userProfile extends Component {
           <div className="userProfile__posts--content--comments-content-text">
             {element.comment}
           </div>
-          <div className="userProfile__posts--content--comments-content-more">
+          <div
+            className="userProfile__posts--content--comments-content-more"
+            onClick={(e) => {
+              console.log(e.currentTarget.parentElement);
+              var contentElement = e.currentTarget.parentElement;
+              var text = contentElement.children[1];
+              var moreButton = e.currentTarget;
+              text.style.whiteSpace = "normal";
+              contentElement.style.height = "45%";
+              moreButton.style.display = "none";
+            }}
+          >
             more
           </div>
         </div>
@@ -62,19 +101,57 @@ export default class userProfile extends Component {
     return resultCommentsDOM;
   };
 
-  largeCommentRender = array => {
+  largeCommentRender = (content, array) => {
     var resultCommentsDOM = [];
+    // first comment which is the text part of the post post by the loggedin user
+    let userContent = (
+      <div className="preview--comments-content" key={0}>
+        <div className="preview--comments-content-username">
+          {this.state.userData.username}
+        </div>
+        <div className="preview--comments-content-text">{content}</div>
+        <div
+          className="preview--comments-content-more"
+          onClick={(e) => {
+            console.log(e.currentTarget.parentElement);
+            var contentElement = e.currentTarget.parentElement;
+            var text = contentElement.children[1];
+            var moreButton = e.currentTarget;
+            text.style.whiteSpace = "normal";
+            contentElement.style.height = "45%";
+            moreButton.style.display = "none";
+          }}
+        >
+          more
+        </div>
+      </div>
+    );
+    resultCommentsDOM.push(userContent);
+
     array.forEach((element, index) => {
       let tempDOM = null;
       tempDOM = (
-        <div className="preview--comments-content" key={index}>
+        <div className="preview--comments-content" key={index + 1}>
           <div className="preview--comments-content-username">
             {this.findUserProfilebyID(element.id)}
           </div>
           <div className="preview--comments-content-text">
             {element.comment}
           </div>
-          <div className="preview--comments-content-more">more</div>
+          <div
+            className="preview--comments-content-more"
+            onClick={(e) => {
+              console.log(e.currentTarget.parentElement);
+              var contentElement = e.currentTarget.parentElement;
+              var text = contentElement.children[1];
+              var moreButton = e.currentTarget;
+              text.style.whiteSpace = "normal";
+              contentElement.style.height = "45%";
+              moreButton.style.display = "none";
+            }}
+          >
+            more
+          </div>
         </div>
       );
       resultCommentsDOM.push(tempDOM);
@@ -83,7 +160,7 @@ export default class userProfile extends Component {
   };
 
   allUserProfile = () => {
-    axios.get(`${BackendURL}/alluserInfo`).then(response => {
+    axios.get(`${BackendURL}/alluserInfo`).then((response) => {
       console.log(response.data);
       this.setState({ allUserProfile: response.data });
       console.log(this.state.userPosts);
@@ -94,13 +171,49 @@ export default class userProfile extends Component {
   getUserPostFromLoggedinUser = () => {
     axios
       .get(`${BackendURL}/post`, {
-        headers: { "auth-token": window.sessionStorage.getItem("curToken") }
+        headers: { "auth-token": window.sessionStorage.getItem("curToken") },
       })
-      .then(response => {
+      .then((response) => {
         console.log(response.data);
         this.setState({ userPosts: response.data });
         this.allUserProfile();
       });
+  };
+
+  manageVideoImgSection = (imagesElements, videoElements) => {
+    var images = document.querySelectorAll(imagesElements);
+    var videos = document.querySelectorAll(videoElements);
+    //iterate through images to determine which should be hidden
+    images.forEach((element) => {
+      if (element.src === "") {
+        element.style.display = "none";
+      }
+    });
+
+    //iterate through videos to determine which should be hidden
+    videos.forEach((element) => {
+      console.log(element.src);
+      if (element.src === "") {
+        element.style.display = "none";
+      }
+    });
+  };
+
+  moreButtonManageHandler = (contentElements) => {
+    var allContents = document.querySelectorAll(contentElements);
+    console.log(allContents);
+    allContents.forEach((element) => {
+      let text = element.children[1];
+      let more = element.children[2];
+      console.log(text);
+      console.log(more);
+      // if true means not overflowing
+      console.log(text.scrollWidth);
+      console.log(text.clientWidth);
+      if (text.scrollWidth === text.clientWidth) {
+        more.style.display = "none";
+      }
+    });
   };
 
   formatLoggedinUserPosts = () => {
@@ -117,7 +230,7 @@ export default class userProfile extends Component {
           <div
             className="userProfile__posts--content"
             key={index}
-            onClick={e => {
+            onClick={(e) => {
               console.log(e.currentTarget);
               console.log(index);
               console.log(element);
@@ -130,10 +243,12 @@ export default class userProfile extends Component {
               <img
                 className="userProfile__posts--content--container-img"
                 alt="This is img section"
+                src={element.images}
               ></img>
               <video
                 className="userProfile__posts--content--container-video"
                 alt="This is video section"
+                src={element.videos}
               ></video>
             </div>
             <div className="userProfile__posts--content--likes">
@@ -147,25 +262,43 @@ export default class userProfile extends Component {
               </div>
             </div>
             <div className="userProfile__posts--content--comments">
-              {this.commentsArrayRender(element.comments)}
+              {this.commentsArrayRender(element.content, element.comments)}
             </div>
           </div>
         );
 
         resultDOM.push(tempDOM);
       });
+      // normal post section
+      this.manageVideoImgSection(
+        ".userProfile__posts--content--container-img",
+        ".userProfile__posts--content--container-video"
+      );
+      /* manage visiablity of more button, does not return any DOM element */
+      this.moreButtonManageHandler(
+        ".userProfile__posts--content--comments-content"
+      );
+
+      // preview section
+      this.manageVideoImgSection(
+        ".preview--content-img",
+        ".preview--content-video"
+      );
+      /* manage visiablity of more button, does not return any DOM element */
+      this.moreButtonManageHandler(".preview--comments-content");
+
       return resultDOM;
     }
   };
 
-  postLargePreview = element => {
+  postLargePreview = (element) => {
     return (
       <div className="preview">
         <img
           className="preview__close"
           src={blackClose}
           alt="close icon"
-          onClick={e => {
+          onClick={(e) => {
             console.log("closebutton clicked");
             e.cancelBubble = true;
             if (e.stopPropagation()) {
@@ -190,10 +323,15 @@ export default class userProfile extends Component {
           </div>
         </div>
         <div className="preview--content">
-          <img className="preview--content-img" alt="This is img section"></img>
+          <img
+            className="preview--content-img"
+            alt="This is img section"
+            src={element.images}
+          ></img>
           <video
             className="preview--content-video"
             alt="This is video section"
+            src={element.videos}
           ></video>
         </div>
         <div className="preview--likes">
@@ -205,7 +343,7 @@ export default class userProfile extends Component {
           <div className="preview--likes-number">{element.likes}</div>
         </div>
         <div className="preview--comments">
-          {this.largeCommentRender(element.comments)}
+          {this.largeCommentRender(element.content, element.comments)}
         </div>
         <div className="preview--addComments">
           <input

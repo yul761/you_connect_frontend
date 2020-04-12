@@ -17,6 +17,20 @@ export default class postsPage extends Component {
     this.allUserPosts();
   }
 
+  // static getDerivedStateFromProps(props, state) {
+  //   console.log("alskdfhalskjdfhalskdjfhalskdjfhalskdjfhalskdfjah");
+  //   return { userData: props.userData };
+  // }
+
+  componentDidUpdate(prevProps, prevState) {
+    const { userData } = this.props;
+    console.log(this.props);
+    if (prevProps.userData !== userData) {
+      this.setState({ userData: userData });
+      console.log(this.props.userData);
+    }
+  }
+
   moreButtonManageHandler = () => {
     var allContents = document.querySelectorAll(
       ".postPage__posts--comments-content"
@@ -72,13 +86,13 @@ export default class postsPage extends Component {
     });
   };
 
-  commentsArrayRender = (content, array) => {
+  commentsArrayRender = (posterID, content, array) => {
     var resultCommentsDOM = [];
     // first comment which is the text part of the post post by the loggedin user
     let userContent = (
       <div className="postPage__posts--comments-content" key={0}>
         <div className="postPage__posts--comments-content-username">
-          {this.state.userData.username}
+          {this.findUserProfilebyID(posterID)}
         </div>
         <div className="postPage__posts--comments-content-text">{content}</div>
         <div
@@ -216,7 +230,11 @@ export default class postsPage extends Component {
             <div className="postPage__posts--likes-number">{element.likes}</div>
           </div>
           <div className="postPage__posts--comments">
-            {this.commentsArrayRender(element.content, element.comments)}
+            {this.commentsArrayRender(
+              element.userid,
+              element.content,
+              element.comments
+            )}
           </div>
           <div className="postPage__posts--addComments">
             <textarea

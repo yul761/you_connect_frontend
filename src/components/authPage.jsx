@@ -8,7 +8,7 @@ export default class authPage extends Component {
     this.state = {};
   }
 
-  SignUp = e => {
+  SignUp = (e) => {
     e.preventDefault();
     let username = e.target.username.value;
     let email = e.target.email.value;
@@ -21,10 +21,10 @@ export default class authPage extends Component {
       let profile = {
         username: username,
         email: email,
-        password: password
+        password: password,
       };
 
-      axios.post(`${BackendURL}/auth/signup`, profile).then(response => {
+      axios.post(`${BackendURL}/auth/signup`, profile).then((response) => {
         console.log(response);
         // store secret token into browser session storage to stay login before browser is closed
         window.sessionStorage.setItem("curToken", response.data.accesstoken);
@@ -37,16 +37,16 @@ export default class authPage extends Component {
     }
   };
 
-  LogIn = e => {
+  LogIn = (e) => {
     e.preventDefault();
     let email = e.target.email.value;
     let password = e.target.password.value;
     let profile = {
       email: email,
-      password: password
+      password: password,
     };
 
-    axios.post(`${BackendURL}/auth/login`, profile).then(response => {
+    axios.post(`${BackendURL}/auth/login`, profile).then((response) => {
       console.log(response);
       // store secret token into browser session storage to stay login before browser is closed
       window.sessionStorage.setItem("curToken", response.data.accesstoken);
@@ -71,7 +71,7 @@ export default class authPage extends Component {
         </div>
         <div className="authPage__title">Welcome to YouConnect</div>
         {/* Login Section */}
-        <form className="authPage__login" onSubmit={e => this.LogIn(e)}>
+        <form className="authPage__login" onSubmit={(e) => this.LogIn(e)}>
           <label className="authPage__login--email">E-mail</label>
           <input
             className="authPage__login--emailInput"
@@ -92,7 +92,7 @@ export default class authPage extends Component {
         </form>
 
         {/* Signup Section */}
-        <form className="authPage__signup" onSubmit={e => this.SignUp(e)}>
+        <form className="authPage__signup" onSubmit={(e) => this.SignUp(e)}>
           <label className="authPage__signup--username">User Name</label>
           <input
             className="authPage__signup--usernameInput"
