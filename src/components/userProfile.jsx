@@ -12,6 +12,7 @@ export default class userProfile extends Component {
       isLoggedOut: false,
       userPosts: null,
       allUserProfile: null,
+      previewContent: null,
     };
   }
 
@@ -118,12 +119,8 @@ export default class userProfile extends Component {
             var text = contentElement.children[1];
             var moreButton = e.currentTarget;
             text.style.whiteSpace = "normal";
-            contentElement.style.height = "45%";
+            contentElement.style.height = "50%";
             moreButton.style.display = "none";
-            /*********************debug process***************************/
-            console.log(text.scrollWidth);
-            console.log(text.scrollHeight);
-            console.log(text.clientWidth);
           }}
         >
           more
@@ -150,7 +147,7 @@ export default class userProfile extends Component {
               var text = contentElement.children[1];
               var moreButton = e.currentTarget;
               text.style.whiteSpace = "normal";
-              contentElement.style.height = "45%";
+              contentElement.style.height = "50%";
               moreButton.style.display = "none";
             }}
           >
@@ -160,7 +157,6 @@ export default class userProfile extends Component {
       );
       resultCommentsDOM.push(tempDOM);
     });
-
     return resultCommentsDOM;
   };
 
@@ -212,16 +208,23 @@ export default class userProfile extends Component {
     var videos = document.querySelectorAll(videoElements);
     //iterate through images to determine which should be hidden
     images.forEach((element) => {
+      console.log("Image source is : ");
+      console.log(element.src);
       if (element.src === "") {
         element.style.display = "none";
+      } else {
+        element.style.display = "flex";
       }
     });
 
     //iterate through videos to determine which should be hidden
     videos.forEach((element) => {
+      console.log("Video source is : ");
       console.log(element.src);
       if (element.src === "") {
         element.style.display = "none";
+      } else {
+        element.style.display = "flex";
       }
     });
   };
@@ -261,18 +264,19 @@ export default class userProfile extends Component {
               console.log(e.currentTarget);
               console.log(index);
               console.log(element);
+              this.setState({ previewContent: element }, () => {
+                /* preview section */
+                this.manageVideoImgSection(
+                  ".preview--content-img",
+                  ".preview--content-video"
+                );
+                /* manage visiablity of more button, does not return any DOM element */
+                this.moreButtonManageHandler(".preview--comments-content");
+              });
               var previewDOM = document.querySelector(".preview");
               previewDOM.style.display = "block";
-              /* preview section */
-              this.manageVideoImgSection(
-                ".preview--content-img",
-                ".preview--content-video"
-              );
-              /* manage visiablity of more button, does not return any DOM element */
-              this.moreButtonManageHandler(".preview--comments-content");
             }}
           >
-            {this.postLargePreview(element)}
             <div className="userProfile__posts--content--container">
               <img
                 className="userProfile__posts--content--container-img"
@@ -317,79 +321,102 @@ export default class userProfile extends Component {
     }
   };
 
+  componentDidUpdate(prevProps, prevState) {
+    // if (prevState.previewContent !== this.state.preview) {
+    //   //reset style for comments content
+    //   var contents = document.querySelectorAll(".preview--comments-content");
+    //   var text = document.querySelectorAll(".preview--comments-content-text");
+    //   var more = document.querySelectorAll(".preview--comments-content-more");
+    //   contents.forEach((el) => {
+    //     el.style.height = "30%";
+    //   });
+    //   text.forEach((el) => {
+    //     el.style.whiteSpace = "nowrap";
+    //   });
+    //   more.forEach((el) => {
+    //     el.style.display = "flex";
+    //   });
+    // }
+  }
   postLargePreview = (element) => {
-    return (
-      <div className="preview">
-        <img
-          className="preview__close"
-          src={blackClose}
-          alt="close icon"
-          onClick={(e) => {
-            console.log("closebutton clicked");
-            e.cancelBubble = true;
-            if (e.stopPropagation()) {
-              e.stopPropagation();
-            }
+    if (this.state.previewContent === null) {
+      return <div className="preview">Loading...</div>;
+    } else {
+      return (
+        <div className="preview">
+          <img
+            className="preview__close"
+            src={blackClose}
+            alt="close icon"
+            onClick={(e) => {
+              console.log("closebutton clicked");
+              e.cancelBubble = true;
+              if (e.stopPropagation()) {
+                e.stopPropagation();
+              }
 
-            var preview = document.getElementsByClassName("preview")[0];
-            preview.style.display = "none";
-            console.log(preview);
-            console.log(preview.style);
-            console.log("onclick action finished");
-          }}
-        ></img>
-        <div className="preview--header">
-          <div className="preview--header-username">
-            {this.findUserProfilebyID(element.userid)}
-          </div>
-          <div className="preview--header-editbutton">
-            <div className="preview--header-editbutton-line line1"></div>
-            <div className="preview--header-editbutton-line line2"></div>
-            <div className="preview--header-editbutton-line line3"></div>
-          </div>
-        </div>
-        <div className="preview--content">
-          <img
-            className="preview--content-img"
-            alt="This is img section"
-            src={element.images}
+              var preview = document.getElementsByClassName("preview")[0];
+              preview.style.display = "none";
+              console.log(preview);
+              console.log(preview.style);
+              console.log("onclick action finished");
+            }}
           ></img>
-          <video
-            className="preview--content-video"
-            alt="This is video section"
-            src={element.videos}
-          ></video>
-        </div>
-        <div className="preview--likes">
-          <img
-            className="preview--likes-icon"
-            src={likes}
-            alt="This is like icon"
-          />
-          <div className="preview--likes-number">{element.likes}</div>
-        </div>
-        <div className="preview--comments">
-          {this.largeCommentRender(element.content, element.comments)}
-        </div>
-        <div className="preview--addComments">
-          <textarea
-            type="text"
-            className="preview--addComments--input"
-            placeholder="Enter your comment here"
-          />
-          <div className="preview--addComments--post">
-            <button
-              className="preview--addComments--post--button"
-              onClick={(e) => {
-                this.addCommentSubmitHandler(e, element._id);
-              }}
-            >
-              POST
-            </button>
+          <div className="preview--header">
+            <div className="preview--header-username">
+              {this.findUserProfilebyID(element.userid)}
+            </div>
+            <div className="preview--header-editbutton">
+              <div className="preview--header-editbutton-line line1"></div>
+              <div className="preview--header-editbutton-line line2"></div>
+              <div className="preview--header-editbutton-line line3"></div>
+            </div>
+          </div>
+          <div className="preview--content">
+            <img
+              className="preview--content-img"
+              alt="This is img section"
+              src={element.images}
+            ></img>
+            <video
+              className="preview--content-video"
+              alt="This is video section"
+              src={element.videos}
+              controls
+              autoPlay
+            ></video>
+          </div>
+          <div className="preview--likes">
+            <img
+              className="preview--likes-icon"
+              src={likes}
+              alt="This is like icon"
+            />
+            <div className="preview--likes-number">{element.likes}</div>
+          </div>
+          <div className="preview--comments">
+            {this.largeCommentRender(element.content, element.comments)}
+          </div>
+          <div className="preview--addComments">
+            <textarea
+              type="text"
+              className="preview--addComments--input"
+              placeholder="Enter your comment here"
+            />
+            <div className="preview--addComments--post">
+              <button
+                className="preview--addComments--post--button"
+                onClick={(e) => {
+                  this.addCommentSubmitHandler(e, element._id);
+                }}
+              >
+                POST
+              </button>
+            </div>
           </div>
         </div>
-      </div>
-    );
+      );
+    }
   };
 
   render() {
@@ -409,6 +436,7 @@ export default class userProfile extends Component {
     } else {
       return (
         <div className="userProfile">
+          {this.postLargePreview(this.state.previewContent)}
           <div className="userProfile__userInformation">
             <div className="userProfile__userInformation--username">
               <div className="userProfile__userInformation--username-label">

@@ -227,6 +227,8 @@ export default class postsPage extends Component {
             <video
               className="postPage__posts--content-video"
               src={element.videos}
+              controls
+              autoPlay
             >
               Your browser does not support this video
             </video>
