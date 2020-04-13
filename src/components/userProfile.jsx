@@ -421,6 +421,7 @@ export default class userProfile extends Component {
 
   render() {
     console.log(this.state.userData);
+
     if (this.state.userData === null && this.state.userPosts === null) {
       return (
         <div className="userProfileloading">
@@ -434,6 +435,9 @@ export default class userProfile extends Component {
         </div>
       );
     } else {
+      /***************Change Tab title*********************/
+      document.getElementById("tabtitle").innerHTML =
+        this.state.userData.username + " - YouConnect";
       return (
         <div className="userProfile">
           {this.postLargePreview(this.state.previewContent)}

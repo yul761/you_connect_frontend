@@ -196,7 +196,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: white;
+  background-color: rgba(var(--b3f, 250, 250, 250), 1);
 
   &__userInformation {
     display: flex;
@@ -546,7 +546,7 @@
 
       &--content {
         width: 30%;
-        height: 60%;
+        height: 70%;
       }
     }
   }

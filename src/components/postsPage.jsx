@@ -339,6 +339,8 @@ export default class postsPage extends Component {
     ) {
       return <div className="postPage">Loading ... </div>;
     } else {
+      /***************Change Tab title*********************/
+      document.getElementById("tabtitle").innerHTML = "YouConnect";
       return (
         <div className="postPage">
           <div className="desktop__wrapper">

@@ -4,7 +4,8 @@
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  background-color: white;
+  background-color: rgb(255, 255, 255);
+  border-bottom: 1px lightgrey solid;
 
   &__burgerNav {
     width: 20%;
@@ -45,7 +46,7 @@
     width: 30%;
     height: 92vh;
     top: 9vh;
-    background-color: white;
+    background-color: rgb(255, 255, 255);
     transform: translateX(-100%);
     transition: transform 0.5s ease-in;
     font-family: "Oswald", sans-serif;
@@ -53,9 +54,13 @@
     font-size: 1.3rem;
 
     &--home {
-      margin: 10%;
-      width: 80%;
-      text-align: center;
+      width: 100%;
+
+      &--label {
+        margin: 10%;
+        width: 80%;
+        text-align: center;
+      }
     }
 
     &--about {
@@ -127,7 +132,11 @@
       transition: none;
       &--home {
         width: 35%;
-        margin: 0;
+        &--label {
+          // width: 35%;
+          width: 100%;
+          margin: 0;
+        }
       }
 
       &--about {

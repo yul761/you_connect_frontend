@@ -10,7 +10,7 @@ export default class header extends Component {
     this.state = {
       showUserProfile: false,
       userData: null,
-      usernameInitial: null
+      usernameInitial: null,
     };
   }
   burgerNavClicked = () => {
@@ -25,9 +25,9 @@ export default class header extends Component {
   userprofile = () => {
     axios
       .get(`${BackendURL}/userInfo`, {
-        headers: { "auth-token": window.sessionStorage.getItem("curToken") }
+        headers: { "auth-token": window.sessionStorage.getItem("curToken") },
       })
-      .then(response => {
+      .then((response) => {
         // this.setState({ curUser: response.data });
         console.log(response.data);
         this.setState({ userData: response.data });
@@ -44,7 +44,7 @@ export default class header extends Component {
     }
 
     this.setState({
-      showUserProfile: window.sessionStorage.getItem("isLoggedIn")
+      showUserProfile: window.sessionStorage.getItem("isLoggedIn"),
     });
     console.log(this.state.userData);
   }
@@ -108,7 +108,9 @@ export default class header extends Component {
           ></img>
         </div>
         <ul className="header__navLink">
-          <ol className="header__navLink--home">HOME</ol>
+          <Link className="header__navLink--home" to="/main">
+            <ol className="header__navLink--home--label">HOME</ol>
+          </Link>
           <ol className="header__navLink--about">ABOUT</ol>
         </ul>
         <div className="header__login">
