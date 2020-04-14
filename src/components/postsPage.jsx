@@ -337,7 +337,11 @@ export default class postsPage extends Component {
       this.state.allUserPosts === null &&
       this.state.allUserProfile === null
     ) {
-      return <div className="postPage">Loading ... </div>;
+      return (
+        <div className="postPage">
+          <div className="postPage__loader"></div>
+        </div>
+      );
     } else {
       /***************Change Tab title*********************/
       document.getElementById("tabtitle").innerHTML = "YouConnect";

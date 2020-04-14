@@ -636,6 +636,21 @@ html {
   z-index: 10;
 }
 
+.preview__loader {
+  border: 10px solid #f3f3f3;
+  /* Light grey */
+  border-top: 10px solid #504c4c;
+  /* Blue */
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  -webkit-animation: spin 2s linear infinite;
+          animation: spin 2s linear infinite;
+  position: absolute;
+  top: 50%;
+  left: 40%;
+}
+
 .preview__close {
   position: absolute;
   top: 0;
@@ -1139,6 +1154,9 @@ html {
     left: 0;
     right: 0;
   }
+  .preview__loader {
+    left: 45%;
+  }
   .preview__close {
     right: 0;
     width: 40px;
@@ -1293,6 +1311,21 @@ html {
 .postPage {
   width: 100vw;
   height: 91vh;
+}
+
+.postPage__loader {
+  border: 10px solid #f3f3f3;
+  /* Light grey */
+  border-top: 10px solid #504c4c;
+  /* Blue */
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  -webkit-animation: spin 2s linear infinite;
+          animation: spin 2s linear infinite;
+  position: absolute;
+  top: 50%;
+  left: 40%;
 }
 
 .postPage__userProfile {
@@ -1526,6 +1559,9 @@ html {
 }
 
 @media only screen and (min-width: 768px) {
+  .postPage__loader {
+    left: 45%;
+  }
   .postPage__posts {
     width: 80%;
     margin: 2% 10%;

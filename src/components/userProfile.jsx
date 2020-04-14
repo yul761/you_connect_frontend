@@ -340,7 +340,11 @@ export default class userProfile extends Component {
   }
   postLargePreview = (element) => {
     if (this.state.previewContent === null) {
-      return <div className="preview">Loading...</div>;
+      return (
+        <div className="preview">
+          <div className="preview__loader"></div>
+        </div>
+      );
     } else {
       return (
         <div className="preview">
