@@ -3,7 +3,7 @@ import axios from "axios";
 import likes from "../assets/Icon-likes.png";
 import blackClose from "../assets/blackCloseIcon.png";
 
-const BackendURL = "http://3.15.233.84:4000";
+const BackendURL = "https://you-connect-backend.herokuapp.com";
 export default class userProfile extends Component {
   constructor(props) {
     super(props);

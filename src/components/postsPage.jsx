@@ -4,7 +4,7 @@ import likes from "../assets/Icon-likes.png";
 import { Link } from "react-router-dom";
 import AddComment from "./addComment";
 
-const BackendURL = "http://3.15.233.84:4000";
+const BackendURL = "https://you-connect-backend.herokuapp.com";
 export default class postsPage extends Component {
   constructor(props) {
     super(props);

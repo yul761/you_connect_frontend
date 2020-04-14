@@ -5,7 +5,7 @@ import axios from "axios";
 import { Switch, Route } from "react-router-dom";
 import PostsPage from "../components/postsPage";
 
-const BackendURL = "http://3.15.233.84:4000";
+const BackendURL = "https://you-connect-backend.herokuapp.com";
 var flag = false;
 
 export default class mainPage extends Component {

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 
-const BackendURL = "http://3.15.233.84:4000";
+const BackendURL = "https://you-connect-backend.herokuapp.com";
 export default class authPage extends Component {
   constructor() {
     super();
