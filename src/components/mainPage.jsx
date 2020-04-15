@@ -4,6 +4,7 @@ import UserProfile from "./userProfile";
 import axios from "axios";
 import { Switch, Route } from "react-router-dom";
 import PostsPage from "../components/postsPage";
+import EditProfile from "../components/editProfile";
 
 const BackendURL = "https://you-connect-backend.herokuapp.com";
 var flag = false;
@@ -77,6 +78,7 @@ export default class mainPage extends Component {
         <Switch>
           <Route
             path="/main/userprofile"
+            exact
             component={(props) => (
               <UserProfile
                 {...props}
@@ -87,6 +89,7 @@ export default class mainPage extends Component {
           />
           <Route
             path="/main"
+            exact
             component={(props) => (
               <PostsPage
                 {...props}
@@ -95,6 +98,7 @@ export default class mainPage extends Component {
               />
             )}
           />
+          <Route path="/main/account/edit" exact component={EditProfile} />
         </Switch>
       </div>
     );

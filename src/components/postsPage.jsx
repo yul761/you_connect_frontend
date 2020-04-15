@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import likes from "../assets/Icon-likes.png";
 import { Link } from "react-router-dom";
-import AddComment from "./addComment";
+import AddComment from "./subcomponents/addComment";
 
 const BackendURL = "https://you-connect-backend.herokuapp.com";
 export default class postsPage extends Component {

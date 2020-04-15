@@ -1,0 +1,61 @@
+.editProfile {
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+  height: 91vh;
+
+  &__callSidebar {
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    left: 0;
+    top: 50vh;
+    z-index: 5;
+  }
+  &__sidebar {
+    width: 30%;
+    height: 100%;
+    border-right: 1px lightgrey solid;
+    position: absolute;
+    transform: translateX(-100%);
+    transition: transform 0.5s ease-in-out;
+
+    &--list {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-family: "Oswald", sans-serif;
+      font-size: 1rem;
+      transition: 0.3s;
+      &-content {
+        width: 80%;
+        margin: 10%;
+      }
+    }
+  }
+
+  &__content {
+    width: 100%;
+    height: 100%;
+    margin-left: 0;
+    background-color: green;
+    transition: margin-left 0.5s ease-in-out;
+  }
+}
+.sideBar_active {
+  transform: translateX(0%);
+}
+
+.background_active {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.sideContent_active {
+  margin-left: 30%;
+}
+
+.sideContent_marginChange {
+  margin-left: 30%;
+}

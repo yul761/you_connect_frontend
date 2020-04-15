@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import imageIcon from "../assets/image.png";
-import videoIcon from "../assets/video.png";
+import imageIcon from "../../assets/image.png";
+import videoIcon from "../../assets/video.png";
 import $ from "jquery";
 import axios from "axios";
 
@@ -26,7 +26,7 @@ export default class addComment extends Component {
     );
     form.style.height = "90%";
     container.style.height = "50%";
-    preview.style.display = "block";
+    preview.style.display = "flex";
     videoPreview.style.display = "none";
     imagePreview.style.display = "flex";
 
@@ -66,7 +66,7 @@ export default class addComment extends Component {
     );
     form.style.height = "90%";
     container.style.height = "50%";
-    preview.style.display = "block";
+    preview.style.display = "flex";
     videoPreview.style.display = "flex";
     imagePreview.style.display = "none";
 
@@ -126,6 +126,7 @@ export default class addComment extends Component {
 
     axios(postOption).then((response) => {
       console.log(response.data);
+      window.location.replace("/main");
     });
 
     console.log(content);

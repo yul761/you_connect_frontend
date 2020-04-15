@@ -902,6 +902,10 @@ html {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -911,6 +915,38 @@ html {
   font-family: "Oswald", sans-serif;
   font-weight: bold;
   font-size: 2rem;
+}
+
+.userProfile__userInformation--username--profileEdit {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 20%;
+  height: 40%;
+}
+
+.userProfile__userInformation--username--profileEdit--button {
+  width: 80%;
+  margin: 10% 0;
+  height: 100%;
+  font-size: 1.1rem;
+  color: #979696;
+  border: 1px lightgray solid;
+  border-radius: 8px;
+}
+
+.userProfile__userInformation--username--profileEdit--button:focus {
+  outline: none;
 }
 
 .userProfile__userInformation--info {
@@ -1219,9 +1255,12 @@ html {
   .userProfile__userInformation--username {
     width: 50%;
     margin: 0 25%;
-    -webkit-box-pack: start;
-        -ms-flex-pack: start;
-            justify-content: flex-start;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .userProfile__userInformation--username--profileEdit {
+    height: 50%;
   }
   .userProfile__userInformation--info {
     width: 50%;
@@ -1826,6 +1865,10 @@ html {
   border: none;
 }
 
+.uploadForm__form--container--upload--image--button:focus {
+  outline: none;
+}
+
 .uploadForm__form--container--upload--image--button--icon {
   width: 30px;
   height: 30px;
@@ -1841,6 +1884,10 @@ html {
   border: none;
 }
 
+.uploadForm__form--container--upload--video--button:focus {
+  outline: none;
+}
+
 .uploadForm__form--container--upload--video--button--icon {
   width: 30px;
   height: 30px;
@@ -1852,16 +1899,26 @@ html {
   width: 100%;
   height: 35%;
   border: 1px solid black;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .uploadForm__form--preview--img {
-  width: 100%;
-  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
 }
 
 .uploadForm__form--preview--video {
-  width: 100%;
-  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
 }
 
 .uploadForm__form--submit {
@@ -2075,5 +2132,89 @@ html {
   .addComment__form--submit--button {
     font-size: 1.7rem;
   }
+}
+
+.editProfile {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  width: 100vw;
+  height: 91vh;
+}
+
+.editProfile__callSidebar {
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  left: 0;
+  top: 50vh;
+  z-index: 5;
+}
+
+.editProfile__sidebar {
+  width: 30%;
+  height: 100%;
+  border-right: 1px lightgrey solid;
+  position: absolute;
+  -webkit-transform: translateX(-100%);
+          transform: translateX(-100%);
+  -webkit-transition: -webkit-transform 0.5s ease-in-out;
+  transition: -webkit-transform 0.5s ease-in-out;
+  transition: transform 0.5s ease-in-out;
+  transition: transform 0.5s ease-in-out, -webkit-transform 0.5s ease-in-out;
+}
+
+.editProfile__sidebar--list {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-family: "Oswald", sans-serif;
+  font-size: 1rem;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.editProfile__sidebar--list-content {
+  width: 80%;
+  margin: 10%;
+}
+
+.editProfile__content {
+  width: 100%;
+  height: 100%;
+  margin-left: 0;
+  background-color: green;
+  -webkit-transition: margin-left 0.5s ease-in-out;
+  transition: margin-left 0.5s ease-in-out;
+}
+
+.sideBar_active {
+  -webkit-transform: translateX(0%);
+          transform: translateX(0%);
+}
+
+.background_active {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.sideContent_active {
+  margin-left: 30%;
+}
+
+.sideContent_marginChange {
+  margin-left: 30%;
 }
 /*# sourceMappingURL=main.css.map */

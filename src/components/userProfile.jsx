@@ -441,7 +441,7 @@ export default class userProfile extends Component {
     } else {
       /***************Change Tab title*********************/
       document.getElementById("tabtitle").innerHTML =
-        this.state.userData.username + " - YouConnect";
+        "@" + this.state.userData.username + " - YouConnect";
       return (
         <div className="userProfile">
           {this.postLargePreview(this.state.previewContent)}
@@ -449,6 +449,17 @@ export default class userProfile extends Component {
             <div className="userProfile__userInformation--username">
               <div className="userProfile__userInformation--username-label">
                 {this.state.userData.username}
+              </div>
+              <div className="userProfile__userInformation--username--profileEdit">
+                <button
+                  className="userProfile__userInformation--username--profileEdit--button"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    this.props.history.push("/main/account/edit");
+                  }}
+                >
+                  Edit
+                </button>
               </div>
             </div>
 

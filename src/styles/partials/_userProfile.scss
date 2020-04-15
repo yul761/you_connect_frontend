@@ -220,11 +220,34 @@
       width: 100%;
       height: 40%;
       display: flex;
+      flex-direction: row;
       justify-content: center;
       align-items: center;
       font-family: "Oswald", sans-serif;
       font-weight: bold;
       font-size: 2rem;
+
+      &--profileEdit {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        width: 20%;
+        height: 40%;
+
+        &--button {
+          width: 80%;
+          margin: 10% 0;
+          height: 100%;
+          font-size: 1.1rem;
+          color: rgb(151, 150, 150);
+          border: 1px lightgray solid;
+          border-radius: 8px;
+          &:focus {
+            outline: none;
+          }
+        }
+      }
     }
 
     &--info {
@@ -477,7 +500,10 @@
       &--username {
         width: 50%;
         margin: 0 25%;
-        justify-content: flex-start;
+        justify-content: space-between;
+        &--profileEdit {
+          height: 50%;
+        }
       }
 
       &--info {
