@@ -319,10 +319,10 @@ export default class postsPage extends Component {
                 {this.state.userData.email}
               </ol>
               <ol className="postPage__userProfile--userInformation--info-github">
-                This is github address
+                {this.state.userData.github}
               </ol>
               <ol className="postPage__userProfile--userInformation--info-linkedin">
-                This is linkedIn Address
+                {this.state.userData.linkedin}
               </ol>
             </ul>
           </div>

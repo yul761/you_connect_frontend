@@ -44,23 +44,6 @@ export default class mainPage extends Component {
 
   componentDidUpdate(prevProps, prevState) {
     flag = false;
-    // console.log(window.sessionStorage.getItem("isLoggedIn") === "true");
-    // console.log(this.state.userData === null);
-    // console.log(prevProps.location.pathname);
-    // console.log(this.props.location.pathname);
-    // this.props.history.listen((location, action) => {
-    //   console.log(location.pathname);
-    //   if (location.pathname === "/main") {
-    //     console.log(window.sessionStorage.getItem("isLoggedIn") === "true");
-    //     console.log(this.state.userData === null);
-    //     if (
-    //       window.sessionStorage.getItem("isLoggedIn") === "true" &&
-    //       this.state.userData === null
-    //     ) {
-    //       this.userprofile();
-    //     }
-    //   }
-    // });
 
     if (
       window.sessionStorage.getItem("isLoggedIn") === "true" &&

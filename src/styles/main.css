@@ -2147,12 +2147,30 @@ html {
 }
 
 .editProfile__callSidebar {
-  width: 80px;
-  height: 80px;
+  width: 40px;
+  height: 40px;
   position: absolute;
   left: 0;
   top: 50vh;
   z-index: 5;
+  border: none;
+  background-color: none;
+  -webkit-transition: padding-left 0.5s ease-in, font-size 0.5s ease-in;
+  transition: padding-left 0.5s ease-in, font-size 0.5s ease-in;
+  -webkit-transform: translateX(-70%);
+          transform: translateX(-70%);
+  font-size: 1rem;
+}
+
+.editProfile__callSidebar:hover {
+  padding-left: 15px;
+  font-size: 1.3rem;
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+}
+
+.editProfile__callSidebar:focus {
+  outline: none;
 }
 
 .editProfile__sidebar {
@@ -2192,13 +2210,147 @@ html {
   margin: 10%;
 }
 
+.editProfile__sidebar--list-editProfile {
+  border-bottom: thick solid black;
+}
+
 .editProfile__content {
   width: 100%;
   height: 100%;
   margin-left: 0;
-  background-color: green;
   -webkit-transition: margin-left 0.5s ease-in-out;
   transition: margin-left 0.5s ease-in-out;
+}
+
+.editProfileTab {
+  width: 100%;
+  height: 100%;
+}
+
+.editProfileTab__loader {
+  border: 10px solid #f3f3f3;
+  /* Light grey */
+  border-top: 10px solid #504c4c;
+  /* Blue */
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  -webkit-animation: spin 2s linear infinite;
+          animation: spin 2s linear infinite;
+  position: absolute;
+  top: 50%;
+  left: 40%;
+}
+
+.editProfileTab__form {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.editProfileTab__form--content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 90%;
+  height: 10%;
+  margin: 1%;
+}
+
+.editProfileTab__form--content--label {
+  width: 25%;
+  margin-right: 5%;
+  height: 50%;
+  text-align: center;
+  font-family: "Crimson Text", serif;
+  font-size: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.editProfileTab__form--content--input {
+  width: 70%;
+  height: 80%;
+  font-size: 0.9rem;
+}
+
+.editProfileTab__form--content--input:focus {
+  outline: none;
+}
+
+.editProfileTab__form--bio {
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  height: 15%;
+  margin-bottom: 0.7%;
+}
+
+.editProfileTab__form--email {
+  margin-top: 0.7%;
+}
+
+.editProfileTab__form--submit {
+  width: 90%;
+  height: 15%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.editProfileTab__form--submit--button {
+  width: 50%;
+  height: 60%;
+  border: 1px lightgray solid;
+  border-radius: 8px;
+  font-family: "Crimson Text", serif;
+  font-size: 1.3rem;
+  color: white;
+  font-weight: bold;
+  background-color: #0095f6;
+  opacity: 0.4;
+}
+
+.editProfileTab__form--submit--button:focus {
+  outline: none;
 }
 
 .sideBar_active {
@@ -2207,7 +2359,7 @@ html {
 }
 
 .background_active {
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.185);
 }
 
 .sideContent_active {
@@ -2216,5 +2368,277 @@ html {
 
 .sideContent_marginChange {
   margin-left: 30%;
+}
+
+@media only screen and (min-width: 768px) {
+  .editProfile {
+    width: 80vw;
+    height: 71vh;
+    border: 1px lightgray solid;
+    margin: 5vh 10vw 15vh 10vw;
+  }
+  .editProfile__callSidebar {
+    display: none;
+  }
+  .editProfile__sidebar {
+    width: 15%;
+    height: 71vh;
+    border-right: 1px lightgrey solid;
+    position: unset;
+    -webkit-transform: translateX(0%);
+            transform: translateX(0%);
+  }
+  .editProfile__sidebar--list {
+    font-size: 1.5rem;
+  }
+  .editProfile__content {
+    width: 85%;
+  }
+  .editProfileTab__loader {
+    left: 50%;
+  }
+  .editProfileTab__form--content--label {
+    font-size: 1.5rem;
+  }
+  .editProfileTab__form--content--input {
+    font-size: 1.3rem;
+  }
+  .editProfileTab__form--submit--button {
+    font-size: 1.9rem;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .editProfile {
+    width: 60vw;
+    height: 75vh;
+    margin-bottom: 11vh;
+    margin-left: 20vw;
+    margin-right: 20vw;
+  }
+  .editProfile__sidebar {
+    width: 12%;
+    height: 75vh;
+  }
+  .editProfile__content {
+    width: 88%;
+  }
+}
+
+.changePassword {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.changePassword__loader {
+  border: 10px solid #f3f3f3;
+  /* Light grey */
+  border-top: 10px solid #504c4c;
+  /* Blue */
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  -webkit-animation: spin 2s linear infinite;
+          animation: spin 2s linear infinite;
+  position: absolute;
+  top: 50%;
+  left: 40%;
+}
+
+.changePassword__username {
+  width: 100%;
+  height: 10%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 2% 0;
+}
+
+.changePassword__username--label {
+  width: 50%;
+  height: 80%;
+  margin-left: 5%;
+  font-family: "Crimson Text", serif;
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.changePassword__form {
+  width: 100%;
+  height: 80%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.changePassword__form--oldPW {
+  width: 100%;
+  height: 13%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  margin: 2% 0;
+  font-family: "Crimson Text", serif;
+  font-size: 1rem;
+}
+
+.changePassword__form--oldPW--label {
+  width: 100%;
+  margin-right: 5%;
+  margin-left: 5%;
+  height: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.changePassword__form--oldPW--input {
+  width: 90%;
+  height: 50%;
+  margin-left: 5%;
+  margin-right: 5%;
+  border: 1px lightgrey solid;
+  border-radius: 4px;
+  background-color: #ebebeb;
+}
+
+.changePassword__form--newPW {
+  width: 100%;
+  height: 13%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  margin: 2% 0;
+  font-family: "Crimson Text", serif;
+  font-size: 1rem;
+}
+
+.changePassword__form--newPW--label {
+  width: 100%;
+  margin-right: 5%;
+  margin-left: 5%;
+  height: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.changePassword__form--newPW--input {
+  width: 90%;
+  height: 50%;
+  margin-left: 5%;
+  margin-right: 5%;
+  border: 1px lightgrey solid;
+  border-radius: 4px;
+  background-color: #ebebeb;
+}
+
+.changePassword__form--newPWConfirm {
+  width: 100%;
+  height: 13%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  margin: 2% 0;
+  font-family: "Crimson Text", serif;
+  font-size: 1rem;
+}
+
+.changePassword__form--newPWConfirm--label {
+  width: 100%;
+  margin-right: 5%;
+  margin-left: 5%;
+  height: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.changePassword__form--newPWConfirm--input {
+  width: 90%;
+  height: 50%;
+  margin-left: 5%;
+  margin-right: 5%;
+  border: 1px lightgrey solid;
+  border-radius: 4px;
+  background-color: #ebebeb;
 }
 /*# sourceMappingURL=main.css.map */
