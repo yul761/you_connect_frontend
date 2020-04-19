@@ -40,11 +40,34 @@
       border-bottom: 1px lightgrey solid;
       background-color: white;
       &-username {
-        width: 15%;
+        width: 40%;
         height: 100%;
         font-family: "Crimson Text", serif;
         font-size: 1.3rem;
         text-align: center;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        &--profileImg {
+          width: 30%;
+          height: 100%;
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+          &--icon {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+          }
+        }
+
+        &--label {
+          width: 60%;
+          margin-left: 5%;
+          height: 100%;
+          text-align: left;
+        }
       }
       &-editbutton {
         width: 15%;
@@ -66,7 +89,6 @@
     &--content {
       width: 100%;
       height: 65%;
-
       background-color: white;
       display: flex;
       flex-direction: column;
@@ -101,6 +123,26 @@
           width: 30%;
           height: 100%;
           font-weight: bold;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          &--profileImg {
+            width: 30%;
+            height: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            &--icon {
+              width: 20px;
+              height: 20px;
+              max-height: 100%;
+            }
+          }
+          &--label {
+            width: 60%;
+            height: 75%;
+          }
         }
         &-text {
           width: 55%;
@@ -167,6 +209,7 @@
       flex-direction: row;
       justify-content: flex-start;
       align-items: center;
+      padding-left: 1%;
 
       &-icon {
         width: 20px;
@@ -180,6 +223,8 @@
         font-size: 1rem;
         text-align: center;
         color: rgb(146, 145, 145);
+        margin-top: 1%;
+        margin-bottom: 1%;
       }
     }
   }
@@ -195,12 +240,36 @@
       margin: 2% 10%;
       &--header {
         &-username {
-          font-size: 1.7rem;
+          &--profileImg {
+            &--icon {
+              width: 55px;
+              height: 55px;
+              max-height: 100%;
+            }
+          }
+
+          &--label {
+            height: 80%;
+            width: 40%;
+            font-size: 2rem;
+            margin-left: 2%;
+          }
         }
       }
 
       &--comments {
         font-size: 1.5rem;
+
+        &-content {
+          &-username {
+            &--profileImg {
+              &--icon {
+                width: 40px;
+                height: 40px;
+              }
+            }
+          }
+        }
       }
 
       &--addComments {
@@ -215,13 +284,14 @@
         }
       }
       &--likes {
+        padding-left: 3%;
         &-icon {
-          width: 35px;
-          height: 35px;
+          width: 25px;
+          height: 25px;
         }
         &-number {
-          width: 35px;
-          height: 35px;
+          width: 30px;
+          height: 30px;
           font-size: 1.5rem;
         }
       }
@@ -245,6 +315,42 @@
       height: 98%;
       margin: 0;
       margin-top: 2%;
+
+      &--comments {
+        &-content {
+          &-username {
+            &--profileImg {
+              &--icon {
+                width: 33px;
+                height: 33px;
+              }
+            }
+          }
+        }
+      }
+
+      &--header {
+        &-username {
+          &--profileImg {
+            &--icon {
+              width: 42px;
+              height: 42px;
+              max-height: 100%;
+            }
+          }
+          &--label {
+            font-size: 2rem;
+            margin-left: 1%;
+          }
+        }
+      }
+      &--likes {
+        &-icon {
+          width: 25px;
+          height: 25px;
+          margin-top: 1%;
+        }
+      }
     }
 
     &__userProfile {
@@ -276,12 +382,29 @@
           width: 100%;
           height: 40%;
           display: flex;
-          flex-direction: column;
-          justify-content: center;
+          flex-direction: row;
           align-items: center;
           font-family: "Oswald", sans-serif;
           font-weight: bold;
           font-size: 2rem;
+          &-profileImg {
+            width: 35%;
+            height: 35%;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            &--icon {
+              width: 45px;
+              height: 45px;
+            }
+          }
+
+          &-label {
+            width: 50%;
+            height: 35%;
+            text-align: left;
+          }
         }
 
         &--info {
@@ -297,21 +420,21 @@
           &-email {
             width: 45%;
             height: 30%;
-            margin-left: 45%;
+            margin-left: 40%;
             margin-right: 10%;
             color: rgb(167, 165, 165);
           }
           &-github {
             width: 45%;
             height: 30%;
-            margin-left: 45%;
+            margin-left: 40%;
             margin-right: 10%;
             color: rgb(167, 165, 165);
           }
           &-linkedin {
             width: 45%;
             height: 30%;
-            margin-left: 45%;
+            margin-left: 40%;
             margin-right: 10%;
             color: rgb(167, 165, 165);
           }

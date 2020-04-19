@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import likes from "../assets/Icon-likes.png";
 import blackClose from "../assets/blackCloseIcon.png";
+import DefaultUserProfileImg from "../assets/defaultUserProfileImg.png";
 
 const BackendURL = "https://you-connect-backend.herokuapp.com";
 export default class userProfile extends Component {
@@ -45,7 +46,16 @@ export default class userProfile extends Component {
     let userContent = (
       <div className="userProfile__posts--content--comments-content" key={0}>
         <div className="userProfile__posts--content--comments-content-username">
-          {this.state.userData.username}
+          <div className="userProfile__posts--content--comments-content-username--profileImg">
+            <img
+              className="userProfile__posts--content--comments-content-username--profileImg--icon"
+              alt="this is user profile img"
+              src={DefaultUserProfileImg}
+            />
+          </div>
+          <div className="userProfile__posts--content--comments-content-username--label">
+            {this.state.userData.username}
+          </div>
         </div>
         <div className="userProfile__posts--content--comments-content-text">
           {content}
@@ -76,7 +86,16 @@ export default class userProfile extends Component {
           key={index + 1}
         >
           <div className="userProfile__posts--content--comments-content-username">
-            {this.findUserProfilebyID(element.id)}
+            <div className="userProfile__posts--content--comments-content-username--profileImg">
+              <img
+                className="userProfile__posts--content--comments-content-username--profileImg--icon"
+                alt="this is user profile img"
+                src={DefaultUserProfileImg}
+              />
+            </div>
+            <div className="userProfile__posts--content--comments-content-username--label">
+              {this.findUserProfilebyID(element.id)}
+            </div>
           </div>
           <div className="userProfile__posts--content--comments-content-text">
             {element.comment}
@@ -108,7 +127,16 @@ export default class userProfile extends Component {
     let userContent = (
       <div className="preview--comments-content" key={0}>
         <div className="preview--comments-content-username">
-          {this.state.userData.username}
+          <div className="preview--comments-content-username--profileImg">
+            <img
+              className="preview--comments-content-username--profileImg--icon"
+              alt="this is user's profile img"
+              src={DefaultUserProfileImg}
+            />
+          </div>
+          <div className="preview--comments-content-username--label">
+            {this.state.userData.username}
+          </div>
         </div>
         <div className="preview--comments-content-text">{content}</div>
         <div
@@ -134,7 +162,16 @@ export default class userProfile extends Component {
       tempDOM = (
         <div className="preview--comments-content" key={index + 1}>
           <div className="preview--comments-content-username">
-            {this.findUserProfilebyID(element.id)}
+            <div className="preview--comments-content-username--profileImg">
+              <img
+                className="preview--comments-content-username--profileImg--icon"
+                alt="this is user's profile img"
+                src={DefaultUserProfileImg}
+              />
+            </div>
+            <div className="preview--comments-content-username--label">
+              {this.findUserProfilebyID(element.id)}
+            </div>
           </div>
           <div className="preview--comments-content-text">
             {element.comment}
@@ -248,7 +285,13 @@ export default class userProfile extends Component {
 
   formatLoggedinUserPosts = () => {
     console.log(this.state.userPosts);
-    if (this.state.userPosts === null || this.state.userPosts.length === 0) {
+    if (this.state.userData === null || this.state.userPosts === null) {
+      return (
+        <div className="userProfile__posts--loader">
+          <div className="userProfile__posts--loader-loading"></div>
+        </div>
+      );
+    } else if (this.state.userPosts.length === 0) {
       return (
         <div className="userProfile__posts--empty">Nothing is posted yet</div>
       );
@@ -321,23 +364,6 @@ export default class userProfile extends Component {
     }
   };
 
-  componentDidUpdate(prevProps, prevState) {
-    // if (prevState.previewContent !== this.state.preview) {
-    //   //reset style for comments content
-    //   var contents = document.querySelectorAll(".preview--comments-content");
-    //   var text = document.querySelectorAll(".preview--comments-content-text");
-    //   var more = document.querySelectorAll(".preview--comments-content-more");
-    //   contents.forEach((el) => {
-    //     el.style.height = "30%";
-    //   });
-    //   text.forEach((el) => {
-    //     el.style.whiteSpace = "nowrap";
-    //   });
-    //   more.forEach((el) => {
-    //     el.style.display = "flex";
-    //   });
-    // }
-  }
   postLargePreview = (element) => {
     if (this.state.previewContent === null) {
       return (
@@ -368,7 +394,16 @@ export default class userProfile extends Component {
           ></img>
           <div className="preview--header">
             <div className="preview--header-username">
-              {this.findUserProfilebyID(element.userid)}
+              <div className="preview--header-username--profileImg">
+                <img
+                  className="preview--header-username--profileImg--icon"
+                  alt="this is user's profile img"
+                  src={DefaultUserProfileImg}
+                />
+              </div>
+              <div className="preview--header-username--label">
+                {this.findUserProfilebyID(element.userid)}
+              </div>
             </div>
             <div className="preview--header-editbutton">
               <div className="preview--header-editbutton-line line1"></div>
@@ -447,8 +482,17 @@ export default class userProfile extends Component {
           {this.postLargePreview(this.state.previewContent)}
           <div className="userProfile__userInformation">
             <div className="userProfile__userInformation--username">
-              <div className="userProfile__userInformation--username-label">
-                {this.state.userData.username}
+              <div className="userProfile__userInformation--username--container">
+                <div className="userProfile__userInformation--username--container--profileImg">
+                  <img
+                    className="userProfile__userInformation--username--container--profileImg--icon"
+                    alt="this is profile img"
+                    src={DefaultUserProfileImg}
+                  />
+                </div>
+                <div className="userProfile__userInformation--username--container--label">
+                  {this.state.userData.username}
+                </div>
               </div>
               <div className="userProfile__userInformation--username--profileEdit">
                 <button
@@ -468,10 +512,10 @@ export default class userProfile extends Component {
                 {this.state.userData.email}
               </ol>
               <ol className="userProfile__userInformation--info-github">
-                This is github address
+                {this.state.userData.github}
               </ol>
               <ol className="userProfile__userInformation--info-linkedin">
-                This is linkedIn Address
+                {this.state.userData.linkedin}
               </ol>
             </ul>
           </div>

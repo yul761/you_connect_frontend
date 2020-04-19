@@ -679,11 +679,51 @@ html {
 }
 
 .preview--header-username {
-  width: 15%;
+  width: 40%;
   height: 100%;
   font-family: "Crimson Text", serif;
   font-size: 1.3rem;
   text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.preview--header-username--profileImg {
+  width: 30%;
+  height: 80%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.preview--header-username--profileImg--icon {
+  width: 25px;
+  height: 25px;
+}
+
+.preview--header-username--label {
+  width: 60%;
+  height: 70%;
+  font-size: 1.2rem;
+  text-align: left;
 }
 
 .preview--header-editbutton {
@@ -764,6 +804,46 @@ html {
   width: 30%;
   height: 100%;
   font-weight: bold;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.preview--comments-content-username--profileImg {
+  width: 30%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.preview--comments-content-username--profileImg--icon {
+  width: 20px;
+  height: 20px;
+}
+
+.preview--comments-content-username--label {
+  font-size: 1rem;
+  width: 60%;
+  height: 100%;
+  text-align: left;
 }
 
 .preview--comments-content-text {
@@ -917,6 +997,53 @@ html {
   font-size: 2rem;
 }
 
+.userProfile__userInformation--username--container {
+  width: 60%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.userProfile__userInformation--username--container--profileImg {
+  width: 30%;
+  height: 80%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.userProfile__userInformation--username--container--profileImg--icon {
+  width: 40px;
+  height: 40px;
+}
+
+.userProfile__userInformation--username--container--label {
+  width: 60%;
+  height: 65%;
+  text-align: left;
+  font-size: 2rem;
+}
+
 .userProfile__userInformation--username--profileEdit {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1050,6 +1177,39 @@ html {
           align-items: center;
 }
 
+.userProfile__posts--loader {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.userProfile__posts--loader-loading {
+  border: 10px solid #f3f3f3;
+  /* Light grey */
+  border-top: 10px solid #504c4c;
+  /* Blue */
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  -webkit-animation: spin 2s linear infinite;
+          animation: spin 2s linear infinite;
+  position: absolute;
+  top: 50%;
+  left: 40%;
+}
+
 .userProfile__posts--content {
   width: 100%;
   height: 100%;
@@ -1109,6 +1269,46 @@ html {
   width: 30%;
   height: 100%;
   font-weight: bold;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.userProfile__posts--content--comments-content-username--profileImg {
+  width: 30%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.userProfile__posts--content--comments-content-username--profileImg--icon {
+  width: 20px;
+  height: 20px;
+}
+
+.userProfile__posts--content--comments-content-username--label {
+  width: 70%;
+  height: 100%;
+  text-align: left;
+  font-size: 1rem;
 }
 
 .userProfile__posts--content--comments-content-text {
@@ -1117,6 +1317,7 @@ html {
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+  padding-left: 5%;
 }
 
 .userProfile__posts--content--comments-content-more {
@@ -1208,7 +1409,17 @@ html {
   }
   .preview--header-username {
     font-size: 1.7rem;
-    width: 20%;
+    width: 35%;
+  }
+  .preview--header-username--profileImg {
+    width: 30%;
+  }
+  .preview--header-username--profileImg--icon {
+    width: 50px;
+    height: 50px;
+  }
+  .preview--header-username--label {
+    font-size: 2.1rem;
   }
   .preview--content {
     width: 80%;
@@ -1219,6 +1430,30 @@ html {
     width: 80%;
     margin: 0 10%;
     font-size: 1.5rem;
+  }
+  .preview--comments-content-username--profileImg {
+    width: 30%;
+    height: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+  }
+  .preview--comments-content-username--profileImg--icon {
+    width: 40px;
+    height: 40px;
+  }
+  .preview--comments-content-username--label {
+    font-size: 1.7rem;
   }
   .preview--addComments {
     width: 80%;
@@ -1259,6 +1494,13 @@ html {
         -ms-flex-pack: justify;
             justify-content: space-between;
   }
+  .userProfile__userInformation--username--container--profileImg--icon {
+    width: 52px;
+    height: 52px;
+  }
+  .userProfile__userInformation--username--container--label {
+    font-size: 2.4rem;
+  }
   .userProfile__userInformation--username--profileEdit {
     height: 50%;
   }
@@ -1293,10 +1535,13 @@ html {
         -ms-flex-align: start;
             align-items: flex-start;
   }
+  .userProfile__posts--loader-loading {
+    left: 45%;
+  }
   .userProfile__posts--content {
-    width: 40%;
-    height: 80%;
-    margin: 3%;
+    width: 30%;
+    height: 50%;
+    margin: 1%;
     border-radius: 8px;
     border: 1px solid #a7a5a5;
     -webkit-box-shadow: 2px 2px 4px #a7a5a5;
@@ -1304,6 +1549,9 @@ html {
   }
   .userProfile__posts--content--container {
     height: 59%;
+  }
+  .userProfile__posts--content--comments-content {
+    height: 30%;
   }
   .userProfile__logout--button {
     font-size: 1.3rem;
@@ -1316,6 +1564,13 @@ html {
     margin: 0 25%;
     margin-top: 5%;
   }
+  .preview--header-username--profileImg--icon {
+    width: 45px;
+    height: 45px;
+  }
+  .preview--header-username--label {
+    font-size: 2rem;
+  }
   .preview--content {
     width: 50%;
     margin: 0 25%;
@@ -1323,6 +1578,9 @@ html {
   .preview--comments {
     width: 50%;
     margin: 0 25%;
+  }
+  .preview--comments-content {
+    height: 35%;
   }
   .preview--addComments {
     width: 50%;
@@ -1404,11 +1662,52 @@ html {
 }
 
 .postPage__posts--header-username {
-  width: 15%;
+  width: 40%;
   height: 100%;
   font-family: "Crimson Text", serif;
   font-size: 1.3rem;
   text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.postPage__posts--header-username--profileImg {
+  width: 30%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.postPage__posts--header-username--profileImg--icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+}
+
+.postPage__posts--header-username--label {
+  width: 60%;
+  margin-left: 5%;
+  height: 100%;
+  text-align: left;
 }
 
 .postPage__posts--header-editbutton {
@@ -1489,6 +1788,45 @@ html {
   width: 30%;
   height: 100%;
   font-weight: bold;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.postPage__posts--comments-content-username--profileImg {
+  width: 30%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.postPage__posts--comments-content-username--profileImg--icon {
+  width: 20px;
+  height: 20px;
+  max-height: 100%;
+}
+
+.postPage__posts--comments-content-username--label {
+  width: 60%;
+  height: 75%;
 }
 
 .postPage__posts--comments-content-text {
@@ -1580,6 +1918,7 @@ html {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  padding-left: 1%;
 }
 
 .postPage__posts--likes-icon {
@@ -1595,6 +1934,8 @@ html {
   font-size: 1rem;
   text-align: center;
   color: #929191;
+  margin-top: 1%;
+  margin-bottom: 1%;
 }
 
 @media only screen and (min-width: 768px) {
@@ -1605,11 +1946,23 @@ html {
     width: 80%;
     margin: 2% 10%;
   }
-  .postPage__posts--header-username {
-    font-size: 1.7rem;
+  .postPage__posts--header-username--profileImg--icon {
+    width: 55px;
+    height: 55px;
+    max-height: 100%;
+  }
+  .postPage__posts--header-username--label {
+    height: 80%;
+    width: 40%;
+    font-size: 2rem;
+    margin-left: 2%;
   }
   .postPage__posts--comments {
     font-size: 1.5rem;
+  }
+  .postPage__posts--comments-content-username--profileImg--icon {
+    width: 40px;
+    height: 40px;
   }
   .postPage__posts--addComments--input {
     font-size: 1.5rem;
@@ -1617,13 +1970,16 @@ html {
   .postPage__posts--addComments--post--button {
     font-size: 1.5rem;
   }
+  .postPage__posts--likes {
+    padding-left: 3%;
+  }
   .postPage__posts--likes-icon {
-    width: 35px;
-    height: 35px;
+    width: 25px;
+    height: 25px;
   }
   .postPage__posts--likes-number {
-    width: 35px;
-    height: 35px;
+    width: 30px;
+    height: 30px;
     font-size: 1.5rem;
   }
 }
@@ -1650,6 +2006,24 @@ html {
     height: 98%;
     margin: 0;
     margin-top: 2%;
+  }
+  .postPage__posts--comments-content-username--profileImg--icon {
+    width: 33px;
+    height: 33px;
+  }
+  .postPage__posts--header-username--profileImg--icon {
+    width: 42px;
+    height: 42px;
+    max-height: 100%;
+  }
+  .postPage__posts--header-username--label {
+    font-size: 2rem;
+    margin-left: 1%;
+  }
+  .postPage__posts--likes-icon {
+    width: 25px;
+    height: 25px;
+    margin-top: 1%;
   }
   .postPage__userProfile {
     display: -webkit-box;
@@ -1692,19 +2066,42 @@ html {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: vertical;
+    -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+        -ms-flex-direction: row;
+            flex-direction: row;
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
     font-family: "Oswald", sans-serif;
     font-weight: bold;
     font-size: 2rem;
+  }
+  .postPage__userProfile--userInformation--username-profileImg {
+    width: 35%;
+    height: 35%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .postPage__userProfile--userInformation--username-profileImg--icon {
+    width: 45px;
+    height: 45px;
+  }
+  .postPage__userProfile--userInformation--username-label {
+    width: 50%;
+    height: 35%;
+    text-align: left;
   }
   .postPage__userProfile--userInformation--info {
     width: 100%;
@@ -1729,21 +2126,21 @@ html {
   .postPage__userProfile--userInformation--info-email {
     width: 45%;
     height: 30%;
-    margin-left: 45%;
+    margin-left: 40%;
     margin-right: 10%;
     color: #a7a5a5;
   }
   .postPage__userProfile--userInformation--info-github {
     width: 45%;
     height: 30%;
-    margin-left: 45%;
+    margin-left: 40%;
     margin-right: 10%;
     color: #a7a5a5;
   }
   .postPage__userProfile--userInformation--info-linkedin {
     width: 45%;
     height: 30%;
-    margin-left: 45%;
+    margin-left: 40%;
     margin-right: 10%;
     color: #a7a5a5;
   }
@@ -2259,7 +2656,9 @@ html {
       justify-content: space-around;
 }
 
-.editProfileTab__form--content {
+.editProfileTab__form--profileImg {
+  width: 90%;
+  height: 10%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2272,16 +2671,120 @@ html {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.editProfileTab__form--profileImg--img {
+  width: 30%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.editProfileTab__form--profileImg--img--icon {
+  width: 35px;
+  height: 35px;
+}
+
+.editProfileTab__form--profileImg--container {
+  width: 60%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-family: "Oswald", sans-serif;
+  font-size: 1rem;
+}
+
+.editProfileTab__form--profileImg--container--username {
+  width: 100%;
+  height: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.editProfileTab__form--profileImg--container--username--label {
+  width: 70%;
+  height: 80%;
+}
+
+.editProfileTab__form--profileImg--container--updateImg {
+  width: 100%;
+  height: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.editProfileTab__form--profileImg--container--updateImg--button {
+  width: 70%;
+  height: 80%;
+  font-size: 0.8rem;
+  text-decoration: underline;
+}
+
+.editProfileTab__form--content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   width: 90%;
   height: 10%;
   margin: 1%;
 }
 
 .editProfileTab__form--content--label {
-  width: 25%;
-  margin-right: 5%;
+  width: 90%;
+  padding-left: 1%;
   height: 50%;
-  text-align: center;
+  text-align: left;
   font-family: "Crimson Text", serif;
   font-size: 1rem;
   display: -webkit-box;
@@ -2291,15 +2794,18 @@ html {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
 }
 
 .editProfileTab__form--content--input {
-  width: 70%;
-  height: 80%;
+  width: 90%;
+  height: 50%;
   font-size: 0.9rem;
+  padding-left: 1%;
+  border-radius: 4px;
+  border: 1px solid lightgrey;
 }
 
 .editProfileTab__form--content--input:focus {
@@ -2307,11 +2813,16 @@ html {
 }
 
 .editProfileTab__form--bio {
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
   height: 15%;
   margin-bottom: 0.7%;
+}
+
+.editProfileTab__form--bio--label {
+  padding-left: 1%;
+}
+
+.editProfileTab__form--bio--input {
+  padding-left: 1%;
 }
 
 .editProfileTab__form--email {
@@ -2397,11 +2908,41 @@ html {
   .editProfileTab__loader {
     left: 50%;
   }
-  .editProfileTab__form--content--label {
+  .editProfileTab__form--profileImg--img {
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+  }
+  .editProfileTab__form--profileImg--img--icon {
+    width: 60px;
+    height: 60px;
+  }
+  .editProfileTab__form--profileImg--container {
     font-size: 1.5rem;
   }
-  .editProfileTab__form--content--input {
+  .editProfileTab__form--profileImg--container--updateImg--button {
     font-size: 1.3rem;
+  }
+  .editProfileTab__form--content {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  .editProfileTab__form--content--label {
+    width: 30%;
+    height: 80%;
+    font-size: 1.5rem;
+    text-align: right;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+  }
+  .editProfileTab__form--content--input {
+    width: 60%;
+    height: 80%;
+    font-size: 1.3rem;
+    margin-left: 4%;
   }
   .editProfileTab__form--submit--button {
     font-size: 1.9rem;
@@ -2417,11 +2958,11 @@ html {
     margin-right: 20vw;
   }
   .editProfile__sidebar {
-    width: 12%;
+    width: 20%;
     height: 75vh;
   }
   .editProfile__content {
-    width: 88%;
+    width: 80%;
   }
 }
 
@@ -2516,7 +3057,7 @@ html {
           align-items: flex-start;
   margin: 2% 0;
   font-family: "Crimson Text", serif;
-  font-size: 1rem;
+  font-size: 1.1rem;
 }
 
 .changePassword__form--oldPW--label {
@@ -2544,6 +3085,13 @@ html {
   border: 1px lightgrey solid;
   border-radius: 4px;
   background-color: #ebebeb;
+  font-family: "Crimson Text", serif;
+  font-size: 1.1rem;
+  padding-left: 1%;
+}
+
+.changePassword__form--oldPW--input:focus {
+  outline: none;
 }
 
 .changePassword__form--newPW {
@@ -2564,7 +3112,7 @@ html {
           align-items: flex-start;
   margin: 2% 0;
   font-family: "Crimson Text", serif;
-  font-size: 1rem;
+  font-size: 1.1rem;
 }
 
 .changePassword__form--newPW--label {
@@ -2592,6 +3140,13 @@ html {
   border: 1px lightgrey solid;
   border-radius: 4px;
   background-color: #ebebeb;
+  font-family: "Crimson Text", serif;
+  font-size: 1.1rem;
+  padding-left: 1%;
+}
+
+.changePassword__form--newPW--input:focus {
+  outline: none;
 }
 
 .changePassword__form--newPWConfirm {
@@ -2612,7 +3167,7 @@ html {
           align-items: flex-start;
   margin: 2% 0;
   font-family: "Crimson Text", serif;
-  font-size: 1rem;
+  font-size: 1.1rem;
 }
 
 .changePassword__form--newPWConfirm--label {
@@ -2640,5 +3195,155 @@ html {
   border: 1px lightgrey solid;
   border-radius: 4px;
   background-color: #ebebeb;
+  font-family: "Crimson Text", serif;
+  font-size: 1.1rem;
+  padding-left: 1%;
+}
+
+.changePassword__form--newPWConfirm--input:focus {
+  outline: none;
+}
+
+.changePassword__form--submit {
+  width: 100%;
+  height: 13%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.changePassword__form--submit--button {
+  width: 50%;
+  height: 80%;
+  font-family: "Crimson Text", serif;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: white;
+  border: 1px lightgray solid;
+  border-radius: 8px;
+  background-color: #0095f6;
+  opacity: 0.4;
+}
+
+.changePassword__form--submit--button:focus {
+  outline: none;
+}
+
+@media only screen and (min-width: 768px) {
+  .changePassword__username--label {
+    font-size: 2rem;
+  }
+  .changePassword__form--oldPW {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    font-size: 1.5rem;
+    height: 7%;
+  }
+  .changePassword__form--oldPW--label {
+    width: 30%;
+    height: 100%;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    text-align: right;
+  }
+  .changePassword__form--oldPW--input {
+    width: 60%;
+    height: 100%;
+    margin-left: 0;
+    font-size: 1.4rem;
+  }
+  .changePassword__form--newPW {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    font-size: 1.5rem;
+    height: 7%;
+  }
+  .changePassword__form--newPW--label {
+    width: 30%;
+    height: 100%;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    text-align: right;
+  }
+  .changePassword__form--newPW--input {
+    width: 60%;
+    height: 100%;
+    margin-left: 0;
+    font-size: 1.4rem;
+  }
+  .changePassword__form--newPWConfirm {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    font-size: 1.5rem;
+    height: 7%;
+  }
+  .changePassword__form--newPWConfirm--label {
+    width: 30%;
+    height: 100%;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    text-align: right;
+  }
+  .changePassword__form--newPWConfirm--input {
+    width: 60%;
+    height: 100%;
+    margin-left: 0;
+    font-size: 1.4rem;
+  }
+  .changePassword__form--submit {
+    height: 10%;
+    margin-top: 5%;
+  }
+  .changePassword__form--submit--button {
+    width: 35%;
+    height: 85%;
+    font-size: 1.3rem;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .changePassword__username--label {
+    margin-left: 20%;
+  }
+  .changePassword__form--submit--button {
+    font-size: 1.5rem;
+  }
 }
 /*# sourceMappingURL=main.css.map */

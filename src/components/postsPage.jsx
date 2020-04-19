@@ -3,6 +3,7 @@ import axios from "axios";
 import likes from "../assets/Icon-likes.png";
 import { Link } from "react-router-dom";
 import AddComment from "./subcomponents/addComment";
+import DefaultUserProfileImg from "../assets/defaultUserProfileImg.png";
 
 const BackendURL = "https://you-connect-backend.herokuapp.com";
 export default class postsPage extends Component {
@@ -105,7 +106,16 @@ export default class postsPage extends Component {
     let userContent = (
       <div className="postPage__posts--comments-content" key={0}>
         <div className="postPage__posts--comments-content-username">
-          {this.findUserProfilebyID(posterID)}
+          <div className="postPage__posts--comments-content-username--profileImg">
+            <img
+              className="postPage__posts--comments-content-username--profileImg--icon"
+              alt="this is user profile img"
+              src={DefaultUserProfileImg}
+            />
+          </div>
+          <div className="postPage__posts--comments-content-username--label">
+            {this.findUserProfilebyID(posterID)}
+          </div>
         </div>
         <div className="postPage__posts--comments-content-text">{content}</div>
         <div
@@ -131,7 +141,16 @@ export default class postsPage extends Component {
       tempDOM = (
         <div className="postPage__posts--comments-content" key={index + 1}>
           <div className="postPage__posts--comments-content-username">
-            {this.findUserProfilebyID(element.id)}
+            <div className="postPage__posts--comments-content-username--profileImg">
+              <img
+                className="postPage__posts--comments-content-username--profileImg--icon"
+                alt="this is user profile img"
+                src={DefaultUserProfileImg}
+              />
+            </div>
+            <div className="postPage__posts--comments-content-username--label">
+              {this.findUserProfilebyID(element.id)}
+            </div>
           </div>
           <div className="postPage__posts--comments-content-text">
             {element.comment}
@@ -210,7 +229,16 @@ export default class postsPage extends Component {
         <div className="postPage__posts" key={index}>
           <div className="postPage__posts--header">
             <div className="postPage__posts--header-username">
-              {this.findUserProfilebyID(element.userid)}
+              <div className="postPage__posts--header-username--profileImg">
+                <img
+                  className="postPage__posts--header-username--profileImg--icon"
+                  alt="this is user profile img"
+                  src={DefaultUserProfileImg}
+                />
+              </div>
+              <div className="postPage__posts--header-username--label">
+                {this.findUserProfilebyID(element.userid)}
+              </div>
             </div>
             <div className="postPage__posts--header-editbutton">
               <div className="postPage__posts--header-editbutton-line line1"></div>
@@ -309,6 +337,13 @@ export default class postsPage extends Component {
         <div className="postPage__userProfile">
           <div className="postPage__userProfile--userInformation">
             <div className="postPage__userProfile--userInformation--username">
+              <div className="postPage__userProfile--userInformation--username-profileImg">
+                <img
+                  className="postPage__userProfile--userInformation--username-profileImg--icon"
+                  alt="this is user profile img"
+                  src={DefaultUserProfileImg}
+                />
+              </div>
               <div className="postPage__userProfile--userInformation--username-label">
                 {this.state.userData.username}
               </div>

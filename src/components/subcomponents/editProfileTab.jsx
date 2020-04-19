@@ -3,6 +3,7 @@ import axios from "axios";
 import { store } from "react-notifications-component";
 import "react-notifications-component/dist/theme.css";
 import "animate.css";
+import DefaultUserProfileImg from "../../assets/defaultUserProfileImg.png";
 
 const BackendURL = "https://you-connect-backend.herokuapp.com";
 export default class editProfileTab extends Component {
@@ -108,6 +109,27 @@ export default class editProfileTab extends Component {
               this.editUserprofileHandler(e);
             }}
           >
+            <div className="editProfileTab__form--profileImg">
+              <div className="editProfileTab__form--profileImg--img">
+                <img
+                  className="editProfileTab__form--profileImg--img--icon editProfileTab__form--content--img--icon"
+                  alt="this is user profile img"
+                  src={DefaultUserProfileImg}
+                />
+              </div>
+              <div className="editProfileTab__form--profileImg--container editProfileTab__form--content--container">
+                <div className="editProfileTab__form--profileImg--container--username editProfileTab__form--content--container--username">
+                  <div className="editProfileTab__form--profileImg--container--username--label editProfileTab__form--content--container--username--label">
+                    {this.state.curUserData.username}
+                  </div>
+                </div>
+                <div className="editProfileTab__form--profileImg--container--updateImg editProfileTab__form--content--container--updateImg">
+                  <div className="editProfileTab__form--profileImg--container--updateImg--button editProfileTab__form--content--container--updateImg--button">
+                    Update Profile Photo
+                  </div>
+                </div>
+              </div>
+            </div>
             <div className="editProfileTab__form--name editProfileTab__form--content">
               <div className="editProfileTab__form--name--label editProfileTab__form--content--label">
                 Name{" "}
