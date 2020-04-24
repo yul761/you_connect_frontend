@@ -2531,6 +2531,10 @@ html {
   }
 }
 
+#photoInput {
+  display: none;
+}
+
 .editProfile {
   display: -webkit-box;
   display: -ms-flexbox;

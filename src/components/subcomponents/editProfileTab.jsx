@@ -4,15 +4,32 @@ import { store } from "react-notifications-component";
 import "react-notifications-component/dist/theme.css";
 import "animate.css";
 import DefaultUserProfileImg from "../../assets/defaultUserProfileImg.png";
+import $ from "jquery";
+import ReactCrop from "react-image-crop";
+import "react-image-crop/dist/ReactCrop.css";
 
 const BackendURL = "https://you-connect-backend.herokuapp.com";
 export default class editProfileTab extends Component {
   constructor() {
     super();
-    this.state = { curUserData: undefined };
+    this.state = {
+      curUserData: undefined,
+      photoURL: undefined,
+      crop: {
+        unit: "%",
+        width: 30,
+        aspect: 16 / 9,
+      },
+    };
   }
   componentDidMount() {
     this.userprofile();
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (this.state.curUserData !== undefined) {
+      this.updateProfilePhotoHandler();
+    }
   }
 
   notificationHandler = () => {
@@ -93,6 +110,29 @@ export default class editProfileTab extends Component {
       this.notificationHandler();
     });
   };
+
+  updateProfilePhotoHandler = () => {
+    console.log("Execute updatePhotoHandler");
+    var photo = document.querySelector(
+      ".editProfileTab__form--profileImg--img--icon"
+    );
+
+    var input = document.querySelector("#photoInput");
+    input.addEventListener("change", () => {
+      let receivedInput = input.files[0];
+
+      let reader = new FileReader();
+
+      reader.addEventListener("load", (e) => {
+        photo.src = reader.result;
+        this.setState({ photoURL: reader.result });
+      });
+
+      if (receivedInput) {
+        reader.readAsDataURL(receivedInput);
+      }
+    });
+  };
   render() {
     if (this.state.curUserData === undefined) {
       return (
@@ -124,9 +164,16 @@ export default class editProfileTab extends Component {
                   </div>
                 </div>
                 <div className="editProfileTab__form--profileImg--container--updateImg editProfileTab__form--content--container--updateImg">
-                  <div className="editProfileTab__form--profileImg--container--updateImg--button editProfileTab__form--content--container--updateImg--button">
+                  <label
+                    className="editProfileTab__form--profileImg--container--updateImg--button editProfileTab__form--content--container--updateImg--button"
+                    onClick={() => {
+                      console.log("Label is clicked");
+                      $("#photoInput").trigger("click");
+                    }}
+                  >
                     Update Profile Photo
-                  </div>
+                  </label>
+                  <input id="photoInput" type="file" />
                 </div>
               </div>
             </div>
