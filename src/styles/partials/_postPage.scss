@@ -137,6 +137,7 @@
               width: 20px;
               height: 20px;
               max-height: 100%;
+              border-radius: 50%;
             }
           }
           &--label {
@@ -395,8 +396,9 @@
             align-items: center;
             justify-content: center;
             &--icon {
-              width: 45px;
-              height: 45px;
+              width: 55px;
+              height: 55px;
+              border-radius: 50%;
             }
           }
 

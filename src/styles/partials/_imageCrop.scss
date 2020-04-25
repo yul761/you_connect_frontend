@@ -1,0 +1,102 @@
+.ReactCrop {
+  width: 100%;
+  max-width: 100%;
+  height: 50%;
+  max-height: 100%;
+  margin: 3% 0;
+}
+
+.ImageCrop {
+  display: none;
+  flex-direction: column;
+  //   justify-content: center;
+  align-items: center;
+
+  position: absolute;
+  z-index: 70;
+  background-color: rgba(grey, 0.4);
+  height: 91vh;
+  &__croppedImg {
+    width: 40%;
+    max-width: 100%;
+    max-height: 100%;
+    margin: 3% 0;
+  }
+
+  &__controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    height: 15%;
+    margin: 3% 0;
+    font-family: "Crimson Text", serif;
+    font-size: 1.3rem;
+    &--confirmCrop {
+      width: 80%;
+      font-size: 1.3rem;
+      font-weight: bold;
+      height: 47%;
+      border: 1px solid lightgrey;
+      border-radius: 8px;
+      margin-bottom: 3%;
+    }
+    &--cancel {
+      width: 80%;
+      font-size: 1.3rem;
+      font-weight: bold;
+      height: 47%;
+      margin-bottom: 3%;
+      border: 1px solid lightgrey;
+      border-radius: 8px;
+    }
+  }
+}
+
+@include tablet {
+  .ImageCrop {
+    width: 100vw;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    &__croppedImg {
+      width: 50%;
+    }
+    &__controls {
+      flex-direction: row;
+      height: 10%;
+      &--confirmCrop {
+        width: 40%;
+        height: 80%;
+        font-size: 1.7rem;
+      }
+      &--cancel {
+        width: 40%;
+        height: 80%;
+        font-size: 1.7rem;
+      }
+    }
+  }
+}
+
+@include desktop {
+  .ReactCrop {
+    width: 60%;
+    height: 70%;
+  }
+  .ImageCrop {
+    &__controls {
+      width: 60%;
+      height: 15%;
+      &--confirmCrop {
+        height: 70%;
+        font-size: 2rem;
+      }
+      &--cancel {
+        height: 70%;
+        font-size: 2rem;
+      }
+    }
+  }
+}

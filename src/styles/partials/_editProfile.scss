@@ -106,8 +106,9 @@
         justify-content: center;
         align-items: center;
         &--icon {
-          width: 35px;
-          height: 35px;
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
         }
       }
       &--container {
@@ -273,8 +274,8 @@
         &--img {
           justify-content: flex-end;
           &--icon {
-            width: 60px;
-            height: 60px;
+            width: 70px;
+            height: 70px;
           }
         }
 
@@ -328,6 +329,19 @@
 
     &__content {
       width: 80%;
+    }
+  }
+
+  .editProfileTab {
+    &__form {
+      &--profileImg {
+        &--img {
+          &--icon {
+            width: 65px;
+            height: 65px;
+          }
+        }
+      }
     }
   }
 }

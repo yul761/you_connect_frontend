@@ -39,6 +39,23 @@ export default class userProfile extends Component {
     }
   };
 
+  findProfileImgbyID = (postid) => {
+    if (this.state.allUserProfile !== null) {
+      var matchedUser = this.state.allUserProfile.filter(
+        (el) => el._id === postid
+      );
+      console.log(matchedUser[0]);
+      if (matchedUser === null) {
+        console.log("Did not find matched user");
+        return null;
+      } else {
+        return matchedUser[0].profileImg === undefined
+          ? DefaultUserProfileImg
+          : matchedUser[0].profileImg;
+      }
+    }
+  };
+
   commentsArrayRender = (content, array) => {
     var resultCommentsDOM = [];
 
@@ -50,7 +67,11 @@ export default class userProfile extends Component {
             <img
               className="userProfile__posts--content--comments-content-username--profileImg--icon"
               alt="this is user profile img"
-              src={DefaultUserProfileImg}
+              src={
+                this.state.userData.profileImg === undefined
+                  ? DefaultUserProfileImg
+                  : this.state.userData.profileImg
+              }
             />
           </div>
           <div className="userProfile__posts--content--comments-content-username--label">
@@ -90,7 +111,7 @@ export default class userProfile extends Component {
               <img
                 className="userProfile__posts--content--comments-content-username--profileImg--icon"
                 alt="this is user profile img"
-                src={DefaultUserProfileImg}
+                src={this.findProfileImgbyID(element.id)}
               />
             </div>
             <div className="userProfile__posts--content--comments-content-username--label">
@@ -131,7 +152,11 @@ export default class userProfile extends Component {
             <img
               className="preview--comments-content-username--profileImg--icon"
               alt="this is user's profile img"
-              src={DefaultUserProfileImg}
+              src={
+                this.state.userData.profileImg === undefined
+                  ? DefaultUserProfileImg
+                  : this.state.userData.profileImg
+              }
             />
           </div>
           <div className="preview--comments-content-username--label">
@@ -166,7 +191,7 @@ export default class userProfile extends Component {
               <img
                 className="preview--comments-content-username--profileImg--icon"
                 alt="this is user's profile img"
-                src={DefaultUserProfileImg}
+                src={this.findProfileImgbyID(element.id)}
               />
             </div>
             <div className="preview--comments-content-username--label">
@@ -398,7 +423,7 @@ export default class userProfile extends Component {
                 <img
                   className="preview--header-username--profileImg--icon"
                   alt="this is user's profile img"
-                  src={DefaultUserProfileImg}
+                  src={this.findProfileImgbyID(element.userid)}
                 />
               </div>
               <div className="preview--header-username--label">
@@ -487,7 +512,11 @@ export default class userProfile extends Component {
                   <img
                     className="userProfile__userInformation--username--container--profileImg--icon"
                     alt="this is profile img"
-                    src={DefaultUserProfileImg}
+                    src={
+                      this.state.userData.profileImg === undefined
+                        ? DefaultUserProfileImg
+                        : this.state.userData.profileImg
+                    }
                   />
                 </div>
                 <div className="userProfile__userInformation--username--container--label">

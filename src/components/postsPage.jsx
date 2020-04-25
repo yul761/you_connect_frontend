@@ -76,6 +76,23 @@ export default class postsPage extends Component {
     }
   };
 
+  findProfileImgbyID = (postid) => {
+    if (this.state.allUserProfile !== null) {
+      var matchedUser = this.state.allUserProfile.filter(
+        (el) => el._id === postid
+      );
+      console.log(matchedUser[0]);
+      if (matchedUser === null) {
+        console.log("Did not find matched user");
+        return null;
+      } else {
+        return matchedUser[0].profileImg === undefined
+          ? DefaultUserProfileImg
+          : matchedUser[0].profileImg;
+      }
+    }
+  };
+
   findUserNameforComment = (generatedID) => {
     if (this.state.allUserProfile !== null) {
       var matchedUser = this.state.allUserProfile.filter(
@@ -110,7 +127,7 @@ export default class postsPage extends Component {
             <img
               className="postPage__posts--comments-content-username--profileImg--icon"
               alt="this is user profile img"
-              src={DefaultUserProfileImg}
+              src={this.findProfileImgbyID(posterID)}
             />
           </div>
           <div className="postPage__posts--comments-content-username--label">
@@ -145,7 +162,7 @@ export default class postsPage extends Component {
               <img
                 className="postPage__posts--comments-content-username--profileImg--icon"
                 alt="this is user profile img"
-                src={DefaultUserProfileImg}
+                src={this.findProfileImgbyID(posterID)}
               />
             </div>
             <div className="postPage__posts--comments-content-username--label">
@@ -233,7 +250,7 @@ export default class postsPage extends Component {
                 <img
                   className="postPage__posts--header-username--profileImg--icon"
                   alt="this is user profile img"
-                  src={DefaultUserProfileImg}
+                  src={this.findProfileImgbyID(element.userid)}
                 />
               </div>
               <div className="postPage__posts--header-username--label">
@@ -341,7 +358,11 @@ export default class postsPage extends Component {
                 <img
                   className="postPage__userProfile--userInformation--username-profileImg--icon"
                   alt="this is user profile img"
-                  src={DefaultUserProfileImg}
+                  src={
+                    this.state.userData.profileImg === undefined
+                      ? DefaultUserProfileImg
+                      : this.state.userData.profileImg
+                  }
                 />
               </div>
               <div className="postPage__userProfile--userInformation--username-label">
