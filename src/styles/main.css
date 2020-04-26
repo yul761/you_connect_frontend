@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Raleway&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Oswald&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Crimson+Text&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Ubuntu&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -996,7 +997,7 @@ html {
           align-items: center;
   font-family: "Oswald", sans-serif;
   font-weight: bold;
-  font-size: 2rem;
+  font-size: 1.7rem;
 }
 
 .userProfile__userInformation--username--container {
@@ -1044,7 +1045,7 @@ html {
   width: 60%;
   height: 65%;
   text-align: left;
-  font-size: 2rem;
+  font-size: 1.7rem;
 }
 
 .userProfile__userInformation--username--profileEdit {
@@ -1079,9 +1080,48 @@ html {
   outline: none;
 }
 
+.userProfile__userInformation--followStatus {
+  width: 100%;
+  height: 10%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.userProfile__userInformation--followStatus--following {
+  width: 50%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  margin-right: 10%;
+  font-family: "Oswald", sans-serif;
+  font-weight: 500;
+  font-size: 1rem;
+  color: #a7a5a5;
+}
+
+.userProfile__userInformation--followStatus--following-label {
+  margin-right: 3%;
+}
+
 .userProfile__userInformation--info {
   width: 100%;
-  height: 60%;
+  height: 50%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1101,25 +1141,22 @@ html {
 }
 
 .userProfile__userInformation--info-email {
-  width: 45%;
+  width: 50%;
   height: 30%;
-  margin-left: 45%;
   margin-right: 10%;
   color: #a7a5a5;
 }
 
 .userProfile__userInformation--info-github {
-  width: 45%;
+  width: 50%;
   height: 30%;
-  margin-left: 45%;
   margin-right: 10%;
   color: #a7a5a5;
 }
 
 .userProfile__userInformation--info-linkedin {
-  width: 45%;
+  width: 50%;
   height: 30%;
-  margin-left: 45%;
   margin-right: 10%;
   color: #a7a5a5;
 }
@@ -1507,6 +1544,16 @@ html {
   }
   .userProfile__userInformation--username--profileEdit {
     height: 50%;
+  }
+  .userProfile__userInformation--followStatus {
+    width: 50%;
+    margin: 0 25%;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+  }
+  .userProfile__userInformation--followStatus--following {
+    margin-left: 15%;
   }
   .userProfile__userInformation--info {
     width: 50%;
@@ -2132,21 +2179,21 @@ html {
   .postPage__userProfile--userInformation--info-email {
     width: 45%;
     height: 30%;
-    margin-left: 40%;
+    margin-left: 25%;
     margin-right: 10%;
     color: #a7a5a5;
   }
   .postPage__userProfile--userInformation--info-github {
     width: 45%;
     height: 30%;
-    margin-left: 40%;
+    margin-left: 25%;
     margin-right: 10%;
     color: #a7a5a5;
   }
   .postPage__userProfile--userInformation--info-linkedin {
     width: 45%;
     height: 30%;
-    margin-left: 40%;
+    margin-left: 25%;
     margin-right: 10%;
     color: #a7a5a5;
   }
@@ -3477,6 +3524,111 @@ html {
   .ImageCrop__controls--cancel {
     height: 70%;
     font-size: 2rem;
+  }
+}
+
+.editMenu {
+  display: none;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: rgba(128, 128, 128, 0.4);
+  width: 100vw;
+  height: 100vh;
+}
+
+.editMenu__container {
+  width: 90%;
+  height: 35%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: white;
+  border-radius: 16px;
+  font-family: "Ubuntu", sans-serif;
+}
+
+.editMenu__container--follow {
+  width: 100%;
+  height: 33.3%;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  background-color: white;
+  border-bottom: 1px solid #5c5656;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.editMenu__container--follow:focus {
+  outline: none;
+}
+
+.editMenu__container--report {
+  width: 100%;
+  height: 33.3%;
+  background-color: white;
+  border-bottom: 1px solid #5c5656;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.editMenu__container--report:focus {
+  outline: none;
+}
+
+.editMenu__container--cancel {
+  width: 100%;
+  height: 33.4%;
+  background-color: white;
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.editMenu__container--cancel:focus {
+  outline: none;
+}
+
+@media only screen and (min-width: 768px) {
+  .editMenu__container {
+    width: 50%;
+    height: 35%;
+  }
+  .editMenu__container--follow {
+    font-size: 1.7rem;
+  }
+  .editMenu__container--report {
+    font-size: 1.7rem;
+  }
+  .editMenu__container--cancel {
+    font-size: 1.7rem;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .editMenu__container {
+    width: 30%;
   }
 }
 /*# sourceMappingURL=main.css.map */

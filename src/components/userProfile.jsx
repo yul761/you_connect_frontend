@@ -18,11 +18,24 @@ export default class userProfile extends Component {
   }
 
   componentDidMount() {
-    console.log(this.props.userData);
-    this.setState({ userData: this.props.userData });
+    this.userprofile();
+    // console.log(this.props.userData);
+    // this.setState({ userData: this.props.userData });
     console.log(this.props.logout);
     this.getUserPostFromLoggedinUser();
   }
+
+  userprofile = () => {
+    axios
+      .get(`${BackendURL}/userInfo`, {
+        headers: { "auth-token": window.sessionStorage.getItem("curToken") },
+      })
+      .then((response) => {
+        // this.setState({ curUser: response.data });
+        console.log(response.data);
+        this.setState({ userData: response.data });
+      });
+  };
 
   findUserProfilebyID = (postid) => {
     if (this.state.allUserProfile !== null) {
@@ -523,6 +536,7 @@ export default class userProfile extends Component {
                   {this.state.userData.username}
                 </div>
               </div>
+
               <div className="userProfile__userInformation--username--profileEdit">
                 <button
                   className="userProfile__userInformation--username--profileEdit--button"
@@ -533,6 +547,17 @@ export default class userProfile extends Component {
                 >
                   Edit
                 </button>
+              </div>
+            </div>
+
+            <div className="userProfile__userInformation--followStatus">
+              <div className="userProfile__userInformation--followStatus--following">
+                <label className="userProfile__userInformation--followStatus--following-label">
+                  Following :
+                </label>
+                <label className="userProfile__userInformation--username--following-text">
+                  {this.state.userData.friends.length}
+                </label>
               </div>
             </div>
 

@@ -6,6 +6,7 @@ import AddComment from "./subcomponents/addComment";
 import DefaultUserProfileImg from "../assets/defaultUserProfileImg.png";
 
 const BackendURL = "https://you-connect-backend.herokuapp.com";
+var curPosterID = undefined;
 export default class postsPage extends Component {
   constructor(props) {
     super(props);
@@ -155,6 +156,7 @@ export default class postsPage extends Component {
 
     array.forEach((element, index) => {
       let tempDOM = null;
+      console.log(element);
       tempDOM = (
         <div className="postPage__posts--comments-content" key={index + 1}>
           <div className="postPage__posts--comments-content-username">
@@ -162,7 +164,7 @@ export default class postsPage extends Component {
               <img
                 className="postPage__posts--comments-content-username--profileImg--icon"
                 alt="this is user profile img"
-                src={this.findProfileImgbyID(posterID)}
+                src={this.findProfileImgbyID(element.id)}
               />
             </div>
             <div className="postPage__posts--comments-content-username--label">
@@ -257,7 +259,10 @@ export default class postsPage extends Component {
                 {this.findUserProfilebyID(element.userid)}
               </div>
             </div>
-            <div className="postPage__posts--header-editbutton">
+            <div
+              className="postPage__posts--header-editbutton"
+              onClick={() => this.editButtonHandler(element.userid)}
+            >
               <div className="postPage__posts--header-editbutton-line line1"></div>
               <div className="postPage__posts--header-editbutton-line line2"></div>
               <div className="postPage__posts--header-editbutton-line line3"></div>
@@ -386,6 +391,99 @@ export default class postsPage extends Component {
       );
     }
   };
+
+  followMethodHandler = () => {
+    var input = { posterID: curPosterID };
+    var postOption = {
+      method: "POST",
+      url: `${BackendURL}/userInfo/follow`,
+      data: input,
+      headers: {
+        "auth-token": window.sessionStorage.getItem("curToken"),
+      },
+    };
+
+    axios(postOption).then((response) => {
+      console.log(response.data);
+    });
+  };
+
+  unfollowMethodHandler = () => {
+    var input = { posterID: curPosterID };
+    var postOption = {
+      method: "POST",
+      url: `${BackendURL}/userInfo/unfollow`,
+      data: input,
+      headers: {
+        "auth-token": window.sessionStorage.getItem("curToken"),
+      },
+    };
+
+    axios(postOption).then((response) => {
+      console.log(response.data);
+    });
+  };
+
+  ifAlreadyFollowed = (PosterID) => {
+    var friendList = this.state.userData.friends;
+
+    var matchedFriends = undefined;
+    matchedFriends = friendList.filter((element) => element._id === PosterID);
+    console.log(matchedFriends);
+
+    if (matchedFriends.length === 0) {
+      // not followed
+      return false;
+    } else {
+      //already followed
+      return true;
+    }
+  };
+
+  /**************************Edit menu handler******************/
+  editButtonHandler = (posterID) => {
+    var editMenu = document.querySelector(".editMenu");
+    var follow = document.querySelector(".editMenu__container--follow");
+    editMenu.style.display = "flex";
+    console.log(posterID);
+    curPosterID = posterID;
+
+    if (this.ifAlreadyFollowed(posterID)) {
+      //already followed
+      follow.innerHTML = "Unfollow";
+      follow.style.color = "red";
+    } else {
+      if (this.state.userData._id === posterID) {
+        // user is poster
+        follow.innerHTML = "Wow! It's me.";
+        follow.style.color = "black";
+      } else {
+        //not followed
+        follow.innerHTML = "Follow";
+        follow.style.color = "black";
+      }
+    }
+  };
+
+  editMenuCancelHandler = () => {
+    var editMenu = document.querySelector(".editMenu");
+    editMenu.style.display = "none";
+  };
+
+  followButtonHandler = () => {
+    var follow = document.querySelector(".editMenu__container--follow");
+    if (follow.innerHTML === "Follow") {
+      this.followMethodHandler();
+      follow.innerHTML = "Unfollow";
+      follow.style.color = "red";
+    } else {
+      this.unfollowMethodHandler();
+      follow.innerHTML = "Follow";
+      follow.style.color = "black";
+    }
+  };
+
+  /**************************End of Edit menu handler******************/
   render() {
     console.log(this.props);
     console.log(this.state.userData);
@@ -402,15 +500,34 @@ export default class postsPage extends Component {
       /***************Change Tab title*********************/
       document.getElementById("tabtitle").innerHTML = "YouConnect";
       return (
-        <div className="postPage">
-          <div className="desktop__wrapper">
-            <AddComment />
-            {this.postSectionRender()}
+        <>
+          <div className="editMenu">
+            <div className="editMenu__container">
+              <button
+                className="editMenu__container--follow"
+                onClick={() => this.followButtonHandler()}
+              >
+                Follow
+              </button>
+              <button className="editMenu__container--report">Report</button>
+              <button
+                className="editMenu__container--cancel"
+                onClick={() => this.editMenuCancelHandler()}
+              >
+                Cancel
+              </button>
+            </div>
           </div>
-          {this.userProfileOnMain()}
-          {/* manage visiablity of more button, does not return any DOM element */}
-          {this.moreButtonManageHandler()}
-        </div>
+          <div className="postPage">
+            <div className="desktop__wrapper">
+              <AddComment />
+              {this.postSectionRender()}
+            </div>
+            {this.userProfileOnMain()}
+            {/* manage visiablity of more button, does not return any DOM element */}
+            {this.moreButtonManageHandler()}
+          </div>
+        </>
       );
     }
   }

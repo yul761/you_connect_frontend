@@ -269,7 +269,7 @@
       align-items: center;
       font-family: "Oswald", sans-serif;
       font-weight: bold;
-      font-size: 2rem;
+      font-size: 1.7rem;
 
       &--container {
         width: 60%;
@@ -295,7 +295,7 @@
           width: 60%;
           height: 65%;
           text-align: left;
-          font-size: 2rem;
+          font-size: 1.7rem;
         }
       }
 
@@ -322,9 +322,33 @@
       }
     }
 
+    &--followStatus {
+      width: 100%;
+      height: 10%;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+
+      &--following {
+        width: 50%;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        margin-right: 10%;
+        font-family: "Oswald", sans-serif;
+        font-weight: 500;
+        font-size: 1rem;
+        color: rgb(167, 165, 165);
+        &-label {
+          margin-right: 3%;
+        }
+      }
+    }
+
     &--info {
       width: 100%;
-      height: 60%;
+      height: 50%;
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
@@ -333,23 +357,23 @@
       font-weight: 500;
       font-size: 1rem;
       &-email {
-        width: 45%;
+        width: 50%;
         height: 30%;
-        margin-left: 45%;
+        // margin-left: 45%;
         margin-right: 10%;
         color: rgb(167, 165, 165);
       }
       &-github {
-        width: 45%;
+        width: 50%;
         height: 30%;
-        margin-left: 45%;
+        // margin-left: 45%;
         margin-right: 10%;
         color: rgb(167, 165, 165);
       }
       &-linkedin {
-        width: 45%;
+        width: 50%;
         height: 30%;
-        margin-left: 45%;
+        // margin-left: 45%;
         margin-right: 10%;
         color: rgb(167, 165, 165);
       }
@@ -658,6 +682,15 @@
         }
         &--profileEdit {
           height: 50%;
+        }
+      }
+
+      &--followStatus {
+        width: 50%;
+        margin: 0 25%;
+        justify-content: flex-start;
+        &--following {
+          margin-left: 15%;
         }
       }
 
