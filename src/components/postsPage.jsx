@@ -132,7 +132,9 @@ export default class postsPage extends Component {
             />
           </div>
           <div className="postPage__posts--comments-content-username--label">
-            {this.findUserProfilebyID(posterID)}
+            <div className="postPage__posts--comments-content-username--label--text">
+              {this.findUserProfilebyID(posterID)}
+            </div>
           </div>
         </div>
         <div className="postPage__posts--comments-content-text">{content}</div>
@@ -144,7 +146,7 @@ export default class postsPage extends Component {
             var text = contentElement.children[1];
             var moreButton = e.currentTarget;
             text.style.whiteSpace = "normal";
-            contentElement.style.height = "45%";
+            contentElement.style.height = "60%";
             moreButton.style.display = "none";
           }}
         >
@@ -168,7 +170,9 @@ export default class postsPage extends Component {
               />
             </div>
             <div className="postPage__posts--comments-content-username--label">
-              {this.findUserProfilebyID(element.id)}
+              <div className="postPage__posts--comments-content-username--label--text">
+                {this.findUserProfilebyID(element.id)}
+              </div>
             </div>
           </div>
           <div className="postPage__posts--comments-content-text">
@@ -184,7 +188,7 @@ export default class postsPage extends Component {
               text.style.whiteSpace = "normal";
               // check if text is overflowing
 
-              contentElement.style.height = "45%";
+              contentElement.style.height = "60%";
 
               moreButton.style.display = "none";
             }}
@@ -471,6 +475,7 @@ export default class postsPage extends Component {
   };
 
   followButtonHandler = () => {
+    var editMenu = document.querySelector(".editMenu");
     var follow = document.querySelector(".editMenu__container--follow");
     if (follow.innerHTML === "Follow") {
       this.followMethodHandler();
@@ -481,6 +486,7 @@ export default class postsPage extends Component {
       follow.innerHTML = "Follow";
       follow.style.color = "black";
     }
+    editMenu.style.display = "none";
   };
 
   /**************************End of Edit menu handler******************/

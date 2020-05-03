@@ -1096,6 +1096,7 @@ html {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin-bottom: 1%;
 }
 
 .userProfile__userInformation--followStatus--following {
@@ -1833,6 +1834,9 @@ html {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
 }
 
 .postPage__posts--comments-content-username {
@@ -1864,9 +1868,9 @@ html {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
 }
 
 .postPage__posts--comments-content-username--profileImg--icon {
@@ -1878,7 +1882,17 @@ html {
 
 .postPage__posts--comments-content-username--label {
   width: 60%;
-  height: 75%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
 }
 
 .postPage__posts--comments-content-text {
@@ -3629,6 +3643,232 @@ html {
 @media only screen and (min-width: 1440px) {
   .editMenu__container {
     width: 30%;
+  }
+}
+
+.controlbutton {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 80px;
+  height: 80px;
+  z-index: 1000;
+  background-color: #f0ece7;
+  border-radius: 24px;
+  position: fixed;
+  right: 10%;
+  bottom: 10%;
+}
+
+.controlbutton__img {
+  width: 80%;
+  height: 80%;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+.messagePanel {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4);
+  position: fixed;
+  display: none;
+  left: 0;
+  top: 0;
+}
+
+.messagePanel__container {
+  width: 80%;
+  height: 70%;
+  margin: 15% 10% 35% 10%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  border-radius: 24px;
+}
+
+.messagePanel__container--left {
+  width: 35%;
+  height: 100%;
+  background-color: white;
+  border-right: 1px solid black;
+  border-top-left-radius: 24px;
+  border-bottom-left-radius: 24px;
+}
+
+.messagePanel__container--left--friendLists {
+  width: 100%;
+  height: 100%;
+}
+
+.messagePanel__container--left--friendLists--notlogin {
+  width: 90%;
+  height: 80%;
+}
+
+.messagePanel__container--left--friendLists--notlogin--link {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.messagePanel__container--left--friendLists--notlogin--link--text {
+  margin-top: 10%;
+  width: 80%;
+  height: 60%;
+  font-family: "Oswald", sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.messagePanel__container--left--friendLists--content {
+  width: 100%;
+  height: 10%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  margin-top: 20%;
+}
+
+.messagePanel__container--left--friendLists--content--profilePhoto {
+  width: 30%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-left: 5%;
+}
+
+.messagePanel__container--left--friendLists--content--profilePhoto--img {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+}
+
+.messagePanel__container--left--friendLists--content--name {
+  width: 65%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.messagePanel__container--left--friendLists--content--name--text {
+  width: 80%;
+  height: 60%;
+  font-family: "Oswald", sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.messagePanel__container--left--friendLists--nofollow {
+  width: 100%;
+  height: 80%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.messagePanel__container--left--friendLists--nofollow--text {
+  margin-top: 10%;
+  width: 80%;
+  height: 60%;
+  font-family: "Oswald", sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.messagePanel__container--right {
+  width: 65%;
+  height: 100%;
+  background-color: white;
+  border-top-right-radius: 24px;
+  border-bottom-right-radius: 24px;
+}
+
+@media only screen and (min-width: 768px) {
+  .messagePanel__container--left--friendLists--notlogin--link--text {
+    font-size: 1.5rem;
+  }
+  .messagePanel__container--left--friendLists--content--profilePhoto--img {
+    width: 80px;
+    height: 80px;
+  }
+  .messagePanel__container--left--friendLists--content--name--text {
+    font-size: 2rem;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .messagePanel__container {
+    height: 80%;
+    margin-top: 5%;
+  }
+  .messagePanel__container--left {
+    width: 25%;
   }
 }
 /*# sourceMappingURL=main.css.map */

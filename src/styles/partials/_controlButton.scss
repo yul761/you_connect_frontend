@@ -1,0 +1,24 @@
+.controlbutton {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 80px;
+  height: 80px;
+  z-index: 1000;
+  background-color: rgb(240, 236, 231);
+  border-radius: 24px;
+  position: fixed;
+  right: 10%;
+  bottom: 10%;
+
+  &__img {
+    width: 80%;
+    height: 80%;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+  }
+}

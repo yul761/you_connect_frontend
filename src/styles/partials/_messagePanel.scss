@@ -1,0 +1,156 @@
+.messagePanel {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(black, 0.4);
+  position: fixed;
+  display: none;
+  left: 0;
+  top: 0;
+  &__container {
+    width: 80%;
+    height: 70%;
+    margin: 15% 10% 35% 10%;
+    display: flex;
+    flex-direction: row;
+    border-radius: 24px;
+
+    &--left {
+      width: 35%;
+      height: 100%;
+      background-color: white;
+      border-right: 1px solid black;
+      border-top-left-radius: 24px;
+      border-bottom-left-radius: 24px;
+      &--friendLists {
+        width: 100%;
+        height: 100%;
+        &--notlogin {
+          width: 90%;
+          height: 80%;
+          &--link {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: flex-start;
+            &--text {
+              margin-top: 10%;
+              width: 80%;
+              height: 60%;
+              font-family: "Oswald", sans-serif;
+              font-size: 1rem;
+              font-weight: 500;
+            }
+          }
+        }
+
+        &--content {
+          width: 100%;
+          height: 10%;
+          display: flex;
+          flex-direction: row;
+          margin-top: 20%;
+          &--profilePhoto {
+            width: 30%;
+            height: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            margin-left: 5%;
+            &--img {
+              width: 28px;
+              height: 28px;
+              border-radius: 50%;
+            }
+          }
+          &--name {
+            width: 65%;
+            height: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            &--text {
+              width: 80%;
+              height: 60%;
+              font-family: "Oswald", sans-serif;
+              font-size: 1rem;
+              font-weight: 500;
+            }
+          }
+        }
+
+        &--nofollow {
+          width: 100%;
+          height: 80%;
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: flex-start;
+          &--text {
+            margin-top: 10%;
+            width: 80%;
+            height: 60%;
+            font-family: "Oswald", sans-serif;
+            font-size: 1rem;
+            font-weight: 500;
+          }
+        }
+      }
+    }
+    &--right {
+      width: 65%;
+      height: 100%;
+      background-color: white;
+      border-top-right-radius: 24px;
+      border-bottom-right-radius: 24px;
+    }
+  }
+}
+
+@include tablet {
+  .messagePanel {
+    &__container {
+      &--left {
+        &--friendLists {
+          &--notlogin {
+            &--link {
+              &--text {
+                font-size: 1.5rem;
+              }
+            }
+          }
+
+          &--content {
+            &--profilePhoto {
+              &--img {
+                width: 80px;
+                height: 80px;
+              }
+            }
+
+            &--name {
+              &--text {
+                font-size: 2rem;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@include desktop {
+  .messagePanel {
+    &__container {
+      height: 80%;
+      margin-top: 5%;
+      &--left {
+        width: 25%;
+      }
+    }
+  }
+}
