@@ -6,7 +6,8 @@
   display: flex;
   flex-direction: row;
   width: 100vw;
-  height: 91vh;
+  height: 93vh;
+  padding-top: 7vh;
 
   &__callSidebar {
     width: 40px;
@@ -63,6 +64,7 @@
     width: 100%;
     height: 100%;
     margin-left: 0;
+    margin-top: 2%;
     transition: margin-left 0.5s ease-in-out;
   }
 }
@@ -242,16 +244,16 @@
 @include tablet {
   .editProfile {
     width: 80vw;
-    height: 71vh;
+    height: 93vh;
     border: 1px lightgray solid;
-    margin: 5vh 10vw 15vh 10vw;
+    margin: 0 10vw 15vh 10vw;
     &__callSidebar {
       display: none;
     }
 
     &__sidebar {
       width: 15%;
-      height: 71vh;
+      height: 100%;
       border-right: 1px lightgrey solid;
       position: unset;
       transform: translateX(0%);
@@ -262,6 +264,7 @@
 
     &__content {
       width: 85%;
+      margin-top: 0;
     }
   }
 
@@ -318,13 +321,13 @@
 @include desktop {
   .editProfile {
     width: 60vw;
-    height: 75vh;
+    height: 93vh;
     margin-bottom: 11vh;
     margin-left: 20vw;
     margin-right: 20vw;
     &__sidebar {
       width: 20%;
-      height: 75vh;
+      height: 100%;
     }
 
     &__content {

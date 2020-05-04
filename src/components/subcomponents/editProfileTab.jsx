@@ -213,6 +213,7 @@ export default class editProfileTab extends Component {
 
     axios(postOption).then((response) => {
       console.log(response.data);
+      window.location.replace("/main/userprofile");
     });
   };
 

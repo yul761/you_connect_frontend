@@ -35,21 +35,25 @@
     font-size: 1.3rem;
     &--confirmCrop {
       width: 80%;
-      font-size: 1.3rem;
+      font-size: 1.1rem;
       font-weight: bold;
       height: 47%;
       border: 1px solid lightgrey;
       border-radius: 8px;
       margin-bottom: 3%;
+      background-color: #0095f6;
+      color: white;
     }
     &--cancel {
       width: 80%;
-      font-size: 1.3rem;
+      font-size: 1.1rem;
       font-weight: bold;
       height: 47%;
       margin-bottom: 3%;
       border: 1px solid lightgrey;
       border-radius: 8px;
+      background-color: #0095f6;
+      color: white;
     }
   }
 }
@@ -69,12 +73,12 @@
       &--confirmCrop {
         width: 40%;
         height: 80%;
-        font-size: 1.7rem;
+        font-size: 2rem;
       }
       &--cancel {
         width: 40%;
         height: 80%;
-        font-size: 1.7rem;
+        font-size: 2rem;
       }
     }
   }
@@ -91,11 +95,11 @@
       height: 15%;
       &--confirmCrop {
         height: 70%;
-        font-size: 2rem;
+        font-size: 2.3rem;
       }
       &--cancel {
         height: 70%;
-        font-size: 2rem;
+        font-size: 2.3rem;
       }
     }
   }

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import Logo from "../assets/logo.png";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import DefaultUserProfileImg from "../assets/defaultUserProfileImg.png";
 
 const BackendURL = "https://you-connect-backend.herokuapp.com";
 export default class header extends Component {
@@ -101,11 +101,9 @@ export default class header extends Component {
           <div className="header__burgerNav--line line3"></div>
         </div>
         <div className="header__logo">
-          <img
-            className="header__logo--icon"
-            src={Logo}
-            alt="this is the Initial logo"
-          ></img>
+          <Link to="/main" className="header__logo--link">
+            <label className="header__logo--link--label">YouConnect</label>
+          </Link>
         </div>
         <ul className="header__navLink">
           <Link className="header__navLink--home" to="/main">
@@ -121,9 +119,15 @@ export default class header extends Component {
 
         <div className="header__userProfile">
           <Link className="header__userProfile--link" to="/main/userprofile">
-            <div className="header__userProfile--link--initial">
-              {this.state.usernameInitial}
-            </div>
+            <img
+              className="header__userProfile--link--profileImg"
+              alt="profilePhoto"
+              src={
+                this.state.userData === null
+                  ? DefaultUserProfileImg
+                  : this.state.userData.profileImg
+              }
+            />
           </Link>
         </div>
       </div>

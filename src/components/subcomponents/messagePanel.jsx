@@ -44,6 +44,15 @@ export default class messagePanel extends Component {
 
   /***********************End of Axios Method******************/
 
+  /***********************Open message part******************************/
+
+  messagePortHandler = (e, element) => {
+    console.log(e.currentTarget);
+    console.log(element);
+  };
+
+  /***********************End of message part******************************/
+
   /*********************Generate Friends lists**************************/
 
   generateFriendList = () => {
@@ -67,7 +76,10 @@ export default class messagePanel extends Component {
       if (this.state.userData.friends.length !== 0) {
         let DOM = this.state.userData.friends.map((element) => {
           return (
-            <div className="messagePanel__container--left--friendLists--content">
+            <div
+              className="messagePanel__container--left--friendLists--content"
+              onClick={(e) => this.messagePortHandler(e, element)}
+            >
               <div className="messagePanel__container--left--friendLists--content--profilePhoto">
                 <img
                   className="messagePanel__container--left--friendLists--content--profilePhoto--img"
