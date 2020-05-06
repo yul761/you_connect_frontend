@@ -550,28 +550,44 @@ export default class userProfile extends Component {
               </div>
             </div>
 
-            <div className="userProfile__userInformation--followStatus">
-              <div className="userProfile__userInformation--followStatus--following">
-                <label className="userProfile__userInformation--followStatus--following-label">
-                  Following :
-                </label>
-                <label className="userProfile__userInformation--username--following-text">
-                  {this.state.userData.friends.length}
-                </label>
-              </div>
-            </div>
+            <div className="tabletDesktopWrapper">
+              <div className="tabletDesktopWrapper__subwrapper">
+                <div className="userProfile__userInformation--name">
+                  <label className="userProfile__userInformation--name--label">
+                    {this.state.userData.name}
+                  </label>
+                </div>
 
-            <ul className="userProfile__userInformation--info">
-              <ol className="userProfile__userInformation--info-email">
-                {this.state.userData.email}
-              </ol>
-              <ol className="userProfile__userInformation--info-github">
-                {this.state.userData.github}
-              </ol>
-              <ol className="userProfile__userInformation--info-linkedin">
-                {this.state.userData.linkedin}
-              </ol>
-            </ul>
+                <div className="userProfile__userInformation--bio">
+                  <label className="userProfile__userInformation--bio--label">
+                    {this.state.userData.bio}
+                  </label>
+                </div>
+
+                <div className="userProfile__userInformation--followStatus">
+                  <div className="userProfile__userInformation--followStatus--following">
+                    <label className="userProfile__userInformation--followStatus--following-label">
+                      Following :
+                    </label>
+                    <label className="userProfile__userInformation--username--following-text">
+                      {this.state.userData.friends.length}
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <ul className="userProfile__userInformation--info">
+                <ol className="userProfile__userInformation--info-email">
+                  {this.state.userData.email}
+                </ol>
+                <ol className="userProfile__userInformation--info-github">
+                  {this.state.userData.github}
+                </ol>
+                <ol className="userProfile__userInformation--info-linkedin">
+                  {this.state.userData.linkedin}
+                </ol>
+              </ul>
+            </div>
           </div>
 
           <div className="userProfile__divideLine">

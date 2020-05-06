@@ -17,6 +17,14 @@
   }
 }
 
+.tabletDesktopWrapper {
+  width: 100%;
+
+  &__subwrapper {
+    width: 100%;
+  }
+}
+
 .preview {
   display: none;
   width: 98vw;
@@ -328,6 +336,42 @@
       }
     }
 
+    &--name {
+      width: 100%;
+      height: 10%;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      &--label {
+        width: 50%;
+        height: 100%;
+        font-family: "Oswald", sans-serif;
+        font-weight: 700;
+        font-size: 0.8rem;
+        margin-right: 10%;
+      }
+    }
+
+    &--bio {
+      overflow: auto;
+      width: 100%;
+      height: 10%;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      &--label {
+        width: 50%;
+        height: 100%;
+        font-family: "Oswald", sans-serif;
+        font-weight: 500;
+        font-size: 0.8rem;
+        color: rgb(167, 165, 165);
+        margin-right: 10%;
+      }
+    }
+
     &--followStatus {
       width: 100%;
       height: 10%;
@@ -335,7 +379,7 @@
       flex-direction: row;
       justify-content: center;
       align-items: center;
-      margin-bottom: 1%;
+      // margin-bottom: 1%;
 
       &--following {
         width: 50%;
@@ -345,7 +389,7 @@
         margin-right: 10%;
         font-family: "Oswald", sans-serif;
         font-weight: 500;
-        font-size: 1rem;
+        font-size: 0.8rem;
         color: rgb(167, 165, 165);
         &-label {
           margin-right: 3%;
@@ -362,24 +406,24 @@
       align-items: center;
       font-family: "Oswald", sans-serif;
       font-weight: 500;
-      font-size: 1rem;
+      font-size: 0.8rem;
       &-email {
         width: 50%;
-        height: 30%;
+        height: 33%;
         // margin-left: 45%;
         margin-right: 10%;
         color: rgb(167, 165, 165);
       }
       &-github {
         width: 50%;
-        height: 30%;
+        height: 33%;
         // margin-left: 45%;
         margin-right: 10%;
         color: rgb(167, 165, 165);
       }
       &-linkedin {
         width: 50%;
-        height: 30%;
+        height: 33%;
         // margin-left: 45%;
         margin-right: 10%;
         color: rgb(167, 165, 165);
@@ -669,6 +713,20 @@
       }
     }
   }
+
+  .tabletDesktopWrapper {
+    width: 50%;
+    margin: 0 25%;
+    height: 60%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    &__subwrapper {
+      width: 50%;
+      height: 100%;
+    }
+  }
   .userProfile {
     &__userInformation {
       height: 20%;
@@ -693,28 +751,56 @@
         }
       }
 
+      &--name {
+        // width: 50%;
+        // margin: 0 25%;
+        margin: 0;
+        height: 33%;
+        justify-content: flex-end;
+        &--label {
+          margin: 0;
+          font-size: 1.2rem;
+        }
+      }
+
+      &--bio {
+        // width: 50%;
+        // margin: 0 25%;
+        justify-content: flex-end;
+        height: 33%;
+        &--label {
+          margin: 0;
+          font-size: 1.2rem;
+        }
+      }
       &--followStatus {
-        width: 50%;
-        margin: 0 25%;
-        justify-content: flex-start;
+        // width: 50%;
+        // margin: 0 25%;
+        justify-content: flex-end;
+        height: 33%;
         &--following {
-          margin-left: 15%;
+          margin: 0;
+          font-size: 1.2rem;
         }
       }
 
       &--info {
         width: 50%;
-        margin: 0 25%;
-        align-items: flex-end;
+        height: 100%;
+        // margin: 0 25%;
+        // align-items: flex-end;
 
         &-email {
           margin: 0;
+          font-size: 1.2rem;
         }
         &-github {
           margin: 0;
+          font-size: 1.2rem;
         }
         &-linkedin {
           margin: 0;
+          font-size: 1.2rem;
         }
       }
     }
