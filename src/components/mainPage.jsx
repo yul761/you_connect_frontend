@@ -5,7 +5,6 @@ import axios from "axios";
 import { Switch, Route } from "react-router-dom";
 import PostsPage from "../components/postsPage";
 import EditProfile from "../components/editProfile";
-import MessagePanel from "../components/subcomponents/messagePanel";
 
 const BackendURL = "https://you-connect-backend.herokuapp.com";
 var flag = false;
@@ -84,7 +83,6 @@ export default class mainPage extends Component {
           />
           <Route path="/main/account/edit" exact component={EditProfile} />
         </Switch>
-        <MessagePanel />
       </div>
     );
   }

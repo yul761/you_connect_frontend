@@ -3,9 +3,9 @@ import ChatBox from "../../assets/chatbox-outline.svg";
 import Draggable from "react-draggable";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import RealTimeChat from "./RealTimeChat";
 
 const BackendURL = "https://you-connect-backend.herokuapp.com";
-
 export default class messagePanel extends Component {
   constructor() {
     super();
@@ -14,6 +14,7 @@ export default class messagePanel extends Component {
       isLoggedIn: undefined,
       userData: undefined,
       allUserProfile: undefined,
+      selectedFriend: undefined,
     };
   }
 
@@ -49,6 +50,7 @@ export default class messagePanel extends Component {
   messagePortHandler = (e, element) => {
     console.log(e.currentTarget);
     console.log(element);
+    this.setState({ selectedFriend: element });
   };
 
   /***********************End of message part******************************/
@@ -156,7 +158,9 @@ export default class messagePanel extends Component {
             <div className="messagePanel__container--left">
               {this.generateFriendList()}
             </div>
-            <div className="messagePanel__container--right"></div>
+            <div className="messagePanel__container--right">
+              <RealTimeChat selectedFriend={this.state.selectedFriend} />
+            </div>
           </div>
         </div>
       </>
