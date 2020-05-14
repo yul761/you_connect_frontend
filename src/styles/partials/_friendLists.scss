@@ -1,0 +1,120 @@
+.friendLists {
+  display: none;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(black, 0.4);
+
+  &__content {
+    width: 60%;
+    height: 50%;
+    overflow: auto;
+    background-color: white;
+    // border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    border-radius: 16px;
+    &--container {
+      width: 100%;
+      height: 25%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center;
+      &--profileImg {
+        width: 40%;
+        height: 80%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        &--icon {
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+        }
+      }
+
+      &--username {
+        width: 55%;
+        height: 80%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        &--label {
+          width: 80%;
+          height: 60%;
+          font-family: "Crimson Text", serif;
+          font-weight: 600;
+          font-size: 1.5rem;
+        }
+      }
+
+      &--nofriends {
+        width: 80%;
+        height: 80%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        &--text {
+          width: 80%;
+          height: 80%;
+        }
+      }
+    }
+  }
+}
+
+@include tablet {
+  .friendLists {
+    &__content {
+      width: 50%;
+      &--container {
+        height: 20%;
+        &--profileImg {
+          &--icon {
+            width: 90px;
+            height: 90px;
+          }
+        }
+
+        &--username {
+          &--label {
+            font-size: 3rem;
+            font-weight: 400;
+          }
+        }
+      }
+    }
+  }
+}
+
+@include desktop {
+  .friendLists {
+    &__content {
+      width: 30%;
+      height: 70%;
+      &--container {
+        &--profileImg {
+          &--icon {
+            width: 75px;
+            height: 75px;
+          }
+        }
+
+        &--username {
+          &--label {
+            font-size: 2.5rem;
+          }
+        }
+      }
+    }
+  }
+}

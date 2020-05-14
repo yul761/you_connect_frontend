@@ -1,0 +1,346 @@
+.preview {
+  display: none;
+  width: 98vw;
+  height: 98vh;
+  position: absolute;
+  top: 1vh;
+  left: 1vw;
+  right: 1vw;
+  bottom: 1vh;
+  border-radius: 8px;
+  box-shadow: 2px 2px 4px rgb(167, 165, 165);
+  border: 1px solid rgb(167, 165, 165);
+  background-color: rgba(black, 0.5);
+  z-index: 10;
+
+  &__friends {
+    &__loader {
+      border: 10px solid #f3f3f3; /* Light grey */
+      border-top: 10px solid rgb(80, 76, 76); /* Blue */
+      border-radius: 50%;
+      width: 70px;
+      height: 70px;
+      animation: spin 2s linear infinite;
+      position: absolute;
+      top: 50%;
+      left: 40%;
+    }
+
+    &__close {
+      position: absolute;
+      top: 0;
+      right: 45%;
+      color: black;
+      width: 30px;
+      height: 30px;
+    }
+
+    &--header {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      width: 100%;
+      height: 6%;
+      border: none;
+      border-bottom: 1px lightgrey solid;
+      background-color: white;
+      &-username {
+        width: 40%;
+        height: 100%;
+        font-family: "Crimson Text", serif;
+        font-size: 1.3rem;
+        text-align: center;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        &--profileImg {
+          width: 30%;
+          height: 80%;
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+          &--icon {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            border: 1px solid black;
+          }
+        }
+        &--label {
+          width: 60%;
+          height: 70%;
+          font-size: 1.2rem;
+          text-align: left;
+        }
+      }
+      &-editbutton {
+        width: 15%;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        &-line {
+          width: 3px;
+          height: 3px;
+          margin: 1px;
+          border-radius: 50%;
+          background-color: black;
+        }
+      }
+    }
+
+    &--content {
+      width: 100%;
+      height: 65%;
+      background-color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      &-img {
+        max-width: 100%;
+        max-height: 100%;
+      }
+
+      &-video {
+        max-width: 100%;
+        max-height: 100%;
+      }
+    }
+
+    &--comments {
+      width: 100%;
+      height: 24%;
+
+      font-family: "Crimson Text", serif;
+      font-size: 1rem;
+      font-weight: 400;
+      background-color: white;
+      overflow-y: scroll;
+      &-content {
+        width: 100%;
+        height: 25%;
+        display: flex;
+        flex-direction: row;
+        &-username {
+          width: 30%;
+          height: 100%;
+          font-weight: bold;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          &--profileImg {
+            width: 30%;
+            height: 100%;
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            justify-content: center;
+            &--icon {
+              width: 20px;
+              height: 20px;
+              border-radius: 50%;
+              border: 1px solid black;
+            }
+          }
+          &--label {
+            font-size: 1rem;
+            width: 60%;
+            height: 100%;
+            text-align: left;
+          }
+        }
+        &-text {
+          width: 55%;
+          height: 100%;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          overflow: hidden;
+        }
+        &-more {
+          width: 10%;
+          color: lightgrey;
+        }
+      }
+    }
+
+    &--likes {
+      width: 100%;
+      height: 5%;
+      background-color: white;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+
+      &-icon {
+        width: 20px;
+        height: 20px;
+        margin-right: 5px;
+      }
+      &-number {
+        width: 20px;
+        height: 20px;
+        font-family: "Crimson Text", serif;
+        font-size: 1rem;
+        text-align: center;
+        color: rgb(146, 145, 145);
+      }
+    }
+  }
+}
+
+@include tablet {
+  .preview {
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    &__friends {
+      &__loader {
+        left: 45%;
+      }
+
+      &__close {
+        right: 0;
+        width: 40px;
+        height: 40px;
+      }
+
+      &--header {
+        width: 80%;
+        height: 6%;
+        margin: 0 10%;
+        margin-top: 10%;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+        &-username {
+          font-size: 1.7rem;
+          width: 35%;
+          &--profileImg {
+            width: 30%;
+            &--icon {
+              width: 50px;
+              height: 50px;
+            }
+          }
+          &--label {
+            font-size: 2.1rem;
+          }
+        }
+      }
+
+      &--content {
+        width: 80%;
+        height: 50%;
+        margin: 0 10%;
+      }
+
+      &--comments {
+        width: 80%;
+        margin: 0 10%;
+        font-size: 1.5rem;
+        &-content {
+          &-username {
+            &--profileImg {
+              width: 30%;
+              height: 100%;
+              display: flex;
+              flex-direction: row;
+              justify-content: center;
+              align-items: flex-start;
+              &--icon {
+                width: 40px;
+                height: 40px;
+              }
+            }
+            &--label {
+              font-size: 1.7rem;
+            }
+          }
+        }
+      }
+
+      &--addComments {
+        width: 80%;
+        margin: 0 10%;
+        border-bottom-left-radius: 8px;
+        border-bottom-right-radius: 8px;
+        &--input {
+          font-size: 1.5rem;
+          border-bottom-left-radius: 8px;
+        }
+
+        &--post {
+          border-bottom-right-radius: 8px;
+          &--button {
+            font-size: 1.5rem;
+          }
+        }
+      }
+      &--likes {
+        width: 80%;
+        margin: 0 10%;
+        &-icon {
+          width: 35px;
+          height: 35px;
+        }
+        &-number {
+          width: 35px;
+          height: 35px;
+          font-size: 1.5rem;
+        }
+      }
+    }
+  }
+}
+
+@include desktop {
+  .preview {
+    &__friends {
+      &--header {
+        width: 50%;
+        margin: 0 25%;
+        margin-top: 5%;
+        &-username {
+          &--profileImg {
+            &--icon {
+              width: 45px;
+              height: 45px;
+            }
+          }
+          &--label {
+            font-size: 2rem;
+          }
+        }
+      }
+
+      &--content {
+        width: 50%;
+        margin: 0 25%;
+      }
+
+      &--comments {
+        width: 50%;
+        margin: 0 25%;
+        &-content {
+          height: 35%;
+        }
+      }
+
+      &--addComments {
+        width: 50%;
+        margin: 0 25%;
+      }
+
+      &--likes {
+        width: 50%;
+        margin: 0 25%;
+      }
+    }
+  }
+}

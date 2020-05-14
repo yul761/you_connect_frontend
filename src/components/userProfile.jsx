@@ -237,10 +237,7 @@ export default class userProfile extends Component {
 
   allUserProfile = () => {
     axios.get(`${BackendURL}/alluserInfo`).then((response) => {
-      console.log(response.data);
       this.setState({ allUserProfile: response.data });
-      console.log(this.state.userPosts);
-      console.log(this.state.allUserProfile);
     });
   };
 
@@ -496,6 +493,63 @@ export default class userProfile extends Component {
     }
   };
 
+  //click 'following : x' to open the friends/followers list
+  friendsProfileHandler = (e) => {
+    console.log(e.currentTarget);
+    var friendLists = document.querySelector(".friendLists");
+    friendLists.style.display = "flex";
+  };
+
+  // certainFriendClickHandler = (e, element) => {
+  //   e.cancelBubble = true;
+  //   if (e.stopPropagation()) {
+  //     e.stopPropagation();
+  //   }
+
+  //   console.log(element);
+  // };
+
+  generateFriendLists = () => {
+    let resultDOM = [];
+    if (this.state.userData.friends.length !== 0) {
+      let DOM = this.state.userData.friends.map((element) => {
+        return (
+          <div
+            className="friendLists__content--container"
+            onClick={(e) => this.props.FriendClickedHandler(e, element)}
+          >
+            <div className="friendLists__content--container--profileImg">
+              <img
+                className="friendLists__content--container--profileImg--icon"
+                alt="profileImg"
+                src={element.profileImg}
+              />
+            </div>
+            <div className="friendLists__content--container--username">
+              <label className="friendLists__content--container--username--label">
+                {element.username}
+              </label>
+            </div>
+          </div>
+        );
+      });
+      resultDOM.push(DOM);
+    } else {
+      let DOM = (
+        <div className="friendLists__content--container">
+          <div className="friendLists__content--container--nofriends">
+            <label className="friendLists__content--container--nofriends--text">
+              Follow others to start making connection
+            </label>
+          </div>
+        </div>
+      );
+      resultDOM.push(DOM);
+    }
+
+    return <div className="friendLists__content">{resultDOM}</div>;
+  };
+
   render() {
     console.log(this.state.userData);
 
@@ -516,98 +570,111 @@ export default class userProfile extends Component {
       document.getElementById("tabtitle").innerHTML =
         "@" + this.state.userData.username + " - YouConnect";
       return (
-        <div className="userProfile">
-          {this.postLargePreview(this.state.previewContent)}
-          <div className="userProfile__userInformation">
-            <div className="userProfile__userInformation--username">
-              <div className="userProfile__userInformation--username--container">
-                <div className="userProfile__userInformation--username--container--profileImg">
-                  <img
-                    className="userProfile__userInformation--username--container--profileImg--icon"
-                    alt="this is profile img"
-                    src={
-                      this.state.userData.profileImg === undefined
-                        ? DefaultUserProfileImg
-                        : this.state.userData.profileImg
-                    }
-                  />
-                </div>
-                <div className="userProfile__userInformation--username--container--label">
-                  {this.state.userData.username}
-                </div>
-              </div>
-
-              <div className="userProfile__userInformation--username--profileEdit">
-                <button
-                  className="userProfile__userInformation--username--profileEdit--button"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    this.props.history.push("/main/account/edit");
-                  }}
-                >
-                  Edit
-                </button>
-              </div>
-            </div>
-
-            <div className="tabletDesktopWrapper">
-              <div className="tabletDesktopWrapper__subwrapper">
-                <div className="userProfile__userInformation--name">
-                  <label className="userProfile__userInformation--name--label">
-                    {this.state.userData.name}
-                  </label>
-                </div>
-
-                <div className="userProfile__userInformation--bio">
-                  <label className="userProfile__userInformation--bio--label">
-                    {this.state.userData.bio}
-                  </label>
-                </div>
-
-                <div className="userProfile__userInformation--followStatus">
-                  <div className="userProfile__userInformation--followStatus--following">
-                    <label className="userProfile__userInformation--followStatus--following-label">
-                      Following :
-                    </label>
-                    <label className="userProfile__userInformation--username--following-text">
-                      {this.state.userData.friends.length}
-                    </label>
+        <>
+          <div
+            className="friendLists"
+            onClick={(e) => {
+              e.currentTarget.style.display = "none";
+            }}
+          >
+            {this.generateFriendLists()}
+          </div>
+          <div className="userProfile">
+            {this.postLargePreview(this.state.previewContent)}
+            <div className="userProfile__userInformation">
+              <div className="userProfile__userInformation--username">
+                <div className="userProfile__userInformation--username--container">
+                  <div className="userProfile__userInformation--username--container--profileImg">
+                    <img
+                      className="userProfile__userInformation--username--container--profileImg--icon"
+                      alt="this is profile img"
+                      src={
+                        this.state.userData.profileImg === undefined
+                          ? DefaultUserProfileImg
+                          : this.state.userData.profileImg
+                      }
+                    />
+                  </div>
+                  <div className="userProfile__userInformation--username--container--label">
+                    {this.state.userData.username}
                   </div>
                 </div>
+
+                <div className="userProfile__userInformation--username--profileEdit">
+                  <button
+                    className="userProfile__userInformation--username--profileEdit--button"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      this.props.history.push("/main/account/edit");
+                    }}
+                  >
+                    Edit
+                  </button>
+                </div>
               </div>
 
-              <ul className="userProfile__userInformation--info">
-                <ol className="userProfile__userInformation--info-email">
-                  {this.state.userData.email}
-                </ol>
-                <ol className="userProfile__userInformation--info-github">
-                  {this.state.userData.github}
-                </ol>
-                <ol className="userProfile__userInformation--info-linkedin">
-                  {this.state.userData.linkedin}
-                </ol>
-              </ul>
+              <div className="tabletDesktopWrapper">
+                <div className="tabletDesktopWrapper__subwrapper">
+                  <div className="userProfile__userInformation--name">
+                    <label className="userProfile__userInformation--name--label">
+                      {this.state.userData.name}
+                    </label>
+                  </div>
+
+                  <div className="userProfile__userInformation--bio">
+                    <label className="userProfile__userInformation--bio--label">
+                      {this.state.userData.bio}
+                    </label>
+                  </div>
+
+                  <div
+                    className="userProfile__userInformation--followStatus"
+                    onClick={this.friendsProfileHandler}
+                  >
+                    <div className="userProfile__userInformation--followStatus--following">
+                      <label className="userProfile__userInformation--followStatus--following-label">
+                        Following :
+                      </label>
+                      <label className="userProfile__userInformation--username--following-text">
+                        {this.state.userData.friends.length}
+                      </label>
+                    </div>
+                  </div>
+                </div>
+
+                <ul className="userProfile__userInformation--info">
+                  <ol className="userProfile__userInformation--info-email">
+                    {this.state.userData.email}
+                  </ol>
+                  <ol className="userProfile__userInformation--info-github">
+                    {this.state.userData.github}
+                  </ol>
+                  <ol className="userProfile__userInformation--info-linkedin">
+                    {this.state.userData.linkedin}
+                  </ol>
+                </ul>
+              </div>
+            </div>
+
+            <div className="userProfile__divideLine">
+              <hr />
+            </div>
+
+            {/* show user's posts */}
+            <div className="userProfile__posts">
+              {this.formatLoggedinUserPosts()}
+            </div>
+
+            <div className="userProfile__logout">
+              <button
+                className="userProfile__logout--button"
+                onClick={this.props.logout}
+              >
+                Log Out
+              </button>
             </div>
           </div>
-
-          <div className="userProfile__divideLine">
-            <hr />
-          </div>
-
-          {/* show user's posts */}
-          <div className="userProfile__posts">
-            {this.formatLoggedinUserPosts()}
-          </div>
-
-          <div className="userProfile__logout">
-            <button
-              className="userProfile__logout--button"
-              onClick={this.props.logout}
-            >
-              Log Out
-            </button>
-          </div>
-        </div>
+        </>
       );
     }
   }

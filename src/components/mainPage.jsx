@@ -5,14 +5,19 @@ import axios from "axios";
 import { Switch, Route } from "react-router-dom";
 import PostsPage from "../components/postsPage";
 import EditProfile from "../components/editProfile";
+import FriendsProfile from "./subcomponents/FriendsProfile";
 
 const BackendURL = "https://you-connect-backend.herokuapp.com";
 var flag = false;
-
 export default class mainPage extends Component {
   constructor() {
     super();
-    this.state = { userData: null, isLoggedIn: false, isLoggedOut: false };
+    this.state = {
+      userData: null,
+      isLoggedIn: false,
+      isLoggedOut: false,
+      selectedFriendData: null,
+    };
   }
 
   userprofile = () => {
@@ -53,6 +58,16 @@ export default class mainPage extends Component {
     }
   }
 
+  certainFriendClickHandler = (e, element) => {
+    e.cancelBubble = true;
+    if (e.stopPropagation()) {
+      e.stopPropagation();
+    }
+    console.log(element);
+    this.setState({ selectedFriendData: element });
+    this.props.history.push("/main/friendProfile");
+  };
+
   render() {
     console.log(this.state.userData);
     return (
@@ -67,6 +82,17 @@ export default class mainPage extends Component {
                 {...props}
                 userData={this.state.userData}
                 logout={this.logoutCLicked}
+                FriendClickedHandler={this.certainFriendClickHandler}
+              />
+            )}
+          />
+          <Route
+            path="/main/friendProfile"
+            exact
+            component={(props) => (
+              <FriendsProfile
+                {...props}
+                selectedData={this.state.selectedFriendData}
               />
             )}
           />
