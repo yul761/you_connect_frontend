@@ -3,6 +3,7 @@ import axios from "axios";
 import likes from "../assets/Icon-likes.png";
 import blackClose from "../assets/blackCloseIcon.png";
 import DefaultUserProfileImg from "../assets/defaultUserProfileImg.png";
+import Loader from "../components/subcomponents/loader";
 
 const BackendURL = "https://you-connect-backend.herokuapp.com";
 export default class userProfile extends Component {
@@ -323,7 +324,7 @@ export default class userProfile extends Component {
     if (this.state.userData === null || this.state.userPosts === null) {
       return (
         <div className="userProfile__posts--loader">
-          <div className="userProfile__posts--loader-loading"></div>
+          <Loader />
         </div>
       );
     } else if (this.state.userPosts.length === 0) {
@@ -556,7 +557,7 @@ export default class userProfile extends Component {
     if (this.state.userData === null && this.state.userPosts === null) {
       return (
         <div className="userProfileloading">
-          <div className="userProfileloading__loader"></div>
+          <Loader />
         </div>
       );
     } else if (this.state.isLoggedOut) {

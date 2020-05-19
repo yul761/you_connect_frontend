@@ -109,7 +109,9 @@ export default class header extends Component {
           <Link className="header__navLink--home" to="/main">
             <ol className="header__navLink--home--label">HOME</ol>
           </Link>
-          <ol className="header__navLink--about">ABOUT</ol>
+          <Link className="header__navLink--blog" to="/main/blog">
+            <ol className="header__navLink--blog--label">BLOG</ol>
+          </Link>
         </ul>
         <div className="header__login">
           <Link className="header__login--link" to="/login">

@@ -484,11 +484,7 @@ export default function FriendsProfile(props) {
   };
 
   if (friendprofile === null) {
-    return (
-      <div className="friendProfile">
-        <div className="friendProfile__loader"> Loading ... </div>
-      </div>
-    );
+    return <div className="friendProfile">Loading...</div>;
   } else {
     document.getElementById("tabtitle").innerHTML =
       "@" + friendprofile.username + " - YouConnect";

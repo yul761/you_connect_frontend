@@ -245,6 +245,7 @@
       width: 20px;
       height: 20px;
       margin-right: 5px;
+      margin-left: 1%;
     }
     &-number {
       width: 20px;
@@ -705,6 +706,7 @@
       &-icon {
         width: 35px;
         height: 35px;
+        margin-left: 2%;
       }
       &-number {
         width: 35px;
@@ -887,6 +889,9 @@
     &--likes {
       width: 50%;
       margin: 0 25%;
+      &-icon {
+        margin-left: 2%;
+      }
     }
   }
   .userProfile {
@@ -897,6 +902,12 @@
       &--content {
         width: 30%;
         height: 70%;
+
+        &--likes {
+          &-icon {
+            margin-left: 3%;
+          }
+        }
       }
     }
   }

@@ -253,6 +253,7 @@
           height: 40%;
           display: flex;
           flex-direction: row;
+          margin: 1% 0;
           &-username {
             width: 30%;
             height: 100%;
@@ -375,6 +376,49 @@
         font-size: 1.5rem;
       }
     }
+
+    &__posts {
+      height: 60%;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      align-items: flex-start;
+
+      &--loader {
+        &-loading {
+          left: 45%;
+        }
+      }
+
+      &--content {
+        width: 45%;
+        height: 65%;
+
+        margin: 1%;
+        border-radius: 8px;
+        border: 1px solid rgb(167, 165, 165);
+        box-shadow: 2px 2px 4px rgb(167, 165, 165);
+
+        &--likes {
+          &-icon {
+            margin-left: 2%;
+          }
+        }
+
+        &--container {
+          height: 55%;
+        }
+
+        &--comments {
+          height: 27%;
+          margin-bottom: 1%;
+          &-content {
+            height: 30%;
+            margin: 1% 0;
+          }
+        }
+      }
+    }
   }
 }
 
@@ -388,6 +432,26 @@
       &--followStatus {
         &--label {
           width: 25%;
+        }
+      }
+    }
+
+    &__posts {
+      margin-top: 2%;
+      margin-bottom: 2%;
+
+      &--content {
+        width: 45%;
+        height: 90%;
+
+        &--likes {
+          &-icon {
+            margin-left: 3%;
+          }
+        }
+
+        &--comments {
+          height: 25%;
         }
       }
     }

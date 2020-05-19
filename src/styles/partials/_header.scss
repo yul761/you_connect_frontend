@@ -74,10 +74,16 @@
       }
     }
 
-    &--about {
-      margin: 10%;
-      width: 80%;
-      text-align: center;
+    &--blog {
+      width: 100%;
+      text-decoration: none;
+      color: black;
+
+      &--label {
+        margin: 10%;
+        width: 80%;
+        text-align: center;
+      }
     }
   }
 
@@ -170,10 +176,16 @@
         }
       }
 
-      &--about {
+      &--blog {
         width: 35%;
-        margin: 0;
-        // font-size: 2rem;
+        text-decoration: none;
+        color: black;
+        &--label {
+          // width: 35%;
+          width: 100%;
+          margin: 0;
+          // font-size: 2rem;
+        }
       }
     }
 

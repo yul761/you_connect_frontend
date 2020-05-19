@@ -6,6 +6,7 @@ import { Switch, Route } from "react-router-dom";
 import PostsPage from "../components/postsPage";
 import EditProfile from "../components/editProfile";
 import FriendsProfile from "./subcomponents/FriendsProfile";
+import BlogPage from "./blogPage";
 
 const BackendURL = "https://you-connect-backend.herokuapp.com";
 var flag = false;
@@ -108,6 +109,7 @@ export default class mainPage extends Component {
             )}
           />
           <Route path="/main/account/edit" exact component={EditProfile} />
+          <Route path="/main/blog" exact component={BlogPage} />
         </Switch>
       </div>
     );

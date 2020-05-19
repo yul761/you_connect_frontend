@@ -4,6 +4,7 @@ import likes from "../assets/Icon-likes.png";
 import { Link } from "react-router-dom";
 import AddComment from "./subcomponents/addComment";
 import DefaultUserProfileImg from "../assets/defaultUserProfileImg.png";
+import Loader from "../components/subcomponents/loader";
 
 const BackendURL = "https://you-connect-backend.herokuapp.com";
 var curPosterID = undefined;
@@ -493,13 +494,24 @@ export default class postsPage extends Component {
   render() {
     console.log(this.props);
     console.log(this.state.userData);
+    /*****************Loader Test*/
+    // return (
+    //   <div className="postPage">
+    //     <div className="postPage__loader">
+    //       <Loader />
+    //     </div>
+    //   </div>
+    // );
+    // /*****************Loader Test*/
     if (
       this.state.allUserPosts === null &&
       this.state.allUserProfile === null
     ) {
       return (
         <div className="postPage">
-          <div className="postPage__loader"></div>
+          <div className="postPage__loader">
+            <Loader />
+          </div>
         </div>
       );
     } else {

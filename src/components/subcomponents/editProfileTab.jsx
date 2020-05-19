@@ -7,6 +7,7 @@ import DefaultUserProfileImg from "../../assets/defaultUserProfileImg.png";
 import $ from "jquery";
 import ReactCrop from "react-image-crop";
 import "react-image-crop/dist/ReactCrop.css";
+import Loader from "./loader";
 
 const BackendURL = "https://you-connect-backend.herokuapp.com";
 export default class editProfileTab extends Component {
@@ -227,7 +228,9 @@ export default class editProfileTab extends Component {
     if (this.state.curUserData === undefined) {
       return (
         <div className="editProfileTab">
-          <div className="editProfileTab__loader"></div>
+          <div className="editProfileTab__loader">
+            <Loader />
+          </div>
         </div>
       );
     } else {

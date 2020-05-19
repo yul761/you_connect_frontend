@@ -3,6 +3,7 @@ import axios from "axios";
 import { store } from "react-notifications-component";
 import "react-notifications-component/dist/theme.css";
 import "animate.css";
+import Loader from "./loader";
 
 const BackendURL = "https://you-connect-backend.herokuapp.com";
 export default class changePassword extends Component {
@@ -102,7 +103,9 @@ export default class changePassword extends Component {
     if (this.state.curUserData === undefined) {
       return (
         <div className="changePassword">
-          <div className="changePassword__loader"></div>
+          <div className="changePassword__loader">
+            <Loader />
+          </div>
         </div>
       );
     } else {
