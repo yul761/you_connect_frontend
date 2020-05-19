@@ -453,7 +453,9 @@ export default class postsPage extends Component {
     console.log(posterID);
     curPosterID = posterID;
 
-    if (this.ifAlreadyFollowed(posterID)) {
+    if (this.state.userData === null) {
+      this.props.history.push("/login");
+    } else if (this.ifAlreadyFollowed(posterID)) {
       //already followed
       follow.innerHTML = "Unfollow";
       follow.style.color = "red";
