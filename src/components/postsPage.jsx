@@ -247,7 +247,7 @@ export default class postsPage extends Component {
 
   postSectionRender = () => {
     var resultDOM = [];
-    this.state.allUserPosts.forEach((element, index) => {
+    this.state.allUserPosts.reverse().forEach((element, index) => {
       var tempDOM = null;
       tempDOM = (
         <div className="postPage__posts" key={index}>

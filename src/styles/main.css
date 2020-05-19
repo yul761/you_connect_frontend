@@ -35,6 +35,7 @@ html {
   background-color: white;
   border-bottom: 1px lightgrey solid;
   position: fixed;
+  z-index: 50;
 }
 
 .header__burgerNav {
