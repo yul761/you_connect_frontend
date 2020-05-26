@@ -1902,7 +1902,7 @@ html {
   width: 40%;
   height: 100%;
   font-family: "Crimson Text", serif;
-  font-size: 1.3rem;
+  font-size: 1rem;
   text-align: center;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1918,7 +1918,7 @@ html {
 
 .postPage__posts--header-username--profileImg {
   width: 30%;
-  height: 100%;
+  height: 80%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1944,7 +1944,7 @@ html {
 .postPage__posts--header-username--label {
   width: 60%;
   margin-left: 5%;
-  height: 100%;
+  height: 80%;
   text-align: left;
 }
 
@@ -2061,8 +2061,8 @@ html {
 }
 
 .postPage__posts--comments-content-username--profileImg--icon {
-  width: 20px;
-  height: 20px;
+  width: 25px;
+  height: 25px;
   max-height: 100%;
   border-radius: 50%;
   border: 1px solid black;
@@ -2078,9 +2078,9 @@ html {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .postPage__posts--comments-content-text {
@@ -2212,8 +2212,8 @@ html {
     font-size: 1.5rem;
   }
   .postPage__posts--comments-content-username--profileImg--icon {
-    width: 40px;
-    height: 40px;
+    width: 55px;
+    height: 55px;
   }
   .postPage__posts--addComments--input {
     font-size: 1.5rem;
@@ -2259,8 +2259,8 @@ html {
     margin-top: 2%;
   }
   .postPage__posts--comments-content-username--profileImg--icon {
-    width: 33px;
-    height: 33px;
+    width: 40px;
+    height: 40px;
   }
   .postPage__posts--header-username--profileImg--icon {
     width: 40px;
@@ -2268,7 +2268,7 @@ html {
     max-height: 100%;
   }
   .postPage__posts--header-username--label {
-    font-size: 2rem;
+    font-size: 1.5rem;
     margin-left: 1%;
   }
   .postPage__posts--likes-icon {

@@ -5,6 +5,9 @@ import { Link } from "react-router-dom";
 import AddComment from "./subcomponents/addComment";
 import DefaultUserProfileImg from "../assets/defaultUserProfileImg.png";
 import Loader from "../components/subcomponents/loader";
+import { store } from "react-notifications-component";
+import "react-notifications-component/dist/theme.css";
+import "animate.css";
 
 const BackendURL = "https://you-connect-backend.herokuapp.com";
 var curPosterID = undefined;
@@ -210,6 +213,22 @@ export default class postsPage extends Component {
       this.allUserProfile();
     });
   };
+
+  notificationHandler = () => {
+    store.addNotification({
+      title: "Opps!",
+      message: "You are not logged in",
+      type: "danger", // 'default', 'success', 'info', 'warning'
+      container: "top-center", // where to position the notifications
+      animationIn: ["animated", "fadeIn"], // animate.css classes that's applied
+      animationOut: ["animated", "fadeOut"], // animate.css classes that's applied
+      width: 500,
+      dismiss: {
+        duration: 3000,
+      },
+    });
+  };
+
   addCommentSubmitHandler = (e, postID) => {
     var input = e.currentTarget.parentElement.parentElement.children[0];
     var comment = {
@@ -224,12 +243,14 @@ export default class postsPage extends Component {
       },
     };
 
-    axios(putOption).then((response) => {
-      console.log(response.data);
-      this.allUserPosts();
-    });
-    console.log(input.value);
-    input.value = "";
+    if (window.sessionStorage.getItem("isLoggedIn") === "true") {
+      axios(putOption).then((response) => {
+        console.log(response.data);
+        this.allUserPosts();
+      });
+      console.log(input.value);
+      input.value = "";
+    } else this.notificationHandler();
   };
 
   likeButtonHandler = (e, postID) => {
