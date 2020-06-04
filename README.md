@@ -11,8 +11,7 @@
     
   ### BackEnd
     NodeJS, ExpressJS, JWT
-    
-    #### Backend is in another repo, hidden for security reason
+    (Backend is in another repo, hidden for security reason)
     
   ### DataBase and Deployment
     MongoDB, Heroku, GoDaddy(for domain name)
