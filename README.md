@@ -3,3 +3,6 @@
   
   ## Deployed URL
   http://www.youconnect.pro/
+  
+  ## Tech Stack
+  ReactJS, HTML,CSS, Scss, NodeJS, ExpressJS, MongoDB
