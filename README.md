@@ -5,4 +5,13 @@
   http://www.youconnect.pro/
   
   ## Tech Stack
-  ReactJS, HTML,CSS, Scss, NodeJS, ExpressJS, MongoDB
+  
+  ### FrontEnd
+    ReactJS, HTML,CSS, Scss
+    
+  ### BackEnd
+    NodeJS, ExpressJS, JWT
+    #### Backend is in another repo, hidden for security reason
+    
+  ### DataBase and Deployment
+    MongoDB, Heroku, GoDaddy(for domain name)
