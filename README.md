@@ -7,7 +7,7 @@
   ## Tech Stack
   
   ### FrontEnd
-    ReactJS, HTML,CSS, Scss
+    ReactJS, HTML,CSS, SASS
     
   ### BackEnd
     NodeJS, ExpressJS, JWT
